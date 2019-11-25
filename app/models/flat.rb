@@ -4,4 +4,5 @@ class Flat < ApplicationRecord
   has_many :tickets, through: :rentals
   validates :address, presence: true
   validates :capacity, numericality: true
+  mount_uploader :photo, PhotoUploader
 end
