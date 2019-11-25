@@ -12,5 +12,4 @@ class Rental < ApplicationRecord
   def end_after_start
     errors.add(:end_date, "must be after the start date") unless end_date > start_date
   end
-
 end
