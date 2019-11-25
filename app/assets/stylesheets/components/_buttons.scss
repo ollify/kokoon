@@ -1,0 +1,14 @@
+.btn-primary {
+  background-color: white;
+  color: black;
+  min-width: 200px;
+  padding: 15px 10px;
+  border-radius: 30px;
+  border-color: transparent;
+
+  &:hover {
+  background-color: rgb(2, 96, 100);
+  color: white;
+  border-color: transparent;
+  }
+}
