@@ -1,0 +1,30 @@
+.form-container {
+  background-image:  linear-gradient(to bottom, rgba(3, 198, 210, 0.8)), url(asset_path("home-bg.jpg"));
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 66px);
+}
+
+.form-box {
+  width: 400px;
+  color: white;
+  & a {
+    color: white;
+    text-decoration: none;
+  }
+  .text-muted {
+    color: white !important;
+  }
+}
+
+.form-control {
+  border-radius: 15px;
+}
+
+.form-links {
+  margin-top: 30px;
+}
