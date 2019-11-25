@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :rentals
   has_many :subscriptions
   has_many :comments
+
+  validates :first_name, :last_name, presence: true
 end
