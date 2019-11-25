@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'users#show'
+
+  resources :users, only: [:edit, :update]
+  get 'my_account', to: 'users#show'
+
+  resources :flats, except: :delete
+
 end

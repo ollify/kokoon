@@ -1,0 +1,24 @@
+<div class="header-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= cover_img(@flat) %> )">
+  <div class="show-header">
+    <h1>Your beautiful flat</h1>
+    <p>📌<%= @flat.address %></p>
+  </div>
+</div>
+
+
+<div class="pages-container">
+
+  <div class="action-bar">
+  <%= link_to("Go back", my_account_path, class: 'btn btn-outline-secondary')  %>
+  </div>
+
+  <div class="show-details">
+
+  <div class="column-left">
+
+      <div class="show-box" id="about">
+        <h2>About this flat</h2>
+        <p class="description"> <%= @flat.description %></p>
+      </div>
+  </div>
+</div>s
