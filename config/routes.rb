@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'users#show'
+  root to: 'flats#index'
 
-  resources :users, only: [:edit, :update]
-  get 'my_account', to: 'users#show'
+  resources :users, only: [:new, :edit, :update]
+  get 'my_account', to: 'pages#my_account'
 
   resources :flats, except: :delete
 

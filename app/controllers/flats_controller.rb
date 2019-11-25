@@ -6,7 +6,7 @@ class FlatsController < ApplicationController
   end
 
   def create
-    @flat = Flat.new(space_params)
+    @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
       redirect_to flat_path(@flat)
@@ -18,12 +18,17 @@ class FlatsController < ApplicationController
   def show
   end
 
+  def index
+    @user = current_user
+    @flats = Flat.all
+  end
+
   def edit
   end
 
   def update
     if @flat.update(flat_params)
-      redirect_to space_path(@flat)
+      redirect_to flat_path(@flat)
     else
       render 'edit'
     end
