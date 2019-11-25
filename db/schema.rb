@@ -10,10 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_120045) do
+ActiveRecord::Schema.define(version: 2019_11_25_153332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ticket_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_comments_on_ticket_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "flats", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "photo"
+    t.string "address"
+    t.integer "capacity"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_flats_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.bigint "flat_id"
+    t.integer "price"
+    t.date "start_date"
+    t.date "end_date"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_rentals_on_flat_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "ticket_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["ticket_id"], name: "index_subscriptions_on_ticket_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.bigint "rental_id"
+    t.string "category"
+    t.string "title"
+    t.string "room"
+    t.text "content"
+    t.integer "priority"
+    t.string "photo"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["rental_id"], name: "index_tickets_on_rental_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +79,23 @@ ActiveRecord::Schema.define(version: 2019_11_25_120045) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "phone_number"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "avatar"
+    t.text "description"
+    t.date "birthdate"
+    t.string "ID_scan"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "tickets"
+  add_foreign_key "comments", "users"
+  add_foreign_key "flats", "users"
+  add_foreign_key "rentals", "flats"
+  add_foreign_key "rentals", "users"
+  add_foreign_key "subscriptions", "tickets"
+  add_foreign_key "subscriptions", "users"
+  add_foreign_key "tickets", "rentals"
 end
