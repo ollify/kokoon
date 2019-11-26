@@ -11,13 +11,13 @@ class FlatPolicy < ApplicationPolicy
     record.user == user
   end
 
-  def accept_rental?
+  def join_flat?
     true
     #to be changed
   end
 
-  def accept_rental
-    accept_rental?
+  def accept_rental?
+    join_flat?
   end
 
   class Scope < Scope
