@@ -2,7 +2,7 @@ module ApplicationHelper
 
   def img(flat)
     if flat.photo.file.nil?
-      return image_path('default-cover.jpeg')
+      return image_path('default-cover.jpg')
     else
       return cl_image_path flat.photo
     end
