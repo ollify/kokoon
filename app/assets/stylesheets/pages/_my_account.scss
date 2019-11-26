@@ -1,0 +1,162 @@
+
+
+.account-container {
+  background-color: white;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+}
+
+
+.account-aside {
+  background-color:#f5f5f5;
+  width: 350px;
+  padding: 30px 25px;
+  border-right: 1px solid rgba(209, 209, 209, .5);
+}
+
+.account-main {
+  width: calc(100% - 350px);
+  padding: 30px 20px;
+
+}
+
+.account-main h1 {
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+
+
+
+.account-aside img {
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+   margin: 0 auto;
+   display: block;
+    border: 1px solid rgba(209, 209, 209, .5)
+}
+
+.account-aside h1 {
+  font-size: 2em;
+}
+
+.account-aside h1, .account-aside p {
+  width: 250px;
+  margin: 30px auto;
+
+}
+
+
+
+
+.account-aside .btn {
+ text-decoration: none;
+  background-color: #f02669;
+  border: none;
+  display: block;
+  margin: 50px auto;
+  width: 150px;
+  padding: 10px;
+  border-radius: 150px;
+
+  &:hover {
+    background-color: #bd0d47;
+    text-decoration: none;
+  }
+
+}
+
+.row {
+  //background-color: red;
+  width: 100%;
+  margin: 30px 0;
+
+}
+
+.row  h1 {
+    color: green;
+    display: inline-block;
+    width: 100%
+
+  }
+
+.card-user {
+  //height: 300px;
+  display: flex;
+  overflow: hidden;
+  background: white;
+  position: relative;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  height: 150px;
+}
+
+.card-user img {
+  width: 30%;
+  object-fit: cover;
+}
+
+.card-user-text {
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-user h2:first-child {
+  font-size: 1em;
+  color:  #03c6d2;
+}
+
+.card-user h2:nth-child(2) {
+  margin-top: 10px;
+  font-size: .75em
+}
+
+.card-user a {
+  font-size: 10px;
+  color: gray;
+  width: 30%;
+  &:hover {
+    text-decoration: none;
+    color: white;
+  }
+
+  &:active {
+    color: gray
+  }
+}
+
+
+
+.card-user.booking {
+height: 200px;
+width: 100%
+}
+
+.card-user.booking img {
+  height: 160px;
+  object-fit: cover;
+}
+
+.card-user-info.booking {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  margin: 0 20px;
+  h2 {
+    margin: 0;
+    color: black;
+    font-size: 1em;
+
+  }
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+}
+
+

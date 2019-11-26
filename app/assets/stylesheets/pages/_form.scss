@@ -1,12 +1,15 @@
 .form-container {
   background-image:  linear-gradient(to bottom, rgba(3, 198, 210, 0.8)), url(asset_path("home-bg.jpg"));
   background-size: cover;
+  background-attachment: fixed;
   background-position: bottom;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 66px);
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: calc(100vh - 66px);
 }
 
 .form-box {
