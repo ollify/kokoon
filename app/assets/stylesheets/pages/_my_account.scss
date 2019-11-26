@@ -8,7 +8,6 @@
 
 }
 
-
 .account-aside {
   background-color:#f5f5f5;
   width: 350px;
@@ -26,8 +25,6 @@
   font-size: 1.5em;
   margin-left: 10px;
 }
-
-
 
 .account-aside img {
   border-radius: 50%;
@@ -47,9 +44,6 @@
   margin: 30px auto;
 
 }
-
-
-
 
 .account-aside .btn {
  text-decoration: none;
@@ -116,20 +110,18 @@
 }
 
 .card-user a {
-  font-size: 10px;
-  color: gray;
+  font-size: 14px;
+  color: #03c6d2;
   width: 30%;
   &:hover {
     text-decoration: none;
-    color: white;
-  }
+    color: grey;
+}
 
   &:active {
     color: gray
   }
 }
-
-
 
 .card-user.booking {
 height: 200px;
@@ -158,5 +150,3 @@ width: 100%
   display: flex;
   justify-content: center;
 }
-
-
