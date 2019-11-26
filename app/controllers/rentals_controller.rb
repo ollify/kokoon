@@ -39,6 +39,7 @@ class RentalsController < ApplicationController
     @rental.tenant_id = current_user.id
     @rental.save
     raise unless @rental.save
+    redirect_to my_account_path
   end
 
   def delete
