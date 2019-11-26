@@ -7,4 +7,7 @@ Rails.application.routes.draw do
     resources :rentals
   end
 
+  get '/flats/:flat_id/rentals/:id/accept', to: 'rentals#join_flat'
+  post '/flats/:flat_id/rentals/:id/accept', to: 'rentals#accept_rental', as: "accept_rental"
+
 end

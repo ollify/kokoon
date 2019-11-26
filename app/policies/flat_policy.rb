@@ -11,6 +11,15 @@ class FlatPolicy < ApplicationPolicy
     record.user == user
   end
 
+  def accept_rental?
+    true
+    #to be changed
+  end
+
+  def accept_rental
+    accept_rental?
+  end
+
   class Scope < Scope
     def resolve
       scope.all
