@@ -1,17 +1,64 @@
-<h1>My account</h1>
+<div class="account-container">
 
-<h2> <%= current_user.first_name %> <%= current_user.last_name %></h2>
-<h2> <%= current_user.phone_number %></h2>
-<%= image_tag avatar(current_user), class: "avatar" %>
+  <div class="account-aside">
 
-<p><%= current_user.description %></p>
+    <%= cl_image_tag current_user.avatar %>
 
-<h2><%= link_to("Edit profile info", edit_user_registration_path(current_user)) %></h2>
+    <h1> Welcome, <%= current_user.first_name %>!</h1>
 
-<% @flats.each do |flat| %>
-  <li>
-    <ul><%= flat.address %> <%= link_to("Edit", edit_flat_path(flat)) %></ul>
-  </li>
-<% end %>
+    <p><strong>First name:</strong>  <i><%= current_user.first_name %></i><br>
+      <strong>Last name:</strong> <i><%= current_user.last_name %></i><br>
+      <strong>Phone number:</strong>  <i><%= current_user.phone_number %></i><br>
+      <strong>Email:</strong>  <i><%= current_user.email %></i></p>
+      <p><%= current_user.description %></p>
+      <div class="button-box">
+        <%= button_to("Edit profile info", edit_user_registration_path(current_user), class: "btn-secondary") %>
+      </div>
 
-<p> <%= link_to("Add a new flat", new_flat_path) %> </p>
+
+  </div>
+
+    <div class="account-main">
+      <h1>My properties</h1>
+      <div class="row justify-content-between">
+        <% @flats.each do |flat| %>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="card-user">
+            <% if flat.photo.file.nil? %>
+            <img src=<%= asset_path("home-bg.jpg")%>>
+            <% else %>
+            <img src=<%=cl_image_path flat.photo %> >
+            <% end %>
+            <div class="card-user-text">
+              <h2>📍 <%= flat.address %></h2>
+              <%= link_to("Edit", edit_flat_path(flat), class: "btn btn-outline-info") %>
+            </div>
+          </div>
+        </div>
+
+        <% end %>
+        <p> <%= link_to("Add a new flat", new_flat_path) %> </p>
+
+      </div>
+
+
+      <h1>My tickets</h1>
+      <div class="row">
+        <% 10.times do %>
+        <div class="col-lg-12 col-md-12 col-sm-12">
+          <div class="card-user booking">
+            <img src=<%= asset_path("rand-bg.jpg")%>>
+            <div class="card-user-info booking">
+              <h2><strong>TICKET</i></h2>
+              <h3>Delete ticket</h3>
+              </h3>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+
+    </div>
+
+  </div>
