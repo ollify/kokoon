@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [:edit, :update, :delete]
+  before_action :set_rental, only: [:accept_rental, :accept_rental_update, :edit, :update, :delete]
   before_action :set_flat
 
   def new
@@ -22,9 +22,23 @@ class RentalsController < ApplicationController
 
   def update
     if @rental.update(rental_params)
-      redirect_to my_account_path
+      redirect_to flat_path(@flat)
     else
       render 'edit'
+    end
+  end
+
+  def join_flat
+  end
+
+  def accept_rental
+    if @rental.tenant_email == current_user.email
+      @rental.pending = false
+      @rental.tenant_id = current_user.id
+      @rental.save
+      raise unless @rental.save
+    else
+      redirect_to my_account_path
     end
   end
 
@@ -44,7 +58,7 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:price, :start_date, :end_date, :user_id)
+    params.require(:rental).permit(:tenant_email, :price, :start_date, :end_date, :tenant_id, :pending)
   end
 
   def user_names

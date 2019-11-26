@@ -20,7 +20,9 @@
         <h2>About this flat</h2>
         <p class="description"> <%= @flat.description %></p>
         <% @flat.rentals.each do |rental| %>
-          <p>Available to rent from <%= rental.start_date %> to <%= rental.end_date %> </p>
+          <p>Available to rent from <%= rental.start_date %> to <%= rental.end_date %> - Pending: <%= rental.pending %>
+            <%= link_to("Edit rental", edit_flat_rental_path(@flat, rental)) %>
+          </p>
         <% end %>
       </div>
   </div>
