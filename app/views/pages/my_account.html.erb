@@ -2,7 +2,7 @@
 
   <div class="account-aside">
 
-    <%= cl_image_tag current_user.avatar %>
+    <%= image_tag avatar(current_user) %>
 
     <h1> Welcome, <%= current_user.first_name %>!</h1>
 
@@ -24,11 +24,7 @@
         <% @flats.each do |flat| %>
         <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="card-user">
-            <% if flat.photo.file.nil? %>
-            <img src=<%= asset_path("home-bg.jpg")%>>
-            <% else %>
-            <img src=<%=cl_image_path flat.photo %> >
-            <% end %>
+            <%= image_tag img(flat) %>
             <div class="card-user-text">
               <h2>📍 <%= flat.address %></h2>
               <%= link_to("Edit", edit_flat_path(flat), class: "btn btn-outline-info") %>
