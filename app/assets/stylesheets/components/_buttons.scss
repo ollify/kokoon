@@ -12,3 +12,29 @@
   border-color: transparent;
   }
 }
+
+.btn-secondary {
+  background-color: rgb(3, 198, 210);
+  min-width: 200px;
+  padding: 15px 10px;
+  border-radius: 30px;
+  border-color: transparent;
+
+  &:hover {
+  background-color: rgb(2, 96, 100);
+  color: white;
+  border-color: transparent;
+  }
+}
+
+.btn-outline-info {
+  border-color: rgb(3, 198, 210);
+  &:hover {
+  background-color: rgb(3, 198, 210);
+  border-color: transparent;
+  text-decoration: none;
+  }
+
+}
+
+
