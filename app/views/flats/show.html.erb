@@ -20,7 +20,7 @@
         <h2>About this flat</h2>
         <p class="description"> <%= @flat.description %></p>
         <% @flat.rentals.each do |rental| %>
-          <p>Rented from <%= rental.start_date %> to <%= rental.end_date %> by <%= User.find(rental.user_id).first_name %></p>
+          <p>Available to rent from <%= rental.start_date %> to <%= rental.end_date %> </p>
         <% end %>
       </div>
   </div>
