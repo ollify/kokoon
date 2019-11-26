@@ -1,5 +1,6 @@
 <%= simple_form_for [@flat, @rental] do |f| %>
-  <%= f.input :price %>
+  <%= f.input :tenant_email %>
+  <%= f.input :price, label: "Monthly rent" %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.submit class: 'btn btn-primary mb-2' %>

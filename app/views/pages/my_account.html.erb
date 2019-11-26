@@ -12,7 +12,7 @@
       <strong>Email:</strong>  <i><%= current_user.email %></i></p>
       <p><%= current_user.description %></p>
       <div class="button-box">
-        <%= button_to("Edit profile info", edit_user_registration_path(current_user), class: "btn-secondary") %>
+        <%= button_to("Edit profile info", edit_user_registration_path, method: :get, class: "btn-secondary") %>
       </div>
 
 
@@ -28,7 +28,9 @@
             <div class="card-user-text">
               <h2> <%= link_to(flat.address, flat_path(flat)) %> </h2>
               <%= link_to("Edit", edit_flat_path(flat), class: "btn btn-outline-info") %>
+              <%= link_to("View flat", flat_path(flat), class: "btn btn-outline-info") %>
             </div>
+              <%= link_to("Add tenant", new_flat_rental_path(flat), class: "btn btn-outline-info") %>
           </div>
         </div>
 

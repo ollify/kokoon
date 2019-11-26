@@ -1,19 +1,14 @@
-class FlatPolicy < ApplicationPolicy
-  def show?
-    true
+class RentalPolicy < ApplicationPolicy
+  def new?
+    record.flat.user == user
   end
 
   def create?
-    true
-  end
-
-  def update?
-    record.user == user
+    new?
   end
 
   def join_flat?
-    true
-    #to be changed
+    record.tenant_email == user.email
   end
 
   def accept_rental?
