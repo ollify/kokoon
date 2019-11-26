@@ -5,7 +5,7 @@ class Rental < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :pending, inclusion: [true, false]
-  validates :tenant_email, presence: true, uniqueness: true
+  validates :tenant_email, presence: true
   validate :end_after_start
 
   private

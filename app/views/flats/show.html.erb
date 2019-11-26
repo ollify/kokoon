@@ -22,6 +22,7 @@
         <% @flat.rentals.each do |rental| %>
           <p>Available to rent from <%= rental.start_date %> to <%= rental.end_date %> - Pending: <%= rental.pending %>
             <%= link_to("Edit rental", edit_flat_rental_path(@flat, rental)) %>
+            localhost:3000<%= accept_rental_path(@flat, rental) %>
           </p>
         <% end %>
       </div>
