@@ -3,6 +3,7 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
+    authorize @flat
   end
 
   def create
@@ -39,6 +40,7 @@ class FlatsController < ApplicationController
 
   def set_flat
     @flat = Flat.find(params[:id])
+    authorize @flat
   end
 
   def flat_params
