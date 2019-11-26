@@ -13,11 +13,17 @@
   width: 350px;
   padding: 30px 25px;
   border-right: 1px solid rgba(209, 209, 209, .5);
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .account-main {
   width: calc(100% - 350px);
-  padding: 30px 20px;
+  padding: 30px 60px;
+   @media screen and (max-width: 1060px) {
+    padding: 30px 40px;
+    }
 
 }
 
@@ -123,28 +129,109 @@
   }
 }
 
-.card-user.booking {
-height: 200px;
-width: 100%
+.card-user.ticket {
+ background-color: rgb(3, 198, 210);
+height: 100px;
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-between;
 }
 
-.card-user.booking img {
-  height: 160px;
-  object-fit: cover;
+.card-user.ticket img:first-child {
+  margin-left: 30px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+   @media screen and (max-width: 1060px) {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    }
+  }
+
+.card-user.ticket .ticket-icon {
+  width: 40px;
+  height: 40px;
+    @media screen and (max-width: 1060px) {
+    width: 30px;
+    height: 30px;
+    }
+
+  //background-color: green;
 }
 
-.card-user-info.booking {
+
+
+.ticket-info {
+  margin: 0 20px;
   display: flex;
   justify-content: space-between;
-  align-items:center;
-  margin: 0 20px;
-  h2 {
-    margin: 0;
+  flex-direction: column;
+  //background-color: red;
+  width: 45%;
+  height: 60%;
+  border-right: 1px solid rgb(2, 96, 100);
+
+  h1 {
     color: black;
+    margin-left: 0;
+    font-size: 1.2em;
+  }
+
+  h3 {
     font-size: 1em;
+    margin-bottom: 0;
+    font-family: Helvetica, sans-serif;
+  }
+
+  @media screen and (max-width: 1060px) {
+    margin-right: 0 10px 0 20px;
+    h1 {
+    font-size: .9em;
+    }
+    h3 {
+    font-size: .75em;
+    }
 
   }
+
 }
+
+.ticket-date {
+   margin: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  //background-color: pink;
+  height: 60%;
+  align-items: flex-end;
+   h4 {
+    color: white;
+    -webkit-font-smoothing: antialised;
+    font-weight: lighter;
+    font-size: 1em;
+    font-family: Helvetica, sans-serif;
+    text-align: right;
+     @media screen and (max-width: 1060px) {
+   font-size: .75em;
+   }
+  }
+  h5 {
+    color: black;
+    font-size: 1em;
+    font-family: Helvetica, sans-serif;
+    margin-bottom: 0;
+    text-decoration: underline;
+     @media screen and (max-width: 1060px) {
+   font-size: .75em;
+    }
+  }
+  @media screen and (max-width: 1060px) {
+    margin-left: 0;
+    }
+}
+
 
 .button-box {
   display: flex;
