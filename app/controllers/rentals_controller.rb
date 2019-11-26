@@ -1,16 +1,17 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, :set_flat, only: [:edit, :update, :delete]
+  before_action :set_rental, only: [:edit, :update, :delete]
+  before_action :set_flat
 
   def new
     @rental = Rental.new
+    user_names
   end
 
   def create
     @rental = Rental.new(rental_params)
-    @rental.user = current_user
     @rental.flat = @flat
     if @rental.save
-      redirect_to flat_path(@flat)
+      redirect_to my_account_path
     else
       render 'new'
     end
@@ -20,8 +21,11 @@ class RentalsController < ApplicationController
   end
 
   def update
-    @rental.flat = @flat
-    if @rental.update()
+    if @rental.update(rental_params)
+      redirect_to my_account_path
+    else
+      render 'edit'
+    end
   end
 
   def delete
@@ -30,16 +34,21 @@ class RentalsController < ApplicationController
 
   private
 
+  def set_flat
+    @flat = Flat.find(params[:flat_id])
+    authorize @flat
+  end
+
   def set_rental
     @rental = Rental.find(params[:id])
   end
 
-  def set_flat
-    @flat = Flat.find(params[:flat_id])
+  def rental_params
+    params.require(:rental).permit(:price, :start_date, :end_date, :user_id)
   end
 
-  def rental_params
-    params.require(:rental).permit(:price, :start_date, :end_date)
+  def user_names
+    @user_names = User.all.map {|user| user.first_name + " " + user.last_name}
   end
 
 end

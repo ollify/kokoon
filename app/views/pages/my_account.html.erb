@@ -10,7 +10,10 @@
 
 <% @flats.each do |flat| %>
   <li>
-    <ul><%= flat.address %> <%= link_to("Edit", edit_flat_path(flat)) %></ul>
+    <ul>
+      <%= link_to(flat.address, flat_path(flat)) %> <%= link_to("Edit", edit_flat_path(flat)) %>
+      <%= link_to("Add a rental", new_flat_rental_path(flat)) %>
+    </ul>
   </li>
 <% end %>
 

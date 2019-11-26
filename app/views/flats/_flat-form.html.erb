@@ -1,13 +1,10 @@
-<% if policy(Flat).create? %>
-  <%= simple_form_for @flat do |f| %>
-    <%= f.input :address %>
-    <%= f.input :photo %>
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.input :capacity %>
-    <%= f.input :description %>
-    <%= f.submit class: 'btn btn-primary mb-2' %>
-  <% end %>
+<%= simple_form_for @flat do |f| %>
+  <%= f.input :address %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.input :capacity %>
+  <%= f.input :description %>
+  <%= f.submit class: 'btn btn-primary mb-2' %>
 <% end %>
-
 
 <%= link_to("Go back", my_account_path) %>
