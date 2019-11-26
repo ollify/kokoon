@@ -2,11 +2,7 @@
 
   <div class="account-aside">
 
-    <% if current_user.avatar.file.nil? %>
-      <img src=<%= asset_path("logo.png")%>>
-    <% else %>
-      <img src=<%=cl_image_path current_user.avatar %>>
-    <% end %>
+    <%= image_tag avatar(current_user) %>
 
     <h1> Welcome, <%= current_user.first_name %>!</h1>
 
@@ -16,7 +12,7 @@
       <strong>Email:</strong>  <i><%= current_user.email %></i></p>
       <p><%= current_user.description %></p>
       <div class="button-box">
-        <%= button_to("Edit profile info", edit_user_registration_path, class: "btn-secondary") %>
+        <%= button_to("Edit profile info", edit_user_registration_path(current_user), class: "btn-secondary") %>
       </div>
 
 
@@ -28,11 +24,7 @@
         <% @flats.each do |flat| %>
         <div class="col-lg-6 col-md-12 col-sm-12">
           <div class="card-user">
-            <% if flat.photo.file.nil? %>
-            <img src=<%= asset_path("home-bg.jpg")%>>
-            <% else %>
-            <img src=<%=cl_image_path flat.photo %> >
-            <% end %>
+            <%= image_tag img(flat) %>
             <div class="card-user-text">
               <h2>📍 <%= flat.address %></h2>
               <%= link_to("Edit", edit_flat_path(flat), class: "btn btn-outline-info") %>
