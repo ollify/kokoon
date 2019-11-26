@@ -1,6 +1,5 @@
 class Rental < ApplicationRecord
   belongs_to :flat
-  belongs_to :user, foreign_key: "tenant_id"
   has_many :tickets
   validates :price, presence: true, numericality: true
   validates :start_date, presence: true
