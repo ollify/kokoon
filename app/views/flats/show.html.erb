@@ -1,29 +1,22 @@
-<div class="header-banner" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url( <%= img(@flat) %> )">
-  <div class="show-header">
-    <h1>Your beautiful flat</h1>
-    <p>📌<%= @flat.address %></p>
-  </div>
-</div>
+<div class="row flat-row">
+
+  <%= render 'shared/sidebar' %>
+
+  <div class="flat-content-box">
+
+    <p> 📌 <%= @flat.address %> </p>
 
 
-<div class="pages-container">
-
-  <div class="action-bar">
-  <%= link_to("Go back", my_account_path, class: 'btn btn-outline-secondary')  %>
-  </div>
-
-  <div class="show-details">
-
-  <div class="column-left">
-
-      <div class="show-box" id="about">
-        <h2>About this flat</h2>
-        <p class="description"> <%= @flat.description %></p>
-        <% @flat.rentals.each do |rental| %>
+    <h2>About this flat</h2>
+    <p class="description"> <%= @flat.description %></p>
+    <% @flat.rentals.each do |rental| %>
+      <p>Available to rent from <%= rental.start_date %> to <%= rental.end_date %> </p>
+    <% end %>
+    
+    <% @flat.rentals.each do |rental| %>
           <p>Available to rent from <%= rental.start_date %> to <%= rental.end_date %> - Pending: <%= rental.pending %>
             <%= link_to("Edit rental", edit_flat_rental_path(@flat, rental)) %>
           </p>
         <% end %>
-      </div>
   </div>
 </div>
