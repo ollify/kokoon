@@ -1,5 +1,5 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [:join_flat, :accept_rental, :edit, :update, :delete]
+  before_action :set_rental, only: [:join_flat, :accept_rental, :edit, :update, :destroy]
   before_action :set_flat
 
   def new
@@ -30,22 +30,21 @@ class RentalsController < ApplicationController
   end
 
   def join_flat
-    authorize @rental
   end
 
   def accept_rental
-    authorize @rental
     @rental.pending = false
     @rental.tenant_id = current_user.id
     if @rental.save
       redirect_to my_account_path
     else
-      render 'join_flat'
+      render 'rental/join_flat'
     end
   end
 
-  def delete
+  def destroy
     @rental.destroy
+    redirect_to flat_path(@flat)
   end
 
   private
@@ -57,6 +56,7 @@ class RentalsController < ApplicationController
 
   def set_rental
     @rental = Rental.find(params[:id])
+    authorize @rental
   end
 
   def rental_params

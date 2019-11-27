@@ -20,11 +20,6 @@ class FlatsController < ApplicationController
   def show
   end
 
-  def index
-    @user = current_user
-    @flats = policy_scope(Flat).order(created_at: :desc)
-  end
-
   def edit
   end
 
@@ -36,6 +31,11 @@ class FlatsController < ApplicationController
     end
   end
 
+  # def index
+  #   @user = current_user
+  #   @flats = policy_scope(Flat).order(created_at: :desc)
+  # end
+
   private
 
   def set_flat
@@ -46,5 +46,4 @@ class FlatsController < ApplicationController
   def flat_params
     params.require(:flat).permit(:photo, :address, :capacity, :description)
   end
-
 end

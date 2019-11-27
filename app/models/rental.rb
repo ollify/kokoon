@@ -8,6 +8,10 @@ class Rental < ApplicationRecord
   validates :tenant_email, presence: true
   validate :end_after_start
 
+  def tenant
+    User.find(self.tenant_id) unless tenant_id.nil?
+  end
+
   private
 
   def end_after_start
