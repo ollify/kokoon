@@ -27,9 +27,17 @@ module ApplicationHelper
   end
 
   def tenant_pending?(user)
-    rentals = Rental.all
+    rentals = Rental.where(pending: true)
     tenants = rentals.map { |rental| rental.tenant_email }
     tenants.include?(user.email)
+  end
+
+  def last_rental(user)
+    Rental.where(tenant_id: user.id).last
+  end
+
+  def my_flat(user)
+    Flat.find(last_rental(user).flat_id) unless last_rental(user).nil?
   end
 
 end

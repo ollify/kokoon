@@ -1,0 +1,25 @@
+<% unless @flat.pending_rentals.empty? %>
+  <h3>Pending invites</h3>
+  <% @flat.pending_rentals.each do |rental| %>
+    <p>
+      Your invitation to <%= rental.tenant_email %> is still pending.
+      <%= link_to("Edit invitation", edit_flat_rental_path(@flat, rental)) %>
+      <%= link_to("Send invitation back", "#") %>
+    </p>
+  <% end %>
+<% end %>
+
+<% unless @flat.accepted_rentals.empty? %>
+  <h3>Current tenants</h3>
+  <% @flat.accepted_rentals.each do |rental| %>
+    <p>
+      <%= rental.tenant.first_name %> <%= rental.tenant.last_name %> is renting this flat
+      from <%= rental.start_date %> to <%= rental.end_date %>
+      <%= link_to("Edit tenant", edit_flat_rental_path(@flat, rental)) %>
+      <%= link_to("Delete tenant", flat_rental_path(@flat, rental), method: :delete, data: {confirm: "Are you sure?"}) %>
+    </p>
+  <% end %>
+<% end %>
+
+
+<%= link_to("Add a new tenant to this flat", new_flat_rental_path(@flat)) %>

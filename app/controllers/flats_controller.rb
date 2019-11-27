@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update]
+  before_action :set_flat, only: [:show, :edit, :update, :users_in_flat]
 
   def new
     @flat = Flat.new
@@ -20,11 +20,6 @@ class FlatsController < ApplicationController
   def show
   end
 
-  def index
-    @user = current_user
-    @flats = policy_scope(Flat).order(created_at: :desc)
-  end
-
   def edit
   end
 
@@ -34,6 +29,14 @@ class FlatsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  # def index
+  #   @user = current_user
+  #   @flats = policy_scope(Flat).order(created_at: :desc)
+  # end
+
+  def users_in_flat
   end
 
   private
@@ -46,5 +49,4 @@ class FlatsController < ApplicationController
   def flat_params
     params.require(:flat).permit(:photo, :address, :capacity, :description)
   end
-
 end
