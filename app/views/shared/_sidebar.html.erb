@@ -16,12 +16,9 @@
     <div class="sidebar-admin">
       <h4 class="sidebar-subheading"><i class="fas fa-lock"></i> Admin Area</h4>
       <ul>
-        <li><i class="fas fa-plus-circle"></i> Add tenants</li>
-        <li><i class="fas fa-edit"></i> Edit this kokoon</li>
+        <li><i class="fas fa-plus-circle"></i><%= link_to("Add tenants", new_flat_rental_path(@flat.id)) %></li>
+        <li><i class="fas fa-edit"></i><%= link_to("Edit flat", edit_flat_path) %></li>
       </ul>
     </div>
   </div>
 </div>
-
-
-
