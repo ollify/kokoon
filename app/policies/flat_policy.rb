@@ -15,6 +15,10 @@ class FlatPolicy < ApplicationPolicy
     join_flat?
   end
 
+  def users_in_flat?
+    true
+  end
+
   class Scope < Scope
     def resolve
       scope.all

@@ -1,6 +1,10 @@
 .flat-row {
   padding: 0;
   margin: 0;
+  p {
+  height: 0px;
+  line-height: 0px;
+  }
 }
 
 .flat-content-box {
@@ -9,3 +13,10 @@
     color: rgb(3, 198, 210);
   }
 }
+
+.landlord-box {
+  img {
+    object-fit: cover;
+  }
+}
+
