@@ -18,12 +18,16 @@
 
   </div>
 
+
+   
+
     <% unless is_tenant?(current_user) || is_landlord?(current_user) || tenant_pending?(current_user) %>
       <div>
       <p>HERE COME SOME FANCY BOXXXXXXEZZZZ</p>
       <p>Welcome to Kokoon. Get started and add a flat. </p>
       <%= link_to 'Add flat', new_flat_path %>
       <p>You're a tenant? Do not hestitate to ask your tenant for an invitation link to join your flat.</p>
+
       </div>
     <% end %>
 

@@ -5,6 +5,7 @@
   padding: 15px 10px;
   border-radius: 30px;
   border-color: transparent;
+    -webkit-transition: all .7s ease;
 
   &:hover {
   background-color: rgb(2, 96, 100);
@@ -19,6 +20,7 @@
   padding: 15px 10px;
   border-radius: 30px;
   border-color: transparent;
+    -webkit-transition: all .7s ease;
 
   &:hover {
   background-color: rgb(2, 96, 100);
@@ -33,6 +35,7 @@
   background-color: rgb(3, 198, 210);
   border-color: transparent;
   text-decoration: none;
+    -webkit-transition: all .7s ease;
   }
 
 }
