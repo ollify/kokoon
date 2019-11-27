@@ -10,7 +10,6 @@ class FlatsController < ApplicationController
     @flat = Flat.new(flat_params)
     authorize @flat
     @flat.user = current_user
-    byebug
     if @flat.save
       redirect_to flat_path(@flat)
     else
