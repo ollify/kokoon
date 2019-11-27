@@ -26,16 +26,17 @@
           <div class="card-user">
             <%= image_tag img(flat) %>
             <div class="card-user-text">
-              <h2> <%= link_to(flat.address, flat_path(flat)) %> </h2>
-              <%= link_to("Edit", edit_flat_path(flat), class: "btn btn-outline-info") %>
-              <%= link_to("View flat", flat_path(flat), class: "btn btn-outline-info") %>
+              <h2><%= link_to(flat.address, flat_path(flat)) %> </h2>
+                <div class="edit">
+                  <%= link_to("Edit", edit_flat_path(flat)) %>
+                  <%= link_to("Add tenant", new_flat_rental_path(flat)) %>
+                </div>
             </div>
-              <%= link_to("Add tenant", new_flat_rental_path(flat), class: "btn btn-outline-info") %>
           </div>
         </div>
 
         <% end %>
-        <p> <%= link_to("Add a new flat", new_flat_path) %> </p>
+        <p class="col-lg-12 col-md-12 col-sm-12"> <%= link_to("＋ Add a new flat", new_flat_path) %> </p>
 
       </div>
 
