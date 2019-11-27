@@ -13,4 +13,9 @@ class PagesController < ApplicationController
     @pending_flat = Flat.find(@pending_rental.first.flat_id) unless @pending_rental.empty?
 
   end
+
+  def privacy_policy
+
+
+  end
 end
