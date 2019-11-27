@@ -6,8 +6,8 @@
 
     <div class="sidebar-public">
       <ul>
-        <li><i class="fas fa-couch"></i> About this kokoon</li>
-        <li><i class="fas fa-users"></i> People in this kokoon</li>
+        <li><i class="fas fa-couch"></i> <%= link_to("About this kokoon", flat_path) %></li>
+        <li><i class="fas fa-users"></i> <%= link_to("People in this kokoon", users_in_flat_path) %></li>
         <li><i class="fas fa-ticket-alt"></i> Tickets</li>
       </ul>
     </div>
@@ -22,3 +22,6 @@
     </div>
   </div>
 </div>
+
+
+

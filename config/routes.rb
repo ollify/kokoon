@@ -10,5 +10,6 @@ Rails.application.routes.draw do
 
   get '/flats/:flat_id/rentals/:id/accept', to: 'rentals#join_flat'
   post '/flats/:flat_id/rentals/:id/accept', to: 'rentals#accept_rental', as: "accept_rental"
+  get '/flats/:id/users', to: 'flats#users_in_flat', as:'users_in_flat'
 
 end

@@ -1,5 +1,5 @@
 class FlatsController < ApplicationController
-  before_action :set_flat, only: [:show, :edit, :update]
+  before_action :set_flat, only: [:show, :edit, :update, :users_in_flat]
 
   def new
     @flat = Flat.new
@@ -34,6 +34,9 @@ class FlatsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def users_in_flat
   end
 
   private
