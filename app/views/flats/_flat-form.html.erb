@@ -1,10 +1,16 @@
 <%= simple_form_for @flat do |f| %>
-  <%= f.input :address %>
+  <%= f.input :address,
+              label: false,
+              placeholder: "Address" %>
   <%= f.input :photo %>
   <%= f.input :photo_cache, as: :hidden %>
-  <%= f.input :capacity %>
-  <%= f.input :description %>
-  <%= f.submit class: 'btn btn-primary mb-2' %>
-<% end %>
+  <%= f.input :capacity,
+              label: false,
+              placeholder: "Capacity" %>
+  <%= f.input :description,
+              label: false,
+              placeholder: "Description" %>
+  <div class="button-box"><%= f.submit class: 'btn-primary' %></div>
+  <% end %>
 
-<%= link_to("Go back", my_account_path) %>
+<%= link_to("← Back", my_account_path) %>
