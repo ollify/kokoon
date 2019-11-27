@@ -20,15 +20,18 @@
   height: auto;
   padding: 50px;
   color: white;
-
   h1 {
     font-size: 36px;
     line-height: 1;
   }
+}
 
-  .subheading {
+#title{
+   font-size: 2em;
+}
+
+#subtitle {
     margin-top: 30px;
-    font-size: 18px;
-    margin-bottom: 60px;
-  }
+  font-size: 18px;
+  margin-bottom: 100px;
 }
