@@ -1,4 +1,3 @@
-<div class="account-main">
   <h1>My properties</h1>
   <div class="row justify-content-between">
     <% @flats.each do |flat| %>
@@ -6,15 +5,15 @@
       <div class="card-user">
         <%= image_tag img(flat) %>
         <div class="card-user-text">
-          <h2> <%= link_to(flat.address, flat_path(flat)) %> </h2>
-          <%= link_to("Edit", edit_flat_path(flat), class: "btn btn-outline-info") %>
-          <%= link_to("View flat", flat_path(flat), class: "btn btn-outline-info") %>
-        </div>
-          <%= link_to("Add tenant", new_flat_rental_path(flat), class: "btn btn-outline-info") %>
-      </div>
-    </div>
+          <h2><%= link_to(flat.address, flat_path(flat)) %> </h2>
+            <div class="edit">
+              <%= link_to("Edit", edit_flat_path(flat)) %>
+              <%= link_to("Add tenant", new_flat_rental_path(flat)) %>
+            </div>
+         </div>
 
     <% end %>
-    <p> <%= link_to("Add a new flat", new_flat_path) %> </p>
-
+    </div>
   </div>
+    <p class="col-lg-6 col-md-12 col-sm-12"> <%= link_to("＋ Add a new flat", new_flat_path) %> </p>
+</div>
