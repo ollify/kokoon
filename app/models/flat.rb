@@ -9,5 +9,13 @@ class Flat < ApplicationRecord
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 
+  def pending_rentals
+    self.rentals.where(pending: true)
+  end
+
+  def accepted_rentals
+    self.rentals.where(pending: false)
+  end
+
 end
 
