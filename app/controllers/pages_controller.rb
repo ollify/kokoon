@@ -5,13 +5,16 @@ class PagesController < ApplicationController
   end
 
   def my_account
+    #If user has a pending invite for a flat
+    @pending_rental = Rental.where(tenant_email: current_user.email, pending: true).last
+    @pending_flat = Flat.find(@pending_rental.flat_id) unless @pending_rental.nil?
+
+    #If user is a tenant
+    @rental = Rental.where(tenant_id: current_user.id).last
+    @my_flat = Flat.find(@rental.flat_id) unless @rental.nil?
+
+    #If user is a landlord
     @flats = Flat.where(user: current_user)
-    @rental = Rental.where(tenant_id: current_user.id)
-    @my_flat = Flat.find(@rental.first.flat_id) unless @rental.empty?
-
-    @pending_rental = Rental.where(tenant_email: current_user.email)
-    @pending_flat = Flat.find(@pending_rental.first.flat_id) unless @pending_rental.empty?
-
   end
 
   def privacy_policy
