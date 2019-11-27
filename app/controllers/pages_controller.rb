@@ -9,4 +9,9 @@ class PagesController < ApplicationController
     @rental = Rental.where(tenant_id: current_user.id)
     @my_flat = Flat.find(@rental.first.flat_id) unless @rental.empty?
   end
+
+  def privacy_policy
+
+
+  end
 end
