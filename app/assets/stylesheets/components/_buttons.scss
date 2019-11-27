@@ -32,7 +32,7 @@
 .btn-outline-info {
   border-color: rgb(3, 198, 210);
   &:hover {
-  background-color: rgb(3, 198, 210);
+  background-color: rgba(3, 198, 210, 0.3);
   border-color: transparent;
   text-decoration: none;
     -webkit-transition: all .7s ease;

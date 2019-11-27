@@ -18,8 +18,9 @@
 
   </div>
 
+  <div class="account-main">
 
-   
+
 
     <% unless is_tenant?(current_user) || is_landlord?(current_user) || tenant_pending?(current_user) %>
       <div>
@@ -51,5 +52,7 @@
     <% end %>
 
     </div>
+
+  </div>
 
   </div>
