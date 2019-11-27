@@ -1,3 +1,27 @@
-<div class="col-lg-4 col-md-12 col-sm-12 flat-side-bar">
+<div class="col-lg-3 col-md-12 col-sm-12 flat-side-bar">
   <%= image_tag img(@flat) %>
+
+  <div class="sidebar-content">
+    <h4 class="sidebar-heading"><%= @flat.address %> </h4>
+
+    <div class="sidebar-public">
+      <ul>
+        <li><i class="fas fa-couch"></i> <%= link_to("About this kokoon", flat_path) %></li>
+        <li><i class="fas fa-users"></i> <%= link_to("People in this kokoon", users_in_flat_path) %></li>
+        <li><i class="fas fa-ticket-alt"></i> Tickets</li>
+      </ul>
+    </div>
+
+
+    <div class="sidebar-admin">
+      <h4 class="sidebar-subheading"><i class="fas fa-lock"></i> Admin Area</h4>
+      <ul>
+        <li><i class="fas fa-plus-circle"></i> Add tenants</li>
+        <li><i class="fas fa-edit"></i> Edit this kokoon</li>
+      </ul>
+    </div>
+  </div>
 </div>
+
+
+

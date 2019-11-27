@@ -1,0 +1,19 @@
+<div class="row flat-row">
+
+  <%= render 'shared/sidebar' %>
+
+  <div class="flat-content-box">
+
+
+
+    <% landlord = User.find(@flat.user_id) %>
+
+    <div class="landlord-box">
+    <%= image_tag avatar(landlord), class: "avatar-large" %>
+    <p>The landlord is: <%= landlord.full_name %></p>
+    </div>
+
+
+
+  </div>
+</div>
