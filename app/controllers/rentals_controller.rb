@@ -11,8 +11,9 @@ class RentalsController < ApplicationController
   def create
     @rental = Rental.new(rental_params)
     @rental.flat = @flat
+    authorize @flat
     if @rental.save
-      redirect_to my_account_path
+      redirect_to flat_path(@flat)
     else
       render 'new'
     end
@@ -36,7 +37,7 @@ class RentalsController < ApplicationController
     @rental.pending = false
     @rental.tenant_id = current_user.id
     if @rental.save
-      redirect_to my_account_path
+      redirect_to flat_path(@flat)
     else
       render 'rental/join_flat'
     end
@@ -51,7 +52,6 @@ class RentalsController < ApplicationController
 
   def set_flat
     @flat = Flat.find(params[:flat_id])
-    authorize @flat
   end
 
   def set_rental
