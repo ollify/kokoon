@@ -37,9 +37,11 @@ class RentalsController < ApplicationController
     authorize @rental
     @rental.pending = false
     @rental.tenant_id = current_user.id
-    @rental.save
-    raise unless @rental.save
-    redirect_to my_account_path
+    if @rental.save
+      redirect_to my_account_path
+    else
+      render 'join_flat'
+    end
   end
 
   def delete
