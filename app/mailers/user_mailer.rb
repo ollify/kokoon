@@ -20,7 +20,16 @@ class UserMailer < ApplicationMailer
 
     mail to: "sj34606@gmail.com"
   end
-end
 
+  def hello
+    mail(
+      :subject => 'Hello from Postmark',
+      :to  => 'admin@kokoon.space',
+      :from => 'sender@example.org',
+      :html_body => '<strong>Hello</strong> dear Postmark user.',
+      :track_opens => 'true')
+  end
+
+end
 
 UserMailer.with(user: User.first).welcome
