@@ -25,9 +25,5 @@ class Flat < ApplicationRecord
     accepted_rentals.map{|rental| User.find(rental.tenant_id).full_name}
   end
 
-  def rental(user)
-    self.rentals.reverse.find {|rental| rental.tenant_id == user.id}
-  end
-
 end
 

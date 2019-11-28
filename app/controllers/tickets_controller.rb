@@ -4,13 +4,15 @@ class TicketsController < ApplicationController
 
   def new
     @ticket = Ticket.new
+    @ticket.rental = @rental
+    authorize @ticket
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.rental = @rental
     if @ticket.save
-      redirect_to flat_path(@flat)
+      redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
       render 'new'
     end
@@ -28,6 +30,10 @@ class TicketsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def destroy
+    @ticket.destroy
   end
 
   private

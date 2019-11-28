@@ -18,6 +18,9 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @ticket = Ticket.new
+    @pending_invites = current_user.pending_invites.select {|invite| invite.flat.id == @flat.id}
+    @accepted_rentals = current_user.accepted_rentals.select {|rental| rental.flat.id == @flat.id}
   end
 
   def edit

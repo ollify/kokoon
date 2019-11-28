@@ -1,4 +1,4 @@
-class RentalPolicy < ApplicationPolicy
+class RentalPolicy < FlatPolicy
   def new?
     record.flat.user == user
   end
@@ -8,7 +8,7 @@ class RentalPolicy < ApplicationPolicy
   end
 
   def edit?
-    record.flat.user == user
+    new?
   end
 
   def update?
