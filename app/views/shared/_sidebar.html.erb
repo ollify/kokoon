@@ -13,6 +13,7 @@
     </div>
 
 
+    <% if policy(@flat).update? %>
     <div class="sidebar-admin">
       <h4 class="sidebar-subheading"><i class="fas fa-lock"></i> Admin Area</h4>
       <ul>
@@ -20,5 +21,6 @@
         <li><i class="fas fa-edit"></i><%= link_to("Edit flat", edit_flat_path) %></li>
       </ul>
     </div>
+    <% end %>
   </div>
 </div>
