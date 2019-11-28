@@ -18,3 +18,14 @@
 <% if is_tenant?(current_user) %>
   <%= render 'flats/tenant_show' %>
 <% end %>
+
+<% unless @flat.tickets.empty? %>
+  <% @flat.tickets.each do |ticket| %>
+    <%= link_to(ticket.title, flat_rental_ticket_path(@flat, @flat.rental(current_user),ticket)) %>
+    with priority of <%= ticket.priority %> out of 10
+  <% end %>
+<% end %>
+
+<h3>
+  <%= link_to("Add a ticket", new_flat_rental_ticket_path(@flat, @flat.rental(current_user))) %>
+</h3>

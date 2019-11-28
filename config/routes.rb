@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   resources :flats, except: [:index, :delete]  do
     get 'rentals/:id/accept', to: 'rentals#join_flat'
     post 'rentals/:id/accept', to: 'rentals#accept_rental', as: 'accept_rental'
-    resources :rentals, except: [:index, :show]
+    resources :rentals, except: [:index, :show] do
+      resources :tickets
+    end
   end
 
   get '/flats/:id/users', to: 'flats#users_in_flat', as:'users_in_flat'

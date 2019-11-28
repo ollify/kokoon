@@ -1,0 +1,9 @@
+<p> <%= @ticket.title %> </p>
+<p> <%= @ticket.category %> </p>
+<p> <%= @ticket.room %> </p>
+<p> <%= @ticket.content %> </p>
+<p> <%= @ticket.priority %> </p>
+<p> <%= @ticket.status %> </p>
+<%= image_tag img(@ticket) %>
+
+<p> <%= link_to("Go back", flat_path(@flat)) %> </p>
