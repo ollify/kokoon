@@ -14,6 +14,7 @@
 
 
 .forms {
+  position: absolute;
   background-color: rgb(3, 198, 210);
    width: 100%;
   display: flex;
@@ -22,6 +23,14 @@
   padding-top: 70px;
   padding-bottom: 100px;
   min-height: calc(100vh - 66px);
+  #form-title {
+    position: relative;
+    top: 0;
+    width: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+
+  }
   a {
     margin: 0 auto;
     display: block;
@@ -30,6 +39,7 @@
     margin-top: 30px;
   }
 }
+
 
 
 .forms a:hover {

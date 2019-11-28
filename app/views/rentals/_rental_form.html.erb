@@ -1,9 +1,13 @@
 <%= simple_form_for [@flat, @rental] do |f| %>
-  <%= f.input :tenant_email %>
-  <%= f.input :price, label: "Monthly rent" %>
+  <%= f.input :tenant_email,
+              label: false,
+              placeholder: "Tenant email" %>
+  <%= f.input :price,
+              label: false,
+              placeholder: "Monthly rent" %>
   <%= f.input :start_date %>
   <%= f.input :end_date %>
   <%= f.submit class: 'btn btn-primary mb-2' %>
 <% end %>
 
-<%= link_to("Go back", my_account_path) %>
+<%= link_to("← Go back", my_account_path) %>
