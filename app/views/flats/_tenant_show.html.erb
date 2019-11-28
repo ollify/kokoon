@@ -1,1 +1,13 @@
+<% @pending_invites.each do |invite| %>
+  <p>
+    <%= invite.flat.user.full_name %> sent you one invitation for renting this flat
+    from <%= invite.start_date %> to <%= invite.end_date %>.
+  </p>
+  <%= button_to("Join flat", flat_accept_rental_path(invite.flat.id, invite.id), class: "btn-secondary") %>
+<% end %>
 
+<% @accepted_rentals.each do |rental| %>
+  <p>
+    You are renting this flat from <%= rental.start_date %> to <%= rental.end_date %>
+  </p>
+<% end %>

@@ -22,36 +22,35 @@
 
 
 
-    <% unless is_tenant?(current_user) || is_landlord?(current_user) || tenant_pending?(current_user) %>
+    <% unless current_user.is_tenant? || current_user.is_landlord? || !@pending_invites.empty? %>
       <div>
       <p>HERE COME SOME FANCY BOXXXXXXEZZZZ</p>
       <p>Welcome to Kokoon. Get started and add a flat. </p>
       <%= link_to 'Add flat', new_flat_path %>
-      <p>You're a tenant? Do not hestitate to ask your tenant for an invitation link to join your flat.</p>
+      <p>You're a tenant? Do not hesitate to ask your tenant for an invitation link to join your flat.</p>
 
       </div>
     <% end %>
 
-    <% if is_landlord?(current_user) %>
+    <% if current_user.is_landlord? %>
       <%= render 'pages/landlord_properties' %>
     <% end %>
 
-
-    <% if tenant_pending?(current_user) %>
-      <%= csrf_meta_tags %>
+    <%#= csrf_meta_tags %>
+    <% @pending_invites.each do |invite| %>
       <p>
-        <%= @pending_flat.user.first_name %> <%= @pending_flat.user.first_name %>
-        sent you one invitation for a flat located at <%= @pending_flat.address %>
-        from <%= @pending_rental.start_date %>.
+        <%= invite.flat.user.first_name %> <%= invite.flat.user.first_name %>
+        sent you one invitation for a flat located at <%= invite.flat.address %>
+        from <%= invite.start_date %>.
       </p>
-      <%= button_to("Join flat", flat_accept_rental_path(@pending_flat.id, @pending_rental.id), class: "btn-secondary") %>
+      <%= button_to("Join flat", flat_accept_rental_path(invite.flat.id, invite.id), class: "btn-secondary") %>
     <% end %>
 
-    <% if is_tenant?(current_user)  %>
+    <% if current_user.is_tenant?  %>
       <%= render 'pages/tenant_flats' %>
     <% end %>
 
-    <% if is_tenant?(current_user) || is_landlord?(current_user) %>
+    <% if current_user.is_tenant? || current_user.is_landlord? %>
       <%= render 'pages/tickets' %>
     <% end %>
 

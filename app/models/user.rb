@@ -12,7 +12,27 @@ class User < ApplicationRecord
   mount_uploader :id_scan, PhotoUploader
 
   def full_name
-    return "#{self.first_name} #{self.last_name}"
+    "#{self.first_name} #{self.last_name}"
+  end
+
+  def is_landlord?
+    !self.flats.empty?
+  end
+
+  def is_tenant?
+    !accepted_rentals.empty?
+  end
+
+  def pending_invites
+    Rental.where(pending: true, tenant_email: self.email)
+  end
+
+  def accepted_rentals
+    Rental.where(pending: false, tenant_id: self.id)
+  end
+
+  def rented_flats
+    accepted_rentals.map { |rental| Flat.find(rental.flat_id) }
   end
 
   def self.from_omniauth(access_token)

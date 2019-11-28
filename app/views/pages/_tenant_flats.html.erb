@@ -1,13 +1,15 @@
-<h1><%= link_to("My flat", flat_path(my_flat(current_user))) %></h1>
+<h1>My flats</h1>
+<% @rented_flats.each do |flat| %>
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12">
+      <%= link_to("Cool flat", flat_path(flat)) %>
       <div class="card-user booking">
-        <img src=<%= img(@my_flat)%>>
+        <img src=<%= img(flat)%>>
         <div class="card-user-info booking">
-          <h2><strong>My flat</i></h2>
-          <h3><%= @my_flat.address %></h3>
+          <h3><%= flat.address %></h3>
           </h3>
         </div>
       </div>
     </div>
   </div>
+<% end %>

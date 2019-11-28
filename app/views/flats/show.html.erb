@@ -11,21 +11,28 @@
   </div>
 </div>
 
-<% if is_landlord?(current_user) %>
+<% if current_user.is_landlord? %>
+  <h1>Info for landlord</h1>
   <%= render 'flats/landlord_show' %>
 <% end %>
 
-<% if is_tenant?(current_user) %>
+<% if current_user.is_tenant? %>
+  <h1>Info for tenant</h1>
   <%= render 'flats/tenant_show' %>
 <% end %>
 
 <% unless @flat.tickets.empty? %>
+  <h3>Tickets</h3>
   <% @flat.tickets.each do |ticket| %>
-    <%= link_to(ticket.title, flat_rental_ticket_path(@flat, @flat.rental(current_user),ticket)) %>
-    with priority of <%= ticket.priority %> out of 10
+    <p>
+      <%= link_to(ticket.title, flat_rental_ticket_path(@flat, @flat.rental(current_user),ticket)) %>
+      with priority of <%= ticket.priority %> out of 10
+    </p>
   <% end %>
 <% end %>
 
-<h3>
-  <%= link_to("Add a ticket", new_flat_rental_ticket_path(@flat, @flat.rental(current_user))) %>
-</h3>
+<% if policy(@flat).new_ticket? %>
+  <p>
+    <%= link_to("Add a ticket", new_flat_rental_ticket_path(@flat, @flat.rental(current_user))) %>
+  </p>
+<% end %>
