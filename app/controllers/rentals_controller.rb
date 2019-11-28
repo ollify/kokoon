@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
-  before_action :set_rental, only: [:join_flat, :accept_rental, :edit, :update, :destroy]
   before_action :set_flat
+  before_action :set_rental, only: [:join_flat, :accept_rental, :edit, :update, :destroy]
 
   def new
     @rental = Rental.new

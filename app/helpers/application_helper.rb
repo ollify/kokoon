@@ -40,4 +40,12 @@ module ApplicationHelper
     Flat.find(last_rental(user).flat_id) unless last_rental(user).nil?
   end
 
+  def ticket_categories
+    %w(incident event guest)
+  end
+
+  def ticket_status
+    %w(new pending done)
+  end
+
 end
