@@ -23,11 +23,11 @@
 
 
     <% unless is_tenant?(current_user) || is_landlord?(current_user) || tenant_pending?(current_user) %>
-      <div>
-      <p>HERE COME SOME FANCY BOXXXXXXEZZZZ</p>
-      <p>Welcome to Kokoon. Get started and add a flat. </p>
-      <%= link_to 'Add flat', new_flat_path %>
-      <p>You're a tenant? Do not hestitate to ask your tenant for an invitation link to join your flat.</p>
+      <div class="welcome-landlord">
+
+      <h2>Welcome to <strong>Kokoon</strong>.<br>Get started and add a flat. </h2>
+       <p id="btn-add"><%= link_to '+ Add flat', new_flat_path %> <p>
+      <h2><strong>You're a tenant?</strong><br> Do not hestitate to ask your tenant for an invitation link to join your flat.</h2>
 
       </div>
     <% end %>
@@ -38,13 +38,15 @@
 
 
     <% if tenant_pending?(current_user) %>
+      <div class="invitation">
       <%= csrf_meta_tags %>
       <p>
-        <%= @pending_flat.user.first_name %> <%= @pending_flat.user.first_name %>
-        sent you one invitation for a flat located at <%= @pending_flat.address %>
-        from <%= @pending_rental.start_date %>.
+        <strong><%= @pending_flat.user.first_name %> <%= @pending_flat.user.last_name %></strong>
+        sent you one invitation for a flat located at  <strong><%= @pending_flat.address %></strong>
+        from  <strong><%= @pending_rental.start_date %></strong>.
       </p>
       <%= button_to("Join flat", flat_accept_rental_path(@pending_flat.id, @pending_rental.id), class: "btn-secondary") %>
+      </div>
     <% end %>
 
     <% if is_tenant?(current_user)  %>
