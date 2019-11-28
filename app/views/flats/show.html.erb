@@ -25,14 +25,8 @@
   <h3>Tickets</h3>
   <% @flat.tickets.each do |ticket| %>
     <p>
-      <%= link_to(ticket.title, flat_rental_ticket_path(@flat, @flat.rental(current_user),ticket)) %>
+      <%= link_to(ticket.title, flat_rental_ticket_path(@flat, ticket.rental,ticket)) %>
       with priority of <%= ticket.priority %> out of 10
     </p>
   <% end %>
-<% end %>
-
-<% if policy(@flat).new_ticket? %>
-  <p>
-    <%= link_to("Add a ticket", new_flat_rental_ticket_path(@flat, @flat.rental(current_user))) %>
-  </p>
 <% end %>

@@ -5,7 +5,7 @@ class TicketPolicy < FlatPolicy
   end
 
   def create?
-    record.rental.flat_id == user.my_flat.id
+    user.accepted_rentals.include?(record.rental)
   end
 
   def show?

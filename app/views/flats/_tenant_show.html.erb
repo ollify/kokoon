@@ -10,4 +10,9 @@
   <p>
     You are renting this flat from <%= rental.start_date %> to <%= rental.end_date %>
   </p>
+  <% if policy(@flat).new_ticket? %>
+    <p>
+      <%= link_to("Add a ticket", new_flat_rental_ticket_path(@flat, rental)) %>
+    </p>
+  <% end %>
 <% end %>
