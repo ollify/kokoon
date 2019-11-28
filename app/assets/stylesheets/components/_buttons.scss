@@ -45,4 +45,23 @@
 
 }
 
+#btn-add {
 
+    font-size: 1em;
+    line-height: 150px;
+    text-align: center;
+    height: 150px;
+    //background-color: red;
+    a {
+      border: 2px solid #03c6d2;
+      padding: 10px 15px;
+      border-radius: 50px;
+      color: #03c6d2;
+      text-decoration: none;
+      -webkit-transition: all .7s ease;
+      &:hover {
+        color: rgb(2, 96, 100);
+      }
+    }
+
+ }
