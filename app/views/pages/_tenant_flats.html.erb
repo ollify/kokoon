@@ -1,15 +1,13 @@
 <h1>My flats</h1>
 <% @rented_flats.each do |flat| %>
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12">
-      <%= link_to("Cool flat", flat_path(flat)) %>
-      <div class="card-user booking">
-        <img src=<%= img(flat)%>>
-        <div class="card-user-info booking">
-          <h3><%= flat.address %></h3>
-          </h3>
-        </div>
+<div class="myflat">
+<h1><%= link_to("Flat", flat_path(flat)) %></h1>
+  <div class="row justify-content-between">
+    <div class="col-lg-9 col-md-12 col-sm-12">
+      <h2 id="flat-title">📍<%=flat.address %></h2>
+      <div class="card-flat">
+          <img src=<%= img(flat)%>>
       </div>
     </div>
   </div>
-<% end %>
+</div>
