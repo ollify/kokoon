@@ -1,0 +1,13 @@
+<%= simple_form_for [@flat, @rental, @ticket] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :category, collection: @ticket.available_categories %>
+  <%= f.input :room %>
+  <%= f.input :content %>
+  <%= f.input :priority, collection: (1..10), include_blank: false %>
+  <%= f.input :photo %>
+  <%= f.input :status, collection: @ticket.available_statuses, include_blank: false, selected: 'new'  %>
+  <%#= f.association :subscriptions, collection: @flat.tenants_names %>
+  <%= f.submit class: 'btn btn-primary mb-2' %>
+<% end %>
+
+<%= link_to("Go back", flat_path(@flat)) %>

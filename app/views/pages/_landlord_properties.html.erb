@@ -1,6 +1,6 @@
 <h1>My properties</h1>
 <div class="row justify-content-between">
-  <% @flats.each do |flat| %>
+  <% @owned_flats.each do |flat| %>
   <div class="col-lg-6 col-md-12 col-sm-12">
     <div class="card-user">
       <%= image_tag img(flat) %>
@@ -15,4 +15,4 @@
        </div>
   <% end %>
 
-  <p class="col-lg-6 col-md-12 col-sm-12"> <%= link_to("＋ Add a new flat", new_flat_path) %> </p>
+  <p id="btn-add" class="col-lg-6 col-md-12 col-sm-12"> <%= link_to("＋ Add a new flat", new_flat_path) %> </p>
