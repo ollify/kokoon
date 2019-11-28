@@ -10,6 +10,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
   mount_uploader :avatar, PhotoUploader
   mount_uploader :id_scan, PhotoUploader
+  after_create :send_welcome_email
 
   def full_name
     return "#{self.first_name} #{self.last_name}"
@@ -25,5 +26,12 @@ class User < ApplicationRecord
         )
     end
     user
+  end
+
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome.deliver_now
   end
 end

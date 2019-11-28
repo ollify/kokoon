@@ -35,4 +35,6 @@ gem 'carrierwave', '~> 1.2'
 gem 'cloudinary', '~> 1.9.1'
 gem 'geocoder'
 gem 'pundit'
+gem 'letter_opener', group: :development
+gem 'postmark-rails'
 
