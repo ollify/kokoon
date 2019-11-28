@@ -9,7 +9,7 @@
       <p><%= @flat.description %></p>
     </div>
 
-    <% if current_user.is_landlord? %>
+    <% if policy(@flat).edit? %>
       <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
         <%= render 'flats/landlord_show' %>
         <div class="tenant-details-footer">
