@@ -17,5 +17,21 @@ class Flat < ApplicationRecord
     self.rentals.where(pending: false)
   end
 
+  def tenants
+    accepted_rentals.map{|rental| User.find(rental.tenant_id)}
+  end
+
+  def tenants_names
+    accepted_rentals.map{|rental| User.find(rental.tenant_id).full_name}
+  end
+
+  def rental(user)
+    self.rentals.reverse.find {|rental| rental.tenant_id == user.id}
+  end
+
+  def tickets
+    self.rentals.map {|rental| rental.tickets}
+  end
+
 end
 
