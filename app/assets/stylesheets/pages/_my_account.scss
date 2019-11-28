@@ -179,17 +179,18 @@
 .myflat {
   width: 100%;
   margin-top: 30px;
+}
+#flat-title  {
+
+  font-size: 1em;
   a {
     color: black;
+    -webkit-transition: all .7s ease;
+
     &:hover {
       color: rgb(3, 198, 210);
-          -webkit-transition: all .7s ease;
-
     }
   }
-}
-#flat-title {
-  font-size: 1.2em;
 
 }
 .card-flat {
@@ -199,7 +200,6 @@
   overflow: hidden;
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 30px;
   height: 200px;
   img {
     height: 100%;
