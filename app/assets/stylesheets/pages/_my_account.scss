@@ -227,12 +227,12 @@
 }
 
 .card-user.ticket {
- background-color: rgb(3, 198, 210);
-height: 100px;
-width: 100%;
-display: flex;
-align-items: center;
-justify-content: space-between;
+  background-color: rgb(3, 198, 210);
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card-user.ticket img:first-child {
@@ -269,6 +269,15 @@ justify-content: space-between;
   width: 45%;
   height: 60%;
   border-right: 1px solid rgb(2, 96, 100);
+
+  a {
+    color: white;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: white;
+  }
 
   h1 {
     color: black;

@@ -1,0 +1,13 @@
+<% @flat.tickets.each do |ticket| %>
+  <div class="card-user ticket">
+    <img src=<%= asset_path("rand-bg.jpg")%>>
+    <div class="ticket-info">
+      <h1><%= link_to(ticket.title, flat_rental_ticket_path(@flat, ticket.rental,ticket)) %></h1>
+      <h3>priority <strong><%= ticket.priority %> out of 10</strong></h3>
+    </div>
+    <div class="ticket-date">
+      <h4><strong><%= ticket.created_at.strftime("%d/%m/%Y") %></strong></h4>
+    </div>
+  </div>
+</div>
+<% end %>

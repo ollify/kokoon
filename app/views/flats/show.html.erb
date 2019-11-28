@@ -13,25 +13,25 @@
       <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
         <%= render 'flats/landlord_show' %>
         <div class="tenant-details-footer">
-          <p> <%= link_to("＋ Add a new tenant", new_flat_rental_path(@flat)) %> </p>
+          <p> <%= link_to("＋ Add a new tenant", new_flat_rental_path(@flat), class: "btn-add") %> </p>
         </div>
       </div>
     <% end %>
 
-    <% if current_user.is_tenant? %>
-        <%= render 'flats/tenant_show' %>
-      </div>
-    <% end %>
+    <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
+      <% unless @flat.tickets.empty? %>
+        <h3 style="margin-bottom: 30px;">Tickets</h3>
+        <%= render 'shared/flat_ticket_feed' %>
+      <% end %>
+    </div>
 
+      <% if current_user.is_tenant? %>
+        <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
+            <%= render 'flats/tenant_show' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
-<% unless @flat.tickets.empty? %>
-  <h3>Tickets</h3>
-  <% @flat.tickets.each do |ticket| %>
-    <p>
-      <%= link_to(ticket.title, flat_rental_ticket_path(@flat, ticket.rental,ticket)) %>
-      with priority of <%= ticket.priority %> out of 10
-    </p>
-  <% end %>
-  <% end %>
+
