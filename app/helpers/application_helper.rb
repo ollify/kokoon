@@ -10,7 +10,7 @@ module ApplicationHelper
 
   def avatar(user)
     if user.avatar.file.nil?
-      image_path("logo.png")
+      image_path("user2.png")
     else
       user.avatar.url
     end

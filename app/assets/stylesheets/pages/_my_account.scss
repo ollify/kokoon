@@ -12,6 +12,9 @@
   background-color:#f5f5f5;
   width: 350px;
   padding: 30px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   border-right: 1px solid rgba(209, 209, 209, .5);
   position: sticky;
   top: 0;
@@ -42,12 +45,19 @@
 }
 
 .account-aside h1 {
-  font-size: 2em;
+  font-size: 1.5em;
+  text-align: center;
+
+}
+
+.account-aside p {
+  font-size: 1.1em;
+  line-height: 1.6;
+
 }
 
 .account-aside h1, .account-aside p {
-  width: 250px;
-  margin: 30px auto;
+  margin: 30px auto 0;
 
 }
 
@@ -56,7 +66,6 @@
   background-color: #f02669;
   border: none;
   display: block;
-  margin: 50px auto;
   width: 150px;
   padding: 10px;
   border-radius: 150px;
