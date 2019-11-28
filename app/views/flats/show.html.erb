@@ -19,12 +19,13 @@
   <%= render 'flats/tenant_show' %>
 <% end %>
 
-<% unless @flat.tickets.sum.empty? %>
+<% unless @flat.tickets.empty? %>
   <% @flat.tickets.each do |ticket| %>
-    <%= ticket.name %> with priority of <%= ticket.priority %>
+    <%= link_to(ticket.title, flat_rental_ticket_path(@flat, @flat.rental(current_user),ticket)) %>
+    with priority of <%= ticket.priority %> out of 10
   <% end %>
 <% end %>
 
-<p>
+<h3>
   <%= link_to("Add a ticket", new_flat_rental_ticket_path(@flat, @flat.rental(current_user))) %>
-</p>
+</h3>

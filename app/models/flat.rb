@@ -29,9 +29,5 @@ class Flat < ApplicationRecord
     self.rentals.reverse.find {|rental| rental.tenant_id == user.id}
   end
 
-  def tickets
-    self.rentals.map {|rental| rental.tickets}
-  end
-
 end
 
