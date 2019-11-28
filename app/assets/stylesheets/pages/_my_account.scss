@@ -179,9 +179,18 @@
 .myflat {
   width: 100%;
   margin-top: 30px;
+  a {
+    color: black;
+    &:hover {
+      color: rgb(3, 198, 210);
+          -webkit-transition: all .7s ease;
+
+    }
+  }
 }
 #flat-title {
   font-size: 1.2em;
+
 }
 .card-flat {
   position: relative;
