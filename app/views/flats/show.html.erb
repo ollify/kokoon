@@ -18,7 +18,7 @@
       </div>
     <% end %>
 
-    <% if if current_user.is_tenant? %>
+    <% if current_user.is_tenant? %>
         <%= render 'flats/tenant_show' %>
       </div>
     <% end %>
@@ -34,4 +34,4 @@
       with priority of <%= ticket.priority %> out of 10
     </p>
   <% end %>
-<% end %>
+  <% end %>
