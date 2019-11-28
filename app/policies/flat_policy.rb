@@ -1,6 +1,6 @@
 class FlatPolicy < ApplicationPolicy
   def show?
-    record.user == user || record.accepted_rentals.include?(user.id)
+    record.user == user || record.accepted_rentals.map{|rental| rental.tenant_id}.include?(user.id)
   end
 
   def update?
@@ -16,7 +16,7 @@ class FlatPolicy < ApplicationPolicy
   # end
 
   def users_in_flat?
-    true
+    show?
   end
 
   class Scope < Scope
