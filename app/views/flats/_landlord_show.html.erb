@@ -11,15 +11,7 @@
 
 <% unless @flat.accepted_rentals.empty? %>
   <h3>Current tenants</h3>
-  <% @flat.accepted_rentals.each do |rental| %>
-    <p>
-      <%= rental.tenant.first_name %> <%= rental.tenant.last_name %> is renting this flat
-      from <%= rental.start_date %> to <%= rental.end_date %>
-      <%= link_to("Edit tenant", edit_flat_rental_path(@flat, rental)) %>
-      <%= link_to("Delete tenant", flat_rental_path(@flat, rental), method: :delete, data: {confirm: "Are you sure?"}) %>
-    </p>
-  <% end %>
+  <%= render 'shared/flat_tenant_feed' %>
 <% end %>
 
 
-<%= link_to("Add a new tenant to this flat", new_flat_rental_path(@flat)) %>
