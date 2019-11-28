@@ -2,19 +2,26 @@
 
   <%= render 'shared/sidebar' %>
 
-  <div class="flat-content-box">
+  <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
 
-    <h2>About this kokoon</h2>
+    <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
+      <h2>About this kokoon</h2>
+      <p><%= @flat.description %></p>
+    </div>
 
-    <p class="description"> <%= @flat.description %></p>
+    <% if is_landlord?(current_user) %>
+      <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
+        <%= render 'flats/landlord_show' %>
+        <div class="tenant-details-footer">
+          <p> <%= link_to("＋ Add a new tenant", new_flat_rental_path(@flat)) %> </p>
+        </div>
+      </div>
+    <% end %>
+
+    <% if is_tenant?(current_user) %>
+        <%= render 'flats/tenant_show' %>
+      </div>
+    <% end %>
 
   </div>
 </div>
-
-<% if is_landlord?(current_user) %>
-  <%= render 'flats/landlord_show' %>
-<% end %>
-
-<% if is_tenant?(current_user) %>
-  <%= render 'flats/tenant_show' %>
-<% end %>
