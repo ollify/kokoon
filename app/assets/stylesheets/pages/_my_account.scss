@@ -42,14 +42,26 @@
   margin-left: 10px;
 }
 
-.account-aside img {
+.image-aside img {
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+height: 100%;
+width: auto;
+text-align: center;
+position: relative;
+}
+
+.image-aside {
+  position: relative;
   border-radius: 50%;
   width: 150px;
   height: 150px;
-   margin: 0 auto;
-   display: block;
-    border: 1px solid rgba(209, 209, 209, .5)
+  overflow: hidden;
+  border: 1px solid rgba(209, 209, 209, .5)
+
 }
+
 
 .account-aside h1 {
   font-size: 1.5em;
@@ -121,11 +133,17 @@
   flex-direction: column;
   align-items: center;
   p {
+    color: rgb(3, 198, 210);
     font-size: 1.1em;
     text-align: center;
     max-width: 600px;
     line-height: 1.2;
     display: inline-block;
+  }
+  img {
+    margin-bottom: 20px;
+    width: 80px;
+    height: 80px;
   }
 }
 
