@@ -11,20 +11,14 @@ class UserMailer < ApplicationMailer
   end
 
   def welcome
-    @user = params[:user] # Instance variable => available in view
-    mail(to: @user.email, subject: 'Welcome to Kokoon!')
-    # This will render a view in `app/views/user_mailer`!
+    # @user = params[:user] # Instance variable => available in view
+    # mail(to: @user.email, subject: 'Welcome to Kokoon!')
+    # # This will render a view in `app/views/user_mailer`!
 
 
-    @greeting = "Welcome to your new Kokoon!"
+    # @greeting = "Welcome to your new Kokoon!"
 
-    mail to: "sj34606@gmail.com"
-
-    :subject => 'Welcome',
-    :to  => 'admin@kokoon.space',
-    :from => 'sender@example.org',
-    :html_body => '<strong>Hello</strong> dear Postmark user.',
-    :track_opens => 'true')
+    # mail to: "sj34606@gmail.com"
   end
 
   def hello
