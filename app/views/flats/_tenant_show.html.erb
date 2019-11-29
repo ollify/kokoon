@@ -12,7 +12,7 @@
   </p>
   <% if policy(@flat).new_ticket? %>
     <p>
-      <%= link_to("Add a ticket", new_flat_rental_ticket_path(@flat, rental)) %>
+      <%= button_to("Create ticket", new_flat_rental_ticket_path(@flat, rental), method: 'get', class: "btn-secondary") %>
     </p>
   <% end %>
 <% end %>
