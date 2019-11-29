@@ -7,7 +7,7 @@
 
     <div class="col-lg-10 col-md-10 col-sm-10">
       <div class="tenant-details">
-        <h4><%= rental.tenant.first_name %> <%= rental.tenant.last_name %></h4>
+        <h4><%= rental.tenant.full_name %></h4>
         <div class="attributes"><strong>Contact tenant:</strong> &nbsp; <a href="mailto:<%= rental.tenant.email %>"><%= rental.tenant.email %></a></div>
       </div>
 
