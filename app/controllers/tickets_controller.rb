@@ -65,7 +65,7 @@ class TicketsController < ApplicationController
       elsif subscriber == @flat.user
         ["Your landlord #{subscriber.first_name}", subscriber.id]
       else
-        [subscriber.full_name, subscriber_id]
+        [subscriber.full_name, subscriber.id]
       end
     end
   end
