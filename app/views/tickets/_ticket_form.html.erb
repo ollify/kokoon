@@ -12,10 +12,13 @@
   <%= f.input :priority, collection: (1..10), include_blank: false %>
   <%= f.input :photo %>
   <%= f.input :status, collection: @ticket.available_status, include_blank: false, selected: 'new'  %>
+  <h5>Subscribers</h5>
   <%= f.simple_fields_for :subscriptions do |s| %>
     <% @i += 1 %>
-    <%= s.label "#{@subscribers[@i-1].first}" %>
-    <%= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
+    <p>
+      <%= s.label "#{@subscribers[@i-1].first}" %>
+      <%= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
+    </p>
   <% end %>
   <%= f.submit class: 'btn btn-primary mb-2' %>
 <% end %>
