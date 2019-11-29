@@ -1,6 +1,14 @@
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+   color: white
+}
+
+
+
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #333333;
+  color: white;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -19,3 +27,37 @@
 p {
   line-height: 1;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: white;
+  margin-right: 25px;
+  text-transform: uppercase;
+  font-weight: lighter;
+  -webkit-font-smoothing: antialiased;
+  -webkit-transition: all .7s ease;
+  letter-spacing: .1em;
+  font-size: .95em;
+    &:hover {
+      color: rgb(3, 198, 210);
+    }
+     &:active {
+      color: white;
+    }
+}
+
+
+.navbar-light .navbar-toggler {
+  border-color: transparent;
+   &:active {
+      border: none;
+      outline: none;
+    }
+}
+
+
+button:focus {
+    outline: none
+   }
+
+
+
