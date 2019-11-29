@@ -16,7 +16,8 @@
   <%= f.simple_fields_for :subscriptions do |s| %>
     <% @i += 1 %>
     <p>
-      <%= s.label "#{@subscribers[@i-1].first}" %>
+      <%= @subscribers[@i-1].first %>
+      <%# raise %>
       <%= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
     </p>
   <% end %>

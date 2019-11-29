@@ -13,6 +13,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.rental = @rental
+    raise
     if @ticket.save
       redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
@@ -58,7 +59,15 @@ class TicketsController < ApplicationController
   def create_subscribers
     set_rental_and_flat
     @i = 0
-    @subscribers = @flat.tenants_and_landlord.map {|subscriber| [subscriber.full_name, subscriber.id]}
+    @subscribers = @flat.tenants_and_landlord.map do |subscriber|
+      if subscriber == current_user
+        ["You", subscriber.id]
+      elsif subscriber == @flat.user
+        ["Your landlord #{subscriber.first_name}", subscriber.id]
+      else
+        [subscriber.full_name, subscriber_id]
+      end
+    end
   end
 
 end

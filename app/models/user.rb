@@ -13,7 +13,7 @@ class User < ApplicationRecord
   after_create :send_welcome_email
 
   def full_name
-    "#{self.first_name} #{self.last_name}"
+    "#{self.first_name} #{self.last_name.capitalize}"
   end
 
   def is_landlord?
