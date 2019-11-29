@@ -22,7 +22,19 @@
         <p><strong>Room: </strong><%= @ticket.room %> </p>
         <p><strong>Status: </strong><%= @ticket.status %> </p>
         <p><strong>Priority: </strong><%= @ticket.priority %> </p>
+        <% if @ticket.subscriptions.empty? == false %>
+          <div class="listeners">
+          <h4>Listeners</h4>
+          <% @ticket.subscriptions.each do |u| %>
+            <div class="listener-cards">
+              <% user = User.find(u.user_id) %>
+              <%= image_tag avatar(user) %>
+              <%= user.full_name %>
+            </div>
+          <% end %>
+        <% end %>
         <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
+        </div>
       </div>
     </div>
 
