@@ -3,17 +3,34 @@
   <%= render 'shared/sidebar' %>
 
   <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
+    <div class="row d-flex justify-content-between">
 
-    <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
-      <h2>About this kokoon</h2>
-      <p><%= @flat.description %></p>
+      <div class="col-lg-7 col-md-7 col-sm-12 flat-show-box">
+        <h2>About this kokoon</h2>
+        <p><%= @flat.description %></p>
+      </div>
+
+      <% if current_user.is_tenant? %>
+        <div class="col-lg-4 col-md-4 col-sm-12 flat-show-box">
+            <%= render 'flats/tenant_show' %>
+        </div>
+      <% end %>
+
+      <% if policy(@flat).edit? %>
+        <div class="col-lg-4 col-md-4 col-sm-12 flat-show-box">
+            <h4>Your flat</h4>
+              <i class="fas fa-plus-circle"></i><%= link_to("Add tenants", new_flat_rental_path(@flat.id), target: '_blank') %></br>
+              <i class="fas fa-edit"></i><%= link_to("Edit flat", edit_flat_path(@flat), target: '_blank') %>
+        </div>
+      <% end %>
+
     </div>
 
     <% if policy(@flat).edit? %>
       <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
         <%= render 'flats/landlord_show' %>
         <div class="tenant-details-footer">
-          <p> <%= link_to("＋ Add a new tenant", new_flat_rental_path(@flat), class: "btn-add") %> </p>
+          <p> <%= button_to("＋ Add a new tenant", new_flat_rental_path(@flat), method: 'get', class: 'btn-secondar') %> </p>
         </div>
       </div>
     <% end %>
@@ -25,11 +42,7 @@
       <% end %>
     </div>
 
-      <% if current_user.is_tenant? %>
-        <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
-            <%= render 'flats/tenant_show' %>
-        </div>
-      <% end %>
+
     </div>
   </div>
 </div>
