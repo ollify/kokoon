@@ -21,6 +21,10 @@ class Flat < ApplicationRecord
     accepted_rentals.map{|rental| User.find(rental.tenant_id)}
   end
 
+  def tenants_and_landlord
+    tenants + [self.user]
+  end
+
   def tenants_names
     accepted_rentals.map{|rental| User.find(rental.tenant_id).full_name}
   end

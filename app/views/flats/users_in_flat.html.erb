@@ -8,6 +8,8 @@
       <h3>Landlord</h3>
       <%= image_tag avatar(@flat.user), class: "avatar-large" %>
       <p><%= @flat.user.full_name %></p>
+      <p><%= @flat.user.email %></p>
+      <p><%= @flat.user.phone_number %></p>
     </div>
 
     <% unless @flat.accepted_rentals.empty? %>

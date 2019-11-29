@@ -5,12 +5,15 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     @ticket.rental = @rental
+    @ticket.subscriptions.build
+    create_subscribers
     authorize @ticket
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.rental = @rental
+    @ticket.save
     if @ticket.save
       redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
@@ -45,11 +48,17 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:category, :title, :location, :content, :priority, :photo, :status, :subscriptions)
+    params.require(:ticket).permit(:category, :title, :location, :content, :priority, :photo, :status, subscriptions_attributes: :user_id)
   end
 
   def set_ticket
     @ticket = Ticket.find(params[:id])
     # authorize @ticket -> later
   end
+
+  def create_subscribers
+    set_rental_and_flat
+    @subscribers = @flat.tenants_and_landlord.map {|subscriber| [subscriber.full_name, subscriber.id]}
+  end
+
 end
