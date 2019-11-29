@@ -19,6 +19,12 @@ class UserMailer < ApplicationMailer
     @greeting = "Welcome to your new Kokoon!"
 
     mail to: "sj34606@gmail.com"
+
+    :subject => 'Welcome',
+    :to  => 'admin@kokoon.space',
+    :from => 'sender@example.org',
+    :html_body => '<strong>Hello</strong> dear Postmark user.',
+    :track_opens => 'true')
   end
 
   def hello
