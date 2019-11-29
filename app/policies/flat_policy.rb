@@ -15,6 +15,10 @@ class FlatPolicy < ApplicationPolicy
     show?
   end
 
+  def tickets_of_flat?
+    show?
+  end
+
   def new_ticket?
     user.rented_flats.include?(record)
   end
