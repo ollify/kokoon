@@ -1,9 +1,33 @@
-<p> <%= @ticket.title %> </p>
-<p> <%= @ticket.category %> </p>
-<p> <%= @ticket.room %> </p>
-<p> <%= @ticket.content %> </p>
-<p> <%= @ticket.priority %> </p>
-<p> <%= @ticket.status %> </p>
-<%= image_tag img(@ticket) %>
+<div class="row flat-row">
 
-<p> <%= link_to("Go back", flat_path(@flat)) %> </p>
+  <%= render 'shared/sidebar' %>
+
+  <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
+
+    <div class="col-lg-12 col-md-12 col-sm-12 ticket-header-img">
+      <%= image_tag img(@ticket) %>
+    </div>
+
+    <div class="row d-flex justify-content-between">
+
+      <div class="col-lg-7 col-md-8 col-sm-12 ticket-show-box">
+        <h3><%= @ticket.title %></h3>
+        <p> <%= @ticket.content %> </p>
+      </div>
+
+
+      <div class="col-lg-4 col-md-2 col-sm-12 ticket-show-box">
+        <h3>About this ticket</h3>
+        <p><strong>Category: </strong><%= @ticket.category %> </p>
+        <p><strong>Room: </strong><%= @ticket.room %> </p>
+        <p><strong>Status: </strong><%= @ticket.status %> </p>
+        <p><strong>Priority: </strong><%= @ticket.priority %> </p>
+        <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>

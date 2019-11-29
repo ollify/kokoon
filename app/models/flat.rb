@@ -18,7 +18,7 @@ class Flat < ApplicationRecord
   end
 
   def tenants
-    accepted_rentals.map{|rental| User.find(rental.tenant_id)}
+    accepted_rentals.map{|rental| User.find(rental.tenant_id)}.uniq
   end
 
   def tenants_and_landlord
