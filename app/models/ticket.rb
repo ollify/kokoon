@@ -4,7 +4,7 @@ class Ticket < ApplicationRecord
   has_many :comments, dependent: :destroy
   validates :category, :title, :content, presence: true
   mount_uploader :photo, PhotoUploader
-  accepts_nested_attributes_for :subscriptions
+  accepts_nested_attributes_for :subscriptions, reject_if: proc { |attributes| attributes[:user_id] == "" }
 
   def available_categories
     %w(incident event guest)

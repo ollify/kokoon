@@ -3,6 +3,9 @@ class PagesController < ApplicationController
   include ApplicationHelper
 
   def home
+    if user_signed_in?
+      redirect_to my_account_path
+    end
   end
 
   def my_account
