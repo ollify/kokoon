@@ -28,6 +28,18 @@
   border-radius: 10px;
   margin-bottom: 10px;
   width: 100%;
+
+  a {
+    color: $kokoon;
+    &:hover {
+      opacity: 0.8;
+      text-decoration: none;
+    }
+  }
+
+  img {
+    width: 100%;
+  }
 }
 
 .tenant-details-footer {

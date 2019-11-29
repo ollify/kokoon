@@ -6,10 +6,13 @@
 
     <div class="sidebar-public">
       <ul>
-        <li><i class="fas fa-couch"></i> <%= link_to("About this kokoon", flat_path) %></li>
-        <li><i class="fas fa-users"></i> <%= link_to("People in this kokoon", users_in_flat_path) %></li>
-        <li><i class="fas fa-ticket-alt"></i> <%= link_to("Tickets", tickets_of_flat_path) %></li>
-        <li><i class="fas fa-plus-circle"></i> <%= link_to("Add a new ticket") %></li>
+        <li><i class="fas fa-couch"></i> <%= link_to("About this kokoon", flat_path(@flat)) %></li>
+        <li><i class="fas fa-users"></i> <%= link_to("People in this kokoon", users_in_flat_path(@flat)) %></li>
+        <li><i class="fas fa-ticket-alt"></i> <%= link_to("Tickets", tickets_of_flat_path(@flat)) %></li>
+        <% if current_user.is_landlord? == false %>
+          <li><i class="fas fa-plus-circle"></i> <%= link_to("Add new ticket", new_flat_rental_ticket_path(@flat.id, current_user.accepted_rentals.last.id), target: '_blank') %></li>
+        <% end %>
+
       </ul>
     </div>
 
@@ -18,8 +21,8 @@
     <div class="sidebar-admin">
       <h4 class="sidebar-subheading"><i class="fas fa-lock"></i> Admin Area</h4>
       <ul>
-        <li><i class="fas fa-plus-circle"></i><%= link_to("Add tenants", new_flat_rental_path(@flat.id)) %></li>
-        <li><i class="fas fa-edit"></i><%= link_to("Edit flat", edit_flat_path) %></li>
+        <li><i class="fas fa-plus-circle"></i><%= link_to("Add tenants", new_flat_rental_path(@flat.id), target: '_blank') %></li>
+        <li><i class="fas fa-edit"></i><%= link_to("Edit flat", edit_flat_path(@flat), target: '_blank') %></li>
       </ul>
     </div>
     <% end %>
