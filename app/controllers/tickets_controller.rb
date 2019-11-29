@@ -13,7 +13,6 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.rental = @rental
-    raise
     if @ticket.save
       redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
