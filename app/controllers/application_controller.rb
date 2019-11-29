@@ -26,4 +26,11 @@ class ApplicationController < ActionController::Base
   def skip_pundit?
     devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
+
+  protected
+
+  def after_sign_in_path_for(user)
+    my_account_path
+  end
+
 end
