@@ -5,7 +5,11 @@
   <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
 
     <div class="col-lg-12 col-md-12 col-sm-12 ticket-header-img">
-      <%= image_tag img(@ticket) %>
+      <% if @ticket.photo.file.nil? %>
+        <%= image_tag image_path('sticky.jpg') %>
+      <% else %>
+        <%= image_tag img(@ticket) %>
+      <% end %>
     </div>
 
     <div class="row d-flex justify-content-between">

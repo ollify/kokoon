@@ -8,7 +8,7 @@
 
 <% @accepted_rentals.each do |rental| %>
   <p>
-    You are renting this flat from <%= rental.start_date %> to <%= rental.end_date %>
+    You are renting this flat from <%= rental.start_date %> to <%= rental.end_date %> and you're paying <%= rental.price %>€ for it.
   </p>
   <% if policy(@flat).new_ticket? %>
     <p>
