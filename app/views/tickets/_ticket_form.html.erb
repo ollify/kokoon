@@ -1,8 +1,14 @@
 <%= simple_form_for [@flat, @rental, @ticket] do |f| %>
-  <%= f.input :title %>
+  <%= f.input :title,
+              label: false,
+              placeholder: "Title" %>
   <%= f.input :category, collection: @ticket.available_categories %>
-  <%= f.input :room %>
-  <%= f.input :content %>
+  <%= f.input :room,
+              label: false,
+              placeholder: "Room" %>
+  <%= f.input :content,
+              label: false,
+              placeholder: "Content"  %>
   <%= f.input :priority, collection: (1..10), include_blank: false %>
   <%= f.input :photo %>
   <%= f.simple_fields_for :subscriptions do |ff| %>
@@ -12,4 +18,4 @@
   <%= f.submit class: 'btn btn-primary mb-2' %>
 <% end %>
 
-<%= link_to("Go back", flat_path(@flat)) %>
+<%= link_to("← Back", flat_path(@flat)) %>
