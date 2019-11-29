@@ -1,12 +1,12 @@
 class TicketsController < ApplicationController
   before_action :set_rental_and_flat
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :create_subscribers, only: [:new, :create, :edit, :update]
 
   def new
     @ticket = Ticket.new
     @ticket.rental = @rental
-    @ticket.subscriptions.build
-    create_subscribers
+    @subscribers.count.times {@ticket.subscriptions.build}
     authorize @ticket
   end
 
@@ -58,6 +58,7 @@ class TicketsController < ApplicationController
 
   def create_subscribers
     set_rental_and_flat
+    @i = 0
     @subscribers = @flat.tenants_and_landlord.map {|subscriber| [subscriber.full_name, subscriber.id]}
   end
 
