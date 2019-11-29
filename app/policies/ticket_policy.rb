@@ -13,6 +13,14 @@ class TicketPolicy < FlatPolicy
     # record.subscriptions.include?(user.id)
   end
 
+  def edit?
+    record.user == user
+  end
+
+  def update?
+    edit?
+  end
+
   class Scope < Scope
     def resolve
       scope.all
