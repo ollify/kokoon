@@ -6,6 +6,7 @@ function refreshForm(innerHTML) {
 function addComment(commentHTML) {
   const comments = document.getElementById('comments');
   comments.insertAdjacentHTML('beforeend', commentHTML);
+  comments.firstElementChild.innerText = '<%= pluralize @ticket.comments.size, "comment" %>';
 }
 
 

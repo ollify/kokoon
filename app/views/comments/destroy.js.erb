@@ -1,0 +1,7 @@
+document.querySelector("[data-comment-id='<%= @comment.id %>']").remove();
+<% if @ticket.comments.blank? %>
+  document.getElementById('comments').firstElementChild.innerText = '';
+<% else %>
+  document.getElementById('comments').firstElementChild.innerText = '<%= pluralize @ticket.comments.size, "comment" %>';
+<% end %>
+
