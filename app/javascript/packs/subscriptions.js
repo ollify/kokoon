@@ -17,15 +17,3 @@ clickableAvatars.forEach((avatar) => {
     }
   });
 });
-
-
-// const disabledAvatars = document.querySelectorAll(".unclickable")
-// disabledAvatars.forEach((avatar) => {
-//   avatar.addEventListener("click", (event) => {
-//   console.log(event.currentTarget);
-
-//   event.currentTarget.classList.remove("unclickable");
-//   event.currentTarget.classList.add("clickable");
-//   });
-// });
-
