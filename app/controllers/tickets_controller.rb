@@ -13,6 +13,7 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.rental = @rental
+    raise
     if @ticket.save
       redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
@@ -43,7 +44,7 @@ class TicketsController < ApplicationController
   def set_rental_and_flat
     @rental = Rental.find(params[:rental_id])
     @flat = Flat.find(params[:flat_id])
-    authorize @flat
+    # authorize @flat
   end
 
   def ticket_params

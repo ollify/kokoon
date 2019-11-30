@@ -14,7 +14,7 @@ class TicketPolicy < FlatPolicy
   end
 
   def edit?
-    record.user == user
+    record.rental.tenant_id == user.id
   end
 
   def update?
