@@ -15,6 +15,7 @@ class TicketsController < ApplicationController
     @ticket.rental = @rental
     if @ticket.save
       Subscription.create(user_id: current_user.id, ticket_id: @ticket.id)
+      authorize @flat
       redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
       render 'new'
@@ -44,7 +45,6 @@ class TicketsController < ApplicationController
   def set_rental_and_flat
     @rental = Rental.find(params[:rental_id])
     @flat = Flat.find(params[:flat_id])
-    authorize @flat
   end
 
   def ticket_params
