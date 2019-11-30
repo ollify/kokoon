@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     get 'rentals/:id/accept', to: 'rentals#join_flat'
     post 'rentals/:id/accept', to: 'rentals#accept_rental', as: 'accept_rental'
     resources :rentals, except: [:index, :show] do
-      resources :tickets
+      resources :tickets do
+        resources :comments
+      end
     end
   end
 

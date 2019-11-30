@@ -44,6 +44,12 @@
 
   </div>
 
-
-
 </div>
+
+<%= render 'comments/comment_form' %>
+
+<% @ticket.comments.each do |comment| %>
+  <p>
+    <%= comment.content %> by <%= comment.user.full_name %>
+  </p>
+<% end %>
