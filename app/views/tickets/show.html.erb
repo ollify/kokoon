@@ -29,11 +29,10 @@
         <% if @ticket.subscriptions.empty? == false %>
           <div class="listeners">
           <h4>Listeners</h4>
-          <% @ticket.subscriptions.each do |u| %>
+          <% @ticket.subscriptions.each do |sub| %>
             <div class="listener-cards">
-              <% user = User.find(u.user_id) %>
-              <%= image_tag avatar(user) %>
-              <%= user.full_name %>
+              <%= image_tag avatar(sub.user) %>
+              <%= sub.user.full_name %>
             </div>
           <% end %>
         <% end %>
@@ -46,11 +45,17 @@
 
 </div>
 
-<%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>
-<div id="comments">
-<% @ticket.comments.order(created_at: :desc).each do |comment| %>
-  <p>
-    <%= render 'comments/show', comment: comment %>
-  </p>
+
+<% unless @ticket.comments.blank? %>
+  <h3> <%= pluralize @ticket.comments.size, "comment" %> </h3>
 <% end %>
+
+<div id="comments">
+  <% @ticket.comments.each do |comment| %>
+    <p>
+      <%= render 'comments/show', comment: comment %>
+    </p>
+  <% end %>
 </div>
+
+<%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>

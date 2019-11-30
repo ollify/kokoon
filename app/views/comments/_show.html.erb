@@ -1,1 +1,4 @@
-<p><%= comment.content %> by <%= comment.user.full_name %></p>
+<div class="listener-cards">
+  <%= image_tag avatar(comment.user) %>
+  <%= comment.content %> by <%= comment.user.full_name %>
+</div>
