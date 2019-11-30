@@ -6,15 +6,15 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     @ticket.rental = @rental
-    @subscribers.count.times {@ticket.subscriptions.build}
+    @subscribers.count.times { @ticket.subscriptions.build }
     authorize @ticket
   end
 
   def create
     @ticket = Ticket.new(ticket_params)
     @ticket.rental = @rental
-    raise
     if @ticket.save
+      Subscription.create(user_id: current_user.id, ticket_id: @ticket.id)
       redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
       render 'new'
@@ -44,7 +44,7 @@ class TicketsController < ApplicationController
   def set_rental_and_flat
     @rental = Rental.find(params[:rental_id])
     @flat = Flat.find(params[:flat_id])
-    # authorize @flat
+    authorize @flat
   end
 
   def ticket_params
@@ -61,9 +61,9 @@ class TicketsController < ApplicationController
     @i = 0
     @subscribers = @flat.tenants_and_landlord.map do |subscriber|
       if subscriber == current_user
-        ["You", subscriber.id]
+        ["", ""]
       elsif subscriber == @flat.user
-        ["Your landlord #{subscriber.first_name}", subscriber.id]
+        ["Your landlord #{subscriber.full_name}", subscriber.id]
       else
         [subscriber.full_name, subscriber.id]
       end

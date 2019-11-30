@@ -22,3 +22,12 @@
   border: white 1px solid;
   object-fit: cover;
 }
+
+.clickable {
+  opacity: 50%;
+}
+
+.selected {
+  opacity: 100%;
+  border: 2px solid;
+}
