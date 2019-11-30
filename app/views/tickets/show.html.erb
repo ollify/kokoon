@@ -46,10 +46,11 @@
 
 </div>
 
-<%= render 'comments/comment_form' %>
-
-<% @ticket.comments.each do |comment| %>
+<%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>
+<div id="comments">
+<% @ticket.comments.order(created_at: :desc).each do |comment| %>
   <p>
-    <%= comment.content %> by <%= comment.user.full_name %>
+    <%= render 'comments/show', comment: comment %>
   </p>
 <% end %>
+</div>

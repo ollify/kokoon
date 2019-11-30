@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     post 'rentals/:id/accept', to: 'rentals#accept_rental', as: 'accept_rental'
     resources :rentals, except: [:index, :show] do
       resources :tickets do
-        resources :comments
+        resources :comments, only: [:create, :edit, :destroy]
       end
     end
   end

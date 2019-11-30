@@ -1,0 +1,17 @@
+function refreshForm(innerHTML) {
+  const newCommentForm = document.getElementById('new_comment');
+  newCommentForm.innerHTML = innerHTML;
+}
+
+function addComment(commentHTML) {
+  const comments = document.getElementById('comments');
+  comments.insertAdjacentHTML('afterbegin', commentHTML);
+}
+
+addComment('<%= j render "comments/show", comment: @comment %>');
+refreshForm('<%= j render "comments/comment_form", flat: @ticket.rental.flat, rental: @ticket.rental, ticket: @ticket, comment: Comment.new %>');
+
+
+
+
+

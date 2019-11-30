@@ -6,7 +6,17 @@ class CommentsController < ApplicationController
     @comment.ticket = @ticket
     @comment.user = current_user
     authorize @comment
-    @comment.save
+    if @comment.save
+      respond_to do |format|
+      #format.html { redirect_to flat_rental_ticket_path(@ticket.rental.flat, @ticket.rental, @ticket) }
+      format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
+    else
+      respond_to do |format|
+        format.html { render 'tickets/show' }
+        format.js
+      end
+    end
   end
 
   private
