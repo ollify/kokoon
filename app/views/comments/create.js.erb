@@ -5,7 +5,7 @@ function refreshForm(innerHTML) {
 
 function addComment(commentHTML) {
   const comments = document.getElementById('comments');
-  comments.insertAdjacentHTML('afterbegin', commentHTML);
+  comments.insertAdjacentHTML('beforeend', commentHTML);
 }
 
 

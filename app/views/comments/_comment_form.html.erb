@@ -1,5 +1,4 @@
 <%= simple_form_for([flat, rental, ticket, comment], remote: true) do |f| %>
-  <%= f.input :content,
-              placeholder: "Place your comment here" %>
+  <%= f.input :content, placeholder: "Your comment goes here", label: "Your comment" %>
   <div class="button-box"><%= f.submit class: 'btn-primary' %></div>
 <% end %>
