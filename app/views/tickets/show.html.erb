@@ -45,17 +45,13 @@
 
 </div>
 
-
+<div id="comments">
 <% unless @ticket.comments.blank? %>
   <h3> <%= pluralize @ticket.comments.size, "comment" %> </h3>
-<% end %>
-
-<div id="comments">
   <% @ticket.comments.each do |comment| %>
-    <p>
-      <%= render 'comments/show', comment: comment %>
-    </p>
+  <%= render 'comments/show', comment: comment %>
   <% end %>
+<% end %>
 </div>
 
 <%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>

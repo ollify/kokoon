@@ -1,4 +1,6 @@
-<div class="listener-cards">
+
+<div class="listener-cards" data-comment-id="<%= comment.id %>">
   <%= image_tag avatar(comment.user) %>
   <%= comment.content %> by <%= comment.user.full_name %>
+  <%= link_to "Delete", flat_rental_ticket_comment_path(@ticket.rental.flat, @ticket.rental, @ticket, comment), method: :delete, remote: true %>
 </div>
