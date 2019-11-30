@@ -8,8 +8,8 @@ class CommentsController < ApplicationController
     authorize @comment
     if @comment.save
       respond_to do |format|
-      #format.html { redirect_to flat_rental_ticket_path(@ticket.rental.flat, @ticket.rental, @ticket) }
-      format.js  # <-- will render `app/views/reviews/create.js.erb`
+        format.html { redirect_to flat_rental_ticket_path(@ticket.rental.flat, @ticket.rental, @ticket) }
+        format.js # <-- will render `app/views/reviews/create.js.erb`
       end
     else
       respond_to do |format|
