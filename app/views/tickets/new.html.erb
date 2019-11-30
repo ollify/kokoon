@@ -1,6 +1,38 @@
 <div class="forms">
   <div class="form-box">
     <h2 id="form-title">Add a new ticket</h2>
-    <%= render 'tickets/ticket_form' %>
+    <%= simple_form_for [@flat, @rental, @ticket] do |f| %>
+      <%= f.input :title,
+                  label: false,
+                  placeholder: "Title" %>
+      <%= f.input :category, collection: @ticket.available_categories %>
+      <%= f.input :room,
+                  label: false,
+                  placeholder: "Room" %>
+      <%= f.input :content,
+                  label: false,
+                  placeholder: "Content"  %>
+      <%= f.input :priority, collection: (1..10), include_blank: false %>
+      <%= f.input :photo %>
+      <%= f.input :status, collection: @ticket.available_status, include_blank: false, selected: 'new'  %>
+      <h5>Subscribers</h5>
+      <%= f.simple_fields_for :subscriptions do |s| %>
+        <% @i += 1 %>
+        <% unless @subscribers[@i-1].last.blank? %>
+          <%= image_tag avatar(User.find(@subscribers[@i-1].last)), class: "avatar-large clickable", 'data-user' => "#{@subscribers[@i-1].last}", 'data-subscription' => "#{@i-1}" %>
+          <%= s.input :user_id, as: :hidden %>
+          <p>
+            <%= @subscribers[@i-1].first %>
+            <%#= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
+          </p>
+        <% end %>
+      <% end %>
+      <%= f.submit class: 'btn btn-primary mb-2' %>
+    <% end %>
+
+    <%= link_to("← Back", flat_path(@flat)) %>
   </div>
 </div>
+
+
+<%= javascript_pack_tag 'subscriptions' %>
