@@ -15,13 +15,19 @@
   <h5>Subscribers</h5>
   <%= f.simple_fields_for :subscriptions do |s| %>
     <% @i += 1 %>
-    <p>
-      <%= @subscribers[@i-1].first %>
-      <%# raise %>
-      <%= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
-    </p>
+    <% unless @subscribers[@i-1].last.blank? %>
+      <%= image_tag avatar(User.find(@subscribers[@i-1].last)), class: "avatar-large clickable", 'data-user' => "#{@subscribers[@i-1].last}", 'data-subscription' => "#{@i-1}" %>
+      <%= s.input :user_id, as: :hidden %>
+      <p>
+        <%= @subscribers[@i-1].first %>
+        <%#= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
+      </p>
+    <% end %>
   <% end %>
   <%= f.submit class: 'btn btn-primary mb-2' %>
 <% end %>
 
 <%= link_to("← Back", flat_path(@flat)) %>
+
+
+<%= javascript_pack_tag 'subscriptions' %>

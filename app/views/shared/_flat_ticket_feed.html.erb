@@ -8,6 +8,7 @@
       </div>
       <div class="ticket-date">
         <h4><strong><%= ticket.created_at.strftime("%d/%m/%Y") %></strong></h4>
+        <h4><strong><%= link_to("Edit ticket", edit_flat_rental_ticket_path(@flat, ticket.rental, ticket)) %></strong></h4>
       </div>
     </div>
   <% end %>
