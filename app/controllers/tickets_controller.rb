@@ -6,7 +6,7 @@ class TicketsController < ApplicationController
   def new
     @ticket = Ticket.new
     @ticket.rental = @rental
-    @subscribers.count.times { @ticket.subscriptions.build }
+    @ticket.potential_subscribers.count.times { @ticket.subscriptions.build }
     authorize @ticket
   end
 
@@ -57,18 +57,18 @@ class TicketsController < ApplicationController
     authorize @ticket
   end
 
-  def create_subscribers
-    set_rental_and_flat
-    @i = 0
-    @subscribers = @flat.tenants_and_landlord.map do |subscriber|
-      if subscriber == current_user
-        ["", ""]
-      elsif subscriber == @flat.user
-        ["Your landlord #{subscriber.full_name}", subscriber.id]
-      else
-        [subscriber.full_name, subscriber.id]
-      end
-    end
-  end
+  # def create_subscribers
+  #   set_rental_and_flat
+  #   @i = 0
+  #   @subscribers = @flat.tenants_and_landlord.map do |subscriber|
+  #     if subscriber == current_user
+  #       ["", ""]
+  #     elsif subscriber == @flat.user
+  #       ["Your landlord #{subscriber.full_name}", subscriber.id]
+  #     else
+  #       [subscriber.full_name, subscriber.id]
+  #     end
+  #   end
+  # end
 
 end

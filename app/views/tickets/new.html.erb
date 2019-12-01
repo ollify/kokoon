@@ -16,8 +16,9 @@
       <%= f.input :photo %>
       <%= f.input :status, collection: @ticket.available_status, include_blank: false, selected: 'new'  %>
       <h5>Subscribers</h5>
+      <% i = 0 %>
       <%= f.simple_fields_for :subscriptions do |s| %>
-        <% @i += 1 %>
+        <% i += 1 %>
         <% unless @subscribers[@i-1].last.blank? %>
           <%= image_tag avatar(User.find(@subscribers[@i-1].last)), class: "avatar-large clickable", 'data-user' => "#{@subscribers[@i-1].last}", 'data-subscription' => "#{@i-1}" %>
           <%= s.input :user_id, as: :hidden %>

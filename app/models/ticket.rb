@@ -14,4 +14,12 @@ class Ticket < ApplicationRecord
     %w(new pending fixed)
   end
 
+  def potential_subscribers
+    self.rental.flat.tenants_and_landlord.uniq - [current_user]
+  end
+
+  def subscribers
+    self.subscriptions.map {|sub| sub.user }
+  end
+
 end
