@@ -1,4 +1,5 @@
 Rails.application.configure do
+  config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { host: "http://kokoon.space" }
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -66,9 +67,6 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.delivery_method     = :postmark
-  config.action_mailer.postmark_settings   = { api_token: ENV['POSTMARK_API_TOKEN'] }
-  config.action_mailer.default_url_options = { host: "kokoon.space" }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
