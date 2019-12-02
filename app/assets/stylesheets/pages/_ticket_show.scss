@@ -21,7 +21,6 @@
 
 
 .ticket-header-img {
-  margin-bottom: 50px;
   padding: 0px;
   img {
     width: 100%;
@@ -44,6 +43,12 @@
     width: 50px;
     object-fit: cover;
   }
+}
+
+.ticket-author {
+  margin-bottom: 30px;
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.5);
 }
 
 #comments{
