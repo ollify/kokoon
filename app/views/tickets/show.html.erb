@@ -26,18 +26,21 @@
             <p> <%= @ticket.content %> </p>
           </div>
         </div>
-
+      
         <div id="comments">
-        <% unless @ticket.comments.blank? %>
-          <h3> <%= pluralize @ticket.comments.size, "comment" %> </h3>
-          <% @ticket.comments.each do |comment| %>
-          <%= render 'comments/show', comment: comment %>
+          <% if @ticket.comments.blank? %>
+            <h3></h3>
+          <% else %>
+            <h3> <%= pluralize @ticket.comments.size, "comment" %> </h3>
           <% end %>
-        <% end %>
-        </div>
+          <% @ticket.comments.each do |comment| %>
+            <%= render 'comments/show', comment: comment %>
+          <% end %>
 
-        <%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>
+          </div>
 
+          <%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>
+        
       </div>
 
       <div class="col-lg-4 col-md-2 col-sm-12 ticket-show-box">
@@ -71,6 +74,7 @@
           <% end %>
         <% end %>
         <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
+        <p> <%= button_to("Edit ticket", edit_flat_rental_ticket_path(@flat, @rental, @ticket), method: 'get', class: 'btn-secondary') %> </p>
         </div>
       </div>
     </div>
@@ -78,3 +82,4 @@
   </div>
 
 </div>
+
