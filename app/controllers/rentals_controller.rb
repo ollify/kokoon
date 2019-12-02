@@ -2,6 +2,7 @@ class RentalsController < ApplicationController
   before_action :set_flat
   before_action :set_rental, only: [:join_flat, :accept_rental, :edit, :update, :destroy]
 
+
   def new
     @rental = Rental.new
     @rental.flat = @flat
@@ -13,6 +14,7 @@ class RentalsController < ApplicationController
     @rental.flat = @flat
     authorize @flat
     if @rental.save
+      UserMailer.with(rental: @rental).invitation.deliver_now
       redirect_to flat_path(@flat)
     else
       render 'new'
@@ -38,6 +40,7 @@ class RentalsController < ApplicationController
     @rental.tenant_id = current_user.id
     if @rental.save
       redirect_to flat_path(@flat)
+      UserMailer.welcome.deliver_now
     else
       render 'rental/join_flat'
     end
