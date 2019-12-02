@@ -11,9 +11,9 @@ class UserMailer < ApplicationMailer
    # landlord enters tenant email in add tenant to flat form
    # tenent receives initation email to platform with link to signup page
   @user = params[:user]
-  mail(to: @user.email, subject: 'Welcome to Kokoon!')
+  mail(to: @user.email, subject: 'Please accept your new rental invitation!')
 
-  mail to: "sj34606@gmail.com"
+  # mail to: "sj34606@gmail.com"
 
   end
 
@@ -25,17 +25,17 @@ class UserMailer < ApplicationMailer
 
     @greeting = "Welcome to your new Kokoon!"
 
-    mail to: "sj34606@gmail.com"
+    # mail to: "sj34606@gmail.com"
   end
 
-  def hello
-    @user = params[:user]
-    mail(
-      :subject => 'Hello from Sendgrid',
-      :to  => 'admin@kokoon.space',
-      :html_body => '<strong>Hello</strong> dear Postmark user.',
-      :track_opens => 'true')
-  end
+  # def hello
+  #   @user = params[:user]
+  #   mail(
+  #     :subject => 'Hello from Sendgrid',
+  #     :to  => 'admin@kokoon.space',
+  #     :html_body => '<strong>Hello</strong> dear Postmark user.',
+  #     :track_opens => 'true')
+  # end
 
 end
 
