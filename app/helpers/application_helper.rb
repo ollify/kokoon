@@ -19,4 +19,12 @@ module ApplicationHelper
   def rental_user(rental)
     @rental_user = User.find(rental.tenant_id)
   end
+
+  def ticket_img(ticket)
+    if ticket.photo.file.nil?
+      return image_path('default-cover.jpg')
+    else
+      return cl_image_path ticket.photo
+    end
+  end
 end

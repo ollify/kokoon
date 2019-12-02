@@ -1,12 +1,13 @@
 <% @flat.tickets.each do |ticket| %>
   <% if ticket.subscriptions.map{|sub| sub.user}.include?(current_user) %>
     <div class="card-user ticket">
-      <img src=<%= asset_path("rand-bg.jpg")%>>
+      <%= image_tag ticket_img(ticket) %>
       <div class="ticket-info">
         <h1><%= link_to(ticket.title, flat_rental_ticket_path(@flat, ticket.rental,ticket)) %></h1>
-        <h3>priority <strong><%= ticket.priority %> out of 10</strong></h3>
+        <p>by <%= rental_user(ticket.rental).full_name %></p>
       </div>
       <div class="ticket-date">
+        <h4>priority <strong><%= ticket.priority %> out of 10</strong></h4>
         <h4><strong><%= ticket.created_at.strftime("%d/%m/%Y") %></strong></h4>
         <h4><strong><%= link_to("Edit ticket", edit_flat_rental_ticket_path(@flat, ticket.rental, ticket)) %></strong></h4>
       </div>
