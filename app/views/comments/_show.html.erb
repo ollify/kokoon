@@ -1,6 +1,16 @@
 
 <div class="listener-cards" data-comment-id="<%= comment.id %>">
-  <%= image_tag avatar(comment.user) %>
-  <%= comment.content %> by <%= comment.user.full_name %>
-  <%= link_to "Delete", flat_rental_ticket_comment_path(@ticket.rental.flat, @ticket.rental, @ticket, comment), method: :delete, remote: true %>
+  <div class="row">
+    <div class="col-lg-2 col-md-2 col-sm-2">
+      <%= image_tag avatar(comment.user) %>
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-10">
+      <%= comment.content %>
+      <div class="comment-details">
+        posted on <%= comment.created_at.strftime("%d/%m/%Y") %>  at <%= comment.created_at.strftime("%H:%M") %> by <%= comment.user.full_name %>
+        <p><%= link_to "🗑 Delete comment", flat_rental_ticket_comment_path(@ticket.rental.flat, @ticket.rental, @ticket, comment), method: :delete, remote: true, confirm: "Are you sure you want to delete the
+                    article?" %></p>
+      </div>
+  </div>
+</div>
 </div>
