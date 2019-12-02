@@ -24,7 +24,7 @@
                      autofocus: true,
                      label: false,
                      placeholder: "Email",
-                     input_html: { autocomplete: "email" }%>
+                     input_html: { autocomplete: "email", value: params[:email] }%>
          <%= f.input :password,
                      required: true,
                      label: false,
