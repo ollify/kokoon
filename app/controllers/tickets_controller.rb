@@ -15,6 +15,7 @@ class TicketsController < ApplicationController
     authorize @ticket
     if @ticket.save
       Subscription.create(user_id: current_user.id, ticket_id: @ticket.id)
+      Send.deliver
       redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
       render 'new'
