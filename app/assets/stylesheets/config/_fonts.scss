@@ -1,19 +1,26 @@
-// Import Google fonts
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
-@import url("https://fonts.googleapis.com/css?family=Comfortaa:300,400,500,600,700&display=swap");
+$body-font: "Mark Pro", "Helvetica", "sans-serif";
+$headers-font: "Mark Pro", "Helvetica", "sans-serif";
 
-// Define fonts for body and headers
-$body-font: "Helvetica", "Helvetica", "sans-serif";
-$headers-font: "Comfortaa", "Helvetica", "sans-serif";
+@font-face {
+  font-family: "Mark Pro";
+  src: font-url('fonts/MarkPro-Light.otf');
+  font-weight: lighter;
+}
 
+@font-face {
+  font-family: "Mark Pro";
+  src: font-url('fonts/MarkPro-Book.otf');
+  font-weight: normal;
+}
 
+@font-face {
+  font-family: "Mark Pro";
+  src: font-url('fonts/MarkPro-Bold.otf');
+  font-weight: bold;
+}
 
-// To use a font file (.woff) uncomment following lines
-// @font-face {
-//   font-family: "Font Name";
-//   src: font-url('FontFile.eot');
-//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
-//        font-url('FontFile.woff') format('woff'),
-//        font-url('FontFile.ttf') format('truetype')
-// }
-// $my-font: "Font Name";
+@font-face {
+  font-family: "Mark Pro";
+  src: font-url('fonts/MarkPro-Heavy.otf');
+  font-weight: bolder;
+}

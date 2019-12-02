@@ -10,26 +10,39 @@
 
 .account-aside {
   background-color:#f5f5f5;
-  width: 350px;
-  padding: 30px 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-right: 1px solid rgba(209, 209, 209, .5);
+  width: 300px;
+  padding: 70px 25px;
   position: sticky;
   top: 0;
-  height: 100vh;
+  left: 0;
+  height: calc(100vh);
+  .button-box {
+    position: absolute;
+    top: 70vh;
+    left: 50%;
+    transform: translateX(-50%)
+  }
 }
 
-.account-aside #description {
-  font-size: .9em;
-  line-height: 1;
 
-  margin: 40px 40px 20px ;
+
+
+.account-aside a {
+  content: "←";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: black;
+  &:hover {
+    color: #03eeff;
+  }
 }
+
 
 .account-main {
-  width: calc(100% - 350px);
+  width: calc(100% - 300px);
   padding: 30px 60px;
    @media screen and (max-width: 1060px) {
     padding: 30px 40px;
@@ -52,6 +65,8 @@ object-fit: cover;
 .image-aside {
   border-radius: 50%;
   width: 150px;
+  display: block;
+  margin: 0 auto;
   height: 150px;
   overflow: hidden;
   border: 1px solid rgba(209, 209, 209, .5)
@@ -64,13 +79,13 @@ object-fit: cover;
   text-align: center;
 }
 
-.account-aside p {
-  font-size: 1.1em;
-  line-height: 1.6;
-
+.account-aside h5 {
+  font-weight: lighter;
+  width: 200px;
+  font-size: .9em;
+  line-height: 1.4;
 }
-
-.account-aside h1, .account-aside p {
+.account-aside h1, .account-aside h5 {
   margin: 30px auto 0;
 
 }
@@ -115,6 +130,8 @@ object-fit: cover;
   #btn-add {
     margin-top: 40px;
   }
+
+
 }
 
 
@@ -379,7 +396,3 @@ object-fit: cover;
 }
 
 
-.button-box {
-  display: flex;
-  justify-content: center;
-}
