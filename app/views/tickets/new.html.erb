@@ -21,6 +21,9 @@
         <% if subscriber == current_user %>
           <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large selected" %>
           <p> You </p>
+        <% elsif subscriber == @flat.user %>
+          <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
+          <p> Your landlord <%= subscriber.full_name %> </p>
         <% else %>
           <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
           <p> <%= subscriber.full_name %> </p>

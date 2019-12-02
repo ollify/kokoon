@@ -23,13 +23,21 @@
         <input type="hidden"></input>
         <%= image_tag avatar(subscriber), class: "avatar-large clickable selected subscriber", 'data-subscription' => "#{@ticket.subscriptions.find{|subscription| subscription.user == subscriber}.id}" %>
         <input type="hidden"></input>
-        <p> <%= subscriber.full_name %> </p>
+        <% if subscriber == @flat.user %>
+          <p> Your landlord <%= subscriber.full_name %> </p>
+        <% else %>
+          <p> <%= subscriber.full_name %> </p>
+        <% end %>
       <% end %>
 
       <% (@ticket.potential_subscribers - @ticket.subscribers - [current_user]).each_with_index do |subscriber, i| %>
         <input type="hidden"> </input>
         <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
-        <p> <%= subscriber.full_name %> </p>
+        <% if subscriber == @flat.user %>
+          <p> Your landlord <%= subscriber.full_name %> </p>
+        <% else %>
+          <p> <%= subscriber.full_name %> </p>
+        <% end %>
       <% end %>
       <%= f.submit class: 'btn btn-primary mb-2' %>
     <% end %>
