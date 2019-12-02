@@ -1,6 +1,41 @@
 <div class="forms">
   <div class="form-box">
     <h2 id="form-title">Add a new ticket</h2>
-    <%= render 'tickets/ticket_form' %>
+    <%= simple_form_for [@flat, @rental, @ticket] do |f| %>
+      <%= f.input :title,
+                  label: false,
+                  placeholder: "Title" %>
+      <%= f.input :category, collection: @ticket.available_categories %>
+      <%= f.input :room,
+                  label: false,
+                  placeholder: "Room" %>
+      <%= f.input :content,
+                  label: false,
+                  placeholder: "Content"  %>
+      <%= f.input :priority, collection: (1..10), include_blank: false %>
+      <%= f.input :photo %>
+      <%= f.input :status, collection: @ticket.available_status, include_blank: false, selected: 'new'  %>
+      <h5>Subscribers</h5>
+      <% @ticket.potential_subscribers.each_with_index do |subscriber, i| %>
+        <input type="hidden"></input>
+        <% if subscriber == current_user %>
+          <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large selected" %>
+          <p> You </p>
+        <% else %>
+          <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
+          <p> <%= subscriber.full_name %> </p>
+        <% end %>
+      <% i += 1 %>
+      <% end %>
+      <%= f.submit class: 'btn btn-primary mb-2' %>
+    <% end %>
+
+    <%= link_to("← Back", flat_path(@flat)) %>
   </div>
 </div>
+
+
+<%= javascript_pack_tag 'new_subscriptions' %>
+
+
+<%#= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>

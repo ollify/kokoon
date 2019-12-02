@@ -37,6 +37,7 @@
           <% end %>
         <% end %>
         <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
+        <p> <%= button_to("Edit ticket", edit_flat_rental_ticket_path(@flat, @rental, @ticket), method: 'get', class: 'btn-secondary') %> </p>
         </div>
       </div>
     </div>
@@ -46,12 +47,15 @@
 </div>
 
 <div id="comments">
-<% unless @ticket.comments.blank? %>
+<% if @ticket.comments.blank? %>
+  <h3></h3>
+<% else %>
   <h3> <%= pluralize @ticket.comments.size, "comment" %> </h3>
-  <% @ticket.comments.each do |comment| %>
-  <%= render 'comments/show', comment: comment %>
-  <% end %>
 <% end %>
+<% @ticket.comments.each do |comment| %>
+  <%= render 'comments/show', comment: comment %>
+<% end %>
+
 </div>
 
 <%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>
