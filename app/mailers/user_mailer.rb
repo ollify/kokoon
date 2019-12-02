@@ -7,29 +7,35 @@ class UserMailer < ApplicationMailer
   #
   def invitation
     # TODO
+   # landlord selects tenant for rental
+   # landlord enters tenant email in add tenant to flat form
+   # tenent receives initation email to platform with link to signup page
+  @user = params[:user]
+  mail(to: @user.email, subject: 'Welcome to Kokoon!')
+
+  mail to: "sj34606@gmail.com"
 
   end
 
   def welcome
-    # @user = params[:user] # Instance variable => available in view
-    # mail(to: @user.email, subject: 'Welcome to Kokoon!')
+    @user = params[:user] # Instance variable => available in view
+    mail(to: @user.email, subject: 'Welcome to Kokoon!')
     # # This will render a view in `app/views/user_mailer`!
 
 
-    # @greeting = "Welcome to your new Kokoon!"
+    @greeting = "Welcome to your new Kokoon!"
 
-    # mail to: "sj34606@gmail.com"
+    mail to: "sj34606@gmail.com"
   end
 
   def hello
+    @user = params[:user]
     mail(
-      :subject => 'Hello from Postmark',
+      :subject => 'Hello from Sendgrid',
       :to  => 'admin@kokoon.space',
-      :from => 'sender@example.org',
       :html_body => '<strong>Hello</strong> dear Postmark user.',
       :track_opens => 'true')
   end
 
 end
 
-UserMailer.with(user: User.first).welcome

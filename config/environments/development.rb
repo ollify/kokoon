@@ -1,6 +1,6 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://localhost:3000" }
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default_url_options = { host: "http://kokoon.space" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
