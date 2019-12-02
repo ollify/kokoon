@@ -1,6 +1,6 @@
 <div class="forms">
   <div class="form-box">
-    <h2 id="form-title">Edit ticket "<%= @ticket.title %>"</h2>
+    <h2 id="form-title">Add a new ticket</h2>
     <%= simple_form_for [@flat, @rental, @ticket] do |f| %>
       <%= f.input :title,
                   label: false,
@@ -13,20 +13,34 @@
                   label: false,
                   placeholder: "Content"  %>
       <%= f.input :priority, collection: (1..10), include_blank: false %>
-      <%= f.input :photo %>
+      <%= f.input :photo, as: :hidden %>
       <%= f.input :status, collection: @ticket.available_status, include_blank: false, selected: 'new'  %>
       <h5>Subscribers</h5>
-        <% @ticket.subscriptions.each do |sub|  %>
-          <%= image_tag avatar(sub.user), class: "avatar-large selected", 'data-user' => "#{sub.user.id}", 'data-subscription' => "#{sub.id}" %>
-          <p>
-            <%= sub.user.full_name %>
-            <%#= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
-          </p>
-        <% end %>
+      <!-- to do -->
       <%= f.submit class: 'btn btn-primary mb-2' %>
     <% end %>
     <%= link_to("← Back", flat_path(@flat)) %>
   </div>
 </div>
 
-<%#= javascript_pack_tag 'subscriptions' %>
+
+<%= javascript_pack_tag 'edit_subscriptions' %>
+
+<% i = 0 %>
+<%= f.simple_fields_for :subscriptions do |s| %>
+  <input type="hidden"> </input>
+  <% if @ticket.potential_subscribers[i] == current_user %>
+    <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large selected", 'data-user' => "#{@ticket.potential_subscribers[i].id}", 'data-subscription' => "#{i}" %>
+    <p> You </p>
+  <% elsif @ticket.subscribers.include?(@ticket.potential_subscribers[i]) %>
+    <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large clickable selected", 'data-user' => "#{@ticket.potential_subscribers[i].id}", 'data-subscription' => "#{i}" %>
+    <p> <%= @ticket.potential_subscribers[i].full_name %> </p>
+  <% else %>
+    <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large clickable", 'data-user' => "#{@ticket.potential_subscribers[i].id}", 'data-subscription' => "#{i}" %>
+    <p> <%= @ticket.potential_subscribers[i].full_name %> </p>
+  <% end %>
+<% i += 1 %>
+<% end %>
+
+
+<%#= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>

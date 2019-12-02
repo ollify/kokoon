@@ -1,7 +1,6 @@
 class TicketsController < ApplicationController
   before_action :set_rental_and_flat
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
-  before_action :create_subscribers, only: [:new, :create, :edit, :update]
 
   def new
     @ticket = Ticket.new
@@ -16,7 +15,7 @@ class TicketsController < ApplicationController
     authorize @ticket
     if @ticket.save
       Subscription.create(user_id: current_user.id, ticket_id: @ticket.id)
-      redirect_to flat_path(@flat)
+      redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
       render 'new'
     end
@@ -30,6 +29,7 @@ class TicketsController < ApplicationController
   end
 
   def update
+    raise
     if @ticket.update(ticket_params)
       redirect_to flat_path(@flat)
     else
@@ -56,19 +56,4 @@ class TicketsController < ApplicationController
     @ticket = Ticket.find(params[:id])
     authorize @ticket
   end
-
-  # def create_subscribers
-  #   set_rental_and_flat
-  #   @i = 0
-  #   @subscribers = @flat.tenants_and_landlord.map do |subscriber|
-  #     if subscriber == current_user
-  #       ["", ""]
-  #     elsif subscriber == @flat.user
-  #       ["Your landlord #{subscriber.full_name}", subscriber.id]
-  #     else
-  #       [subscriber.full_name, subscriber.id]
-  #     end
-  #   end
-  # end
-
 end

@@ -18,15 +18,15 @@
       <h5>Subscribers</h5>
       <% i = 0 %>
       <%= f.simple_fields_for :subscriptions do |s| %>
-        <% i += 1 %>
-        <% unless @subscribers[@i-1].last.blank? %>
-          <%= image_tag avatar(User.find(@subscribers[@i-1].last)), class: "avatar-large clickable", 'data-user' => "#{@subscribers[@i-1].last}", 'data-subscription' => "#{@i-1}" %>
-          <%= s.input :user_id, as: :hidden %>
-          <p>
-            <%= @subscribers[@i-1].first %>
-            <%#= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
-          </p>
+        <%= s.input :user_id, as: :hidden %>
+        <% if @ticket.potential_subscribers[i] == current_user %>
+          <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large selected", 'data-user' => "#{@ticket.potential_subscribers[i].id}", 'data-subscription' => "#{i}" %>
+          <p> You </p>
+        <% else %>
+          <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large clickable", 'data-user' => "#{@ticket.potential_subscribers[i].id}", 'data-subscription' => "#{i}" %>
+          <p> <%= @ticket.potential_subscribers[i].full_name %> </p>
         <% end %>
+      <% i += 1 %>
       <% end %>
       <%= f.submit class: 'btn btn-primary mb-2' %>
     <% end %>
@@ -36,4 +36,7 @@
 </div>
 
 
-<%= javascript_pack_tag 'subscriptions' %>
+<%= javascript_pack_tag 'new_subscriptions' %>
+
+
+<%#= s.collection_radio_buttons :user_id, [[@subscribers[@i-1].last, 'Yes'], ["", 'No']], :first, :last  %>
