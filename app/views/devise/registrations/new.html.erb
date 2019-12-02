@@ -2,7 +2,6 @@
 
   <div class="form-box">
     <h2 style="margin-bottom: 50px; text-align: center">Sign up</h2>
-
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= f.error_notification %>
 
@@ -24,7 +23,11 @@
                      autofocus: true,
                      label: false,
                      placeholder: "Email",
+<<<<<<< HEAD
                      input_html: { autocomplete: "email", value: params[:email] }%>
+=======
+                     input_html: { value: params[:email] }%>
+>>>>>>> d0a1906de1f0293e94f9a8b55ffc0b757f237132
          <%= f.input :password,
                      required: true,
                      label: false,
