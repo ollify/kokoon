@@ -16,15 +16,14 @@
       <%= f.input :photo %>
       <%= f.input :status, collection: @ticket.available_status, include_blank: false, selected: 'new'  %>
       <h5>Subscribers</h5>
-      <% i = 0 %>
-      <%= f.simple_fields_for :subscriptions do |s| %>
-        <%= s.input :user_id, as: :hidden %>
-        <% if @ticket.potential_subscribers[i] == current_user %>
-          <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large selected", 'data-user' => "#{@ticket.potential_subscribers[i].id}", 'data-subscription' => "#{i}" %>
+      <% @ticket.potential_subscribers.each_with_index do |subscriber, i| %>
+        <input type="hidden"></input>
+        <% if subscriber == current_user %>
+          <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large selected" %>
           <p> You </p>
         <% else %>
-          <%= image_tag avatar(@ticket.potential_subscribers[i]), class: "avatar-large clickable", 'data-user' => "#{@ticket.potential_subscribers[i].id}", 'data-subscription' => "#{i}" %>
-          <p> <%= @ticket.potential_subscribers[i].full_name %> </p>
+          <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
+          <p> <%= subscriber.full_name %> </p>
         <% end %>
       <% i += 1 %>
       <% end %>

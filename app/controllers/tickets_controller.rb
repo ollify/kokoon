@@ -29,9 +29,8 @@ class TicketsController < ApplicationController
   end
 
   def update
-    raise
     if @ticket.update(ticket_params)
-      redirect_to flat_path(@flat)
+      redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
       render 'edit'
     end
@@ -49,7 +48,7 @@ class TicketsController < ApplicationController
   end
 
   def ticket_params
-    params.require(:ticket).permit(:category, :title, :location, :content, :priority, :photo, :status, subscriptions_attributes: :user_id)
+    params.require(:ticket).permit(:category, :title, :location, :content, :priority, :photo, :status, subscriptions_attributes: [:id, :user_id, :_destroy])
   end
 
   def set_ticket

@@ -37,6 +37,7 @@
           <% end %>
         <% end %>
         <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
+        <p> <%= button_to("Edit ticket", edit_flat_rental_ticket_path(@flat, @rental, @ticket), method: 'get', class: 'btn-secondary') %> </p>
         </div>
       </div>
     </div>

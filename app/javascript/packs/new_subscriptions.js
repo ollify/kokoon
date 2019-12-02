@@ -22,7 +22,7 @@ clickableAvatars.forEach((avatar) => {
 const avatars = document.querySelectorAll(".avatar-large");
 
 avatars.forEach((avatar) => {
-  avatar.addEventListener("clickjn", (event) => {
+  avatar.addEventListener("click", (event) => {
     if (!event.currentTarget.classList.contains("clickable")) {
       document.querySelector("body").insertAdjacentHTML('afterbegin',
         `<div class="alert alert-info alert-dismissible fade show" role="alert">
