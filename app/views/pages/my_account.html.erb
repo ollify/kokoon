@@ -1,16 +1,12 @@
 <div class="account-container">
 
   <div class="account-aside">
+    <a href="#" id="toggle-aside">←</a>
 
      <div class="image-aside"> <%= image_tag avatar(current_user) %> </div>
-
     <h1> Welcome, <%= current_user.first_name %>!</h1>
-
-    <p><strong>First name:</strong>  <i><%= current_user.first_name %></i><br>
-      <strong>Last name:</strong> <i><%= current_user.last_name %></i><br>
-      <strong>Phone number:</strong>  <i><%= current_user.phone_number %></i><br>
-      <strong>Email:</strong>  <i><%= current_user.email %></i></p>
-      <p id="description"><%= current_user.description %></p>
+    <h5>📍 Lisbon<br>
+    👤 Member since 2019</h5>
       <div class="button-box">
         <%= button_to("Edit profile info", edit_user_registration_path, method: :get, class: "btn-secondary") %>
       </div>
@@ -51,6 +47,8 @@
 
   </div>
 
-  </div>
 
+  </div>
+  <script src="js/libs/jquery-3.3.1.min.js"></script>
+  <script src="../app/assets/javascripts/main.js"></script>
 
