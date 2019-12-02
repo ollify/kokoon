@@ -1,4 +1,3 @@
-    <h2 id="form-title">Add a new ticket</h2>
     <%= simple_form_for [flat, rental, ticket] do |f| %>
       <%= f.input :title,
                   label: false,
@@ -14,18 +13,24 @@
       <%= f.input :photo %>
       <%= f.input :status, collection: ticket.available_status, include_blank: false, selected: 'new'  %>
       <h5>Subscribers</h5>
-      <% flat.tenants_and_landlord.uniq.each_with_index do |subscriber, i| %>
-        <input type="hidden"></input>
-        <% if subscriber == current_user %>
-          <%= image_tag avatar(flat.tenants_and_landlord.uniq[i]), class: "avatar-large selected" %>
-          <p> You </p>
-        <% else %>
-          <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
-          <p> <%= subscriber.full_name %> </p>
+      <div class="row">
+        <% flat.tenants_and_landlord.uniq.each_with_index do |subscriber, i| %>
+          <input type="hidden"></input>
+            <div class="col-lg-4 col-md-4 col-sm-12 d-flex flex-column">
+            <% if subscriber == current_user %>
+              <%= image_tag avatar(flat.tenants_and_landlord.uniq[i]), class: "avatar-large selected align-self-center" %>
+              <p class="align-self-center" style="text-align: center; margin-top: 10px;"> You </p>
+            <% else %>
+              <%= image_tag avatar(subscriber), class: "avatar-large clickable align-self-center", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
+              <p class="align-self-center" style="text-align: center; margin-top: 10px;"> <%= subscriber.full_name %> </p>
+            <% end %>
+          <% i += 1 %>
+          </div>
         <% end %>
-      <% i += 1 %>
-      <% end %>
-      <%= f.submit class: 'btn btn-primary mb-2' %>
+      </div>
+      <div class="form-button-bottom">
+        <%= f.submit class: 'btn btn-secondary' %>
+      </div>
     <% end %>
 
 <%= javascript_pack_tag 'new_subscriptions' %>
