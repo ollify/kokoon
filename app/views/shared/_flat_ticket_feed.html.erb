@@ -14,3 +14,10 @@
     </div>
   <% end %>
 <% end %>
+
+<button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+  + Add a ticket
+</button>
+
+<%= render 'shared/modal_add_ticket' %>
+<%= javascript_pack_tag 'new_subscriptions' %>
