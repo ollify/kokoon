@@ -15,4 +15,8 @@ module ApplicationHelper
       user.avatar.url
     end
   end
+
+  def rental_user(rental)
+    @rental_user = User.find(rental.tenant_id)
+  end
 end

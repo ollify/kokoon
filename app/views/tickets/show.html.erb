@@ -4,24 +4,61 @@
 
   <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
 
-    <div class="col-lg-12 col-md-12 col-sm-12 ticket-header-img">
-      <% if @ticket.photo.file.nil? %>
-        <%= image_tag image_path('sticky.jpg') %>
-      <% else %>
-        <%= image_tag img(@ticket) %>
-      <% end %>
-    </div>
+    <div class="row d-flex justify-content-around align-items-start">
 
-    <div class="row d-flex justify-content-between">
+      <div class="col-lg-7 col-md-8 col-sm-12">
 
-      <div class="col-lg-7 col-md-8 col-sm-12 ticket-show-box">
-        <h3><%= @ticket.title %></h3>
-        <p> <%= @ticket.content %> </p>
+        <div class="ticket-show-box-main">
+          <div class="ticket-header-img">
+            <% if @ticket.photo.file.nil? %>
+              <%= image_tag image_path('sticky.jpg') %>
+            <% else %>
+              <%= image_tag img(@ticket) %>
+            <% end %>
+          </div>
+          <div class="ticket-description">
+            <div class="listener-cards ticket-author">
+              <%= image_tag avatar(rental_user(@rental)), style: "width: 40px; height: 40px; object-fit: cover;" %>
+              <%= rental_user(@rental).full_name %> on <%= @ticket.created_at.strftime("%d/%m/%Y") %> at <%= @ticket.created_at.strftime("%H:%M") %>
+            </div>
+
+            <h3><%= @ticket.title %></h3>
+            <p> <%= @ticket.content %> </p>
+          </div>
+        </div>
+      
+        <div id="comments">
+          <% if @ticket.comments.blank? %>
+            <h3></h3>
+          <% else %>
+            <h3> <%= pluralize @ticket.comments.size, "comment" %> </h3>
+          <% end %>
+          <% @ticket.comments.each do |comment| %>
+            <%= render 'comments/show', comment: comment %>
+          <% end %>
+
+          </div>
+
+          <%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>
+        
       </div>
 
-
       <div class="col-lg-4 col-md-2 col-sm-12 ticket-show-box">
-        <h3>About this ticket</h3>
+        <div class="ticket-owner-box">
+          <%= image_tag avatar(rental_user(@rental)), style: "width: 75px; height: 75px; object-fit: cover; margin-bottom: 20px;" %>
+          <p><strong><%= rental_user(@rental).full_name %></strong></p>
+          <p style="text-align:center; font-size: 12px;">created the ticket on <%= @ticket.created_at.strftime("%d/%m/%Y") %></p>
+          <div class="contact-action-bar">
+            <a href="mailto:<%= rental_user(@rental).email %>"><i class="far fa-envelope"></i></a>
+            <% unless rental_user(@rental).phone_number.nil? %>
+              <a href="tel:<%= rental_user(@rental).phone_number %>"><i class="fas fa-phone-volume"></i></i></a>
+            <% end %>
+          </div>
+
+          <p><%= rental_user(@rental).phone_number %></p>
+        </div>
+
+        <h4>Details</h4>
         <p><strong>Category: </strong><%= @ticket.category %> </p>
         <p><strong>Room: </strong><%= @ticket.room %> </p>
         <p><strong>Status: </strong><%= @ticket.status %> </p>
@@ -46,16 +83,3 @@
 
 </div>
 
-<div id="comments">
-<% if @ticket.comments.blank? %>
-  <h3></h3>
-<% else %>
-  <h3> <%= pluralize @ticket.comments.size, "comment" %> </h3>
-<% end %>
-<% @ticket.comments.each do |comment| %>
-  <%= render 'comments/show', comment: comment %>
-<% end %>
-
-</div>
-
-<%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>
