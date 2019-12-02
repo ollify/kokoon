@@ -1,0 +1,31 @@
+    <h2 id="form-title">Add a new ticket</h2>
+    <%= simple_form_for [flat, rental, ticket] do |f| %>
+      <%= f.input :title,
+                  label: false,
+                  placeholder: "Title" %>
+      <%= f.input :category, collection: ticket.available_categories %>
+      <%= f.input :room,
+                  label: false,
+                  placeholder: "Room" %>
+      <%= f.input :content,
+                  label: false,
+                  placeholder: "Content"  %>
+      <%= f.input :priority, collection: (1..10), include_blank: false %>
+      <%= f.input :photo %>
+      <%= f.input :status, collection: ticket.available_status, include_blank: false, selected: 'new'  %>
+      <h5>Subscribers</h5>
+      <% flat.tenants_and_landlord.uniq.each_with_index do |subscriber, i| %>
+        <input type="hidden"></input>
+        <% if subscriber == current_user %>
+          <%= image_tag avatar(flat.tenants_and_landlord.uniq[i]), class: "avatar-large selected" %>
+          <p> You </p>
+        <% else %>
+          <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
+          <p> <%= subscriber.full_name %> </p>
+        <% end %>
+      <% i += 1 %>
+      <% end %>
+      <%= f.submit class: 'btn btn-primary mb-2' %>
+    <% end %>
+
+<%= javascript_pack_tag 'new_subscriptions' %>

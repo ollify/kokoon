@@ -12,10 +12,12 @@
         <% if current_user.is_landlord? == false %>
           <li><i class="fas fa-plus-circle"></i> <%= link_to("Add new ticket", new_flat_rental_ticket_path(@flat.id, current_user.accepted_rentals.last.id), target: '_blank') %></li>
         <% end %>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          + Add a ticket
+        </button>
 
       </ul>
     </div>
-
 
     <% if policy(@flat).update? %>
     <div class="sidebar-admin">
@@ -26,5 +28,30 @@
       </ul>
     </div>
     <% end %>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <% if @rental.present? %>
+        <%= render 'shared/add_ticket_form', rental: @rental, flat: @flat, ticket: Ticket.new %>
+        <% else %>
+        <%= render 'shared/add_ticket_form', rental: current_user.accepted_rentals.last, flat: @flat, ticket: Ticket.new %>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
   </div>
 </div>
