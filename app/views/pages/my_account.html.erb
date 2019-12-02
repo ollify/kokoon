@@ -20,20 +20,17 @@
 
   <div class="account-main">
 
-   <% unless current_user.is_tenant? || current_user.is_landlord? || !@pending_invites.empty? %>
-      <div class="welcome-landlord">
-
+  <% unless current_user.is_tenant? || current_user.is_landlord? || !@pending_invites.empty? %>
+    <div class="welcome-landlord">
       <h2>Welcome to <strong>Kokoon</strong>.<br>Get started and add a flat. </h2>
-       <p id="btn-add"><%= link_to '+ Add flat', new_flat_path %> <p>
+      <p id="btn-add"><%= link_to '+ Add flat', new_flat_path %> <p>
       <h2><strong>You're a tenant?</strong><br> Do not hesitate to ask your tenant for an invitation link to join your flat.</h2>
-
-
-      </div>
+    </div>
   <% end %>
 
-    <% if current_user.is_landlord? %>
-      <%= render 'pages/landlord_properties' %>
-    <% end %>
+  <% if current_user.is_landlord? %>
+    <%= render 'pages/landlord_properties' %>
+  <% end %>
 
     <%#= csrf_meta_tags %>
     <% @pending_invites.each do |invite| %>
@@ -61,4 +58,4 @@
 
   </div>
 
-  </div>
+
