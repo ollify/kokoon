@@ -27,4 +27,19 @@ module ApplicationHelper
       return cl_image_path ticket.photo
     end
   end
+
+  def ticket_classes(ticket)
+    classes = ['card-user', 'ticket']
+
+    case ticket.priority
+    when 1..3
+      classes << 'low'
+    when 4..7
+      classes << 'mid'
+    when 8..10
+      classes << 'high'
+    end
+
+    classes.join(' ')
+  end
 end
