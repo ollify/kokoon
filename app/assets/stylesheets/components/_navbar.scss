@@ -65,3 +65,12 @@ button:focus {
   width: 40px;
 }
 
+.badge {
+  position: absolute;
+  right: 50px;
+  bottom: 10px;
+  z-index: 2;
+  height: 22px;
+  width: 22px;
+  font-size: 15px;
+}

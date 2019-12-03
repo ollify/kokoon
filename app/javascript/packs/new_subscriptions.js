@@ -35,3 +35,16 @@ avatars.forEach((avatar) => {
     };
   });
 });
+
+currentUserAvatar = document.querySelector("#navbarDropdown")
+
+ticketForm = document.querySelector("#new_ticket");
+ticketForm.addEventListener('submit', (event) => {
+  const selectedAvatars = event.currentTarget.querySelectorAll(".selected")
+  selectedAvatars.forEach((avatar) => {
+    if (avatar.dataset.user === currentUserAvatar.dataset.user)
+    {
+      document.querySelector("#notif").innerHTML = parseInt(document.querySelector("#notif").innerHTML) + 1
+    }
+  })
+});

@@ -1,3 +1,4 @@
+
 function refreshForm(innerHTML) {
   const newCommentForm = document.getElementById('new_comment');
   newCommentForm.innerHTML = innerHTML;
@@ -9,8 +10,6 @@ function addComment(commentHTML) {
   comments.firstElementChild.innerText = '<%= pluralize @ticket.comments.size, "comment" %>';
 }
 
-
-
 <% if @comment.errors.any? %>
 
   refreshForm('<%= j render "comments/comment_form", flat: @ticket.rental.flat, rental: @ticket.rental, ticket: @ticket, comment: @comment %>');
@@ -21,3 +20,6 @@ function addComment(commentHTML) {
   refreshForm('<%= j render "comments/comment_form", flat: @ticket.rental.flat, rental: @ticket.rental, ticket: @ticket, comment: Comment.new %>');
 
 <% end %>
+
+
+

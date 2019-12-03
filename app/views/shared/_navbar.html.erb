@@ -1,6 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to my_account_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+    <div>
+      <%= image_tag "logo.png", 'data-user' => "#{current_user.id}" %>
+      <span class="badge badge-danger" id="notif">4</span>
+    </div>
     <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
