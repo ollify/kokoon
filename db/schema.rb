@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_26_155011) do
+ActiveRecord::Schema.define(version: 2019_12_03_141806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2019_11_26_155011) do
 
   create_table "rentals", force: :cascade do |t|
     t.bigint "flat_id"
-    t.integer "price"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -48,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_11_26_155011) do
     t.integer "tenant_id"
     t.string "tenant_email"
     t.boolean "pending", default: true
+    t.integer "price_cents", default: 0, null: false
     t.index ["flat_id"], name: "index_rentals_on_flat_id"
   end
 

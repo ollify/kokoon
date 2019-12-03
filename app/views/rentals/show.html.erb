@@ -22,7 +22,7 @@
 The rental term will start on <strong><%= @rental.start_date %></strong> and end on <strong><%= @rental.end_date %></strong>.
 
 <li>Rent:</li>
-Renter agrees to pay <strong> € <%= @rental.price %></strong> per month in exchange for use of the House under the conditions of this House Rental Lease Agreement, payable as follows: <strong>on the 4th of each month at the latest</strong>.
+Renter agrees to pay <strong> <%= humanized_money_with_symbol(@rental.price) %></strong> per month in exchange for use of the House under the conditions of this House Rental Lease Agreement, payable as follows: <strong>on the 4th of each month at the latest</strong>.
 
 Payments will be made by <strong>wire transfer</strong> on account <strong>PT50 0002 0123 1234 5678 9015 4</strong> on or before the due date(s) set forth above.
 Late payments will result in a penalty amounting to 10% of the monthly rent; returned checks will result in immediate termination of this contract.
