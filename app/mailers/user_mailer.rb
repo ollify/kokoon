@@ -30,9 +30,9 @@ class UserMailer < ApplicationMailer
     # mail(to: email, subject: 'Welcome to Kokoon!')
     # # This will render a view in `app/views/user_mailer`!
     if Rails.env.production?
-        @url = "http://www.kokoon.space/users/my_account?email=#{@rental.tenant_email}"
+        @url = "http://www.kokoon.space/my_account?email=#{@rental.tenant_email}"
     else
-        @url = "http://localhost:3000/users/my_account?email=#{@rental.tenant_email}"
+        @url = "http://localhost:3000/my_account?email=#{@rental.tenant_email}"
     end
     # @greeting = "Welcome to your new Kokoon!"
     mail(to: email, subject: 'Welcome to Kokoon!')
