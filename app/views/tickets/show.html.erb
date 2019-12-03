@@ -26,7 +26,7 @@
             <p> <%= @ticket.content %> </p>
           </div>
         </div>
-      
+
         <div id="comments">
           <% if @ticket.comments.blank? %>
             <h3></h3>
@@ -40,7 +40,7 @@
           </div>
 
           <%= render 'comments/comment_form', flat: @flat, rental: @rental, ticket: @ticket, comment: @comment %>
-        
+
       </div>
 
       <div class="col-lg-4 col-md-2 col-sm-12 ticket-show-box">
@@ -74,7 +74,9 @@
           <% end %>
         <% end %>
         <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
+        <% if current_user == rental_user(@ticket.rental) %>
         <p> <%= button_to("Edit ticket", edit_flat_rental_ticket_path(@flat, @rental, @ticket), method: 'get', class: 'btn-secondary') %> </p>
+        <% end %>
         </div>
       </div>
     </div>

@@ -10,16 +10,18 @@ class UserMailer < ApplicationMailer
    # landlord selects tenant for rental
    # landlord enters tenant email in add tenant to flat form
    # tenent receives initation email to platform with link to signup page
-  @user = params[:user]
-  mail(to: @user.email, subject: 'Please accept your new rental invitation!')
+  @rental = params[:rental]
+  email = @rental.tenant_email
+  mail(to: email, subject: 'Please accept your new rental invitation!')
 
   # mail to: "sj34606@gmail.com"
 
   end
 
   def welcome
-    @user = params[:user] # Instance variable => available in view
-    mail(to: @user.email, subject: 'Welcome to Kokoon!')
+    @user = params[:user]
+    email = params[:email]# Instance variable => available in view
+    mail(to: email, subject: 'Welcome to Kokoon!')
     # # This will render a view in `app/views/user_mailer`!
 
 

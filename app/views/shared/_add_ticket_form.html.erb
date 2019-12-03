@@ -1,0 +1,34 @@
+<%= simple_form_for [flat, rental, ticket] do |f| %>
+  <%= f.input :title,
+              label: false,
+              placeholder: "Title" %>
+  <%= f.input :category, collection: ticket.available_categories %>
+  <%= f.input :room,
+              label: false,
+              placeholder: "Room" %>
+  <%= f.input :content,
+              label: false,
+              placeholder: "Content"  %>
+  <%= f.input :priority, collection: (1..10), include_blank: false %>
+  <%= f.input :photo %>
+  <%= f.input :status, collection: ticket.available_status, include_blank: false, selected: 'new'  %>
+  <h5>Subscribers</h5>
+  <div class="row">
+  <% flat.tenants_and_landlord.uniq.each_with_index do |subscriber, i| %>
+    <div class="col-lg-4 col-md-4 col-sm-12 d-flex flex-column">
+    <input type="hidden"></input>
+      <% if subscriber == current_user %>
+        <%= image_tag avatar(@flat.tenants_and_landlord.uniq[i]), class: "avatar-large selected align-self-center" %>
+        <p class="align-self-center" style="text-align: center; margin-top: 10px;"> You </p>
+      <% else %>
+        <%= image_tag avatar(subscriber), class: "avatar-large clickable align-self-center", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
+        <p class="align-self-center" style="text-align: center; margin-top: 10px;" > <%= subscriber.full_name %> </p>
+      <% end %>
+    <% i += 1 %>
+    </div>
+  <% end %>
+</div>
+    <%= f.submit class: 'btn btn-secondary mb-2' %>
+<% end %>
+
+<%= javascript_pack_tag 'new_subscriptions' %>
