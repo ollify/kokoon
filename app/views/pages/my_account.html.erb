@@ -1,7 +1,11 @@
 <div class="account-container">
 
   <div class="account-aside">
-    <a href="#" id="toggle-aside">←</a>
+    <a href="#" id="toggle-aside">
+        <!-- <img src="https://image.flaticon.com/icons/svg/109/109617.svg"> -->
+        <%= image_tag('left-arrow.png', id: "image-arrow") %>
+        <%= image_tag('right-arrow.png', id: "image-arrow-right", class: "hidden") %>
+    </a>
 
      <div class="image-aside"> <%= image_tag avatar(current_user) %> </div>
     <h1> Welcome, <%= current_user.first_name %>!</h1>
