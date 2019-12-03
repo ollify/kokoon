@@ -1,4 +1,4 @@
-<div class="myflat">
+<div class="myflats">
   <h1>My flats</h1>
     <div class="row justify-content-between">
       <% @rented_flats.each do |flat| %>
@@ -8,6 +8,7 @@
           <img src=<%= img(flat)%>>
         </div>
       </div>
+    <% end %>
     </div>
+
 </div>
-<% end %>
