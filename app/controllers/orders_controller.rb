@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
+      customer_email: User.find(rental.tenant_id).email,
       line_items: [{
         name: rental.tenant_email,
         amount: rental.price_cents,
@@ -23,7 +24,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
-    authorize order
+    authorize @order
   end
 
 end

@@ -8,7 +8,7 @@
 
         <h1>Hello</h1>
 
-        <p>your rental id is <%= @rental.id %> and you pay <%= @rental.price %></p>
+        <p>your rental id is #<%= @rental.id %> and you pay <%= @rental.price %></p>
 
         <%= form_tag orders_path do %>
           <%= hidden_field_tag 'rental_id', @rental.id %>
