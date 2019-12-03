@@ -63,7 +63,7 @@ class RentalsController < ApplicationController
     @rental.tenant_id = current_user.id
     if @rental.save
       redirect_to flat_path(@flat)
-      UserMailer.welcome.deliver_now
+      UserMailer.welcome(current_user, @rental).deliver_now
     else
       render 'rental/join_flat'
     end

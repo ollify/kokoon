@@ -12,21 +12,30 @@ class UserMailer < ApplicationMailer
    # tenent receives initation email to platform with link to signup page
   @rental = params[:rental]
   email = @rental.tenant_email
-  mail(to: email, subject: 'Please accept your new rental invitation!')
-
-  # mail to: "sj34606@gmail.com"
-
+  if Rails.env.production?
+    @url = "http://www.kokoon.space/users/sign_up?email=#{@rental.tenant_email}"
+  else
+    @url = "http://localhost:3000/users/sign_up?email=#{@rental.tenant_email}"
   end
 
-  def welcome
-    @user = params[:user]
-    email = params[:email]# Instance variable => available in view
-    mail(to: email, subject: 'Welcome to Kokoon!')
-    # # This will render a view in `app/views/user_mailer`!
+  mail(to: email, subject: 'Please accept your new rental invitation!')
+  # mail to: "sj34606@gmail.com"
+  end
 
-
+  def welcome(user, rental)
+    @rental = rental
+    @user = user
     @greeting = "Welcome to your new Kokoon!"
-
+    email = @user.email # Instance variable => available in view
+    # mail(to: email, subject: 'Welcome to Kokoon!')
+    # # This will render a view in `app/views/user_mailer`!
+    if Rails.env.production?
+        @url = "http://www.kokoon.space/users/my_account?email=#{@rental.tenant_email}"
+    else
+        @url = "http://localhost:3000/users/my_account?email=#{@rental.tenant_email}"
+    end
+    # @greeting = "Welcome to your new Kokoon!"
+    mail(to: email, subject: 'Welcome to Kokoon!')
     # mail to: "sj34606@gmail.com"
   end
 
