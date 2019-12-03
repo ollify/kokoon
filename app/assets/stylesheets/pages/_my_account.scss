@@ -242,11 +242,12 @@ object-fit: cover;
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 50px;
-  height: 150px;
+  height: 300px;
   background-color: black;
   img {
     width: 100%;
     object-fit: cover;
+    opacity: .4;
   }
 }
 
