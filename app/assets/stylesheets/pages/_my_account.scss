@@ -34,7 +34,6 @@
 
 
 .myproperties.expanded {
-  background-color: blue;
   width: 90vw;
   transform: translateX(-200px);
 }
@@ -164,25 +163,26 @@ object-fit: cover;
   #btn-add {
     margin-top: 40px;
   }
-
-
 }
+
+
+
 
 .myproperties {
   max-width: 95%;
-  background-color: red;
     -webkit-transition: all .7s ease;
 
 
   .row {
     max-width: 100%;
   }
+
 }
 
 .myflats {
-  background-color: blue;
   max-width: 95%;
-
+  padding-top: 30px;
+  margin-top: 20px;
   border-top: 1px solid rgba(209, 209, 209, .5);
     .row {
     max-width: 100%;
