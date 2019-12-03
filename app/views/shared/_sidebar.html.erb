@@ -6,13 +6,14 @@
 
     <div class="sidebar-public">
       <ul>
-        <li><i class="fas fa-couch"></i> <%= link_to("About this kokoon", flat_path(@flat)) %></li>
-        <li><i class="fas fa-users"></i> <%= link_to("People in this kokoon", users_in_flat_path(@flat)) %></li>
-        <li><i class="fas fa-ticket-alt"></i> <%= link_to("Tickets", tickets_of_flat_path(@flat)) %></li>
+        <li><i class="fas fa-couch"></i><%= link_to("About this kokoon", flat_path(@flat)) %></li>
+        <li><i class="fas fa-users"></i><%= link_to("People in this kokoon", users_in_flat_path(@flat)) %></li>
+        <li><i class="fas fa-ticket-alt"></i><%= link_to("Tickets", tickets_of_flat_path(@flat)) %></li>
         <% if current_user.is_landlord? == false %>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            + Add a ticket
-          </button>
+        <li><i class="fas fa-file-invoice-dollar"></i><%= link_to("Payments", rental_payment_path(@flat.id, current_user.accepted_rentals.last)) %></li>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          + Add a ticket
+        </button>
         <% end %>
       </ul>
     </div>
