@@ -15,9 +15,15 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :orders, only: [:show, :create] do
+    resources :payments, only: :new
+  end
+
   get '/flats/:id/users', to: 'flats#users_in_flat', as:'users_in_flat'
   get '/flats/:id/tickets', to: 'flats#tickets_of_flat', as:'tickets_of_flat'
+
   get '/flats/:flat_id/rentals/:id/rental_payment', to: 'rentals#rental_payment', as: 'rental_payment'
+  mount StripeEvent::Engine, at: '/stripe-webhooks'
 
   # get '/flats/:flat_id/rentals/:id/accept', to: 'rentals#join_flat'
   # post '/flats/:flat_id/rentals/:id/accept', to: 'rentals#accept_rental', as: "accept_rental"

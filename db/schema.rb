@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_141806) do
+ActiveRecord::Schema.define(version: 2019_12_03_151708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,19 @@ ActiveRecord::Schema.define(version: 2019_12_03_141806) do
     t.float "latitude"
     t.float "longitude"
     t.index ["user_id"], name: "index_flats_on_user_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "days_payment_due"
+    t.string "checkout_session_id"
+    t.bigint "rental_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.index ["rental_id"], name: "index_orders_on_rental_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -96,6 +109,8 @@ ActiveRecord::Schema.define(version: 2019_12_03_141806) do
   add_foreign_key "comments", "tickets"
   add_foreign_key "comments", "users"
   add_foreign_key "flats", "users"
+  add_foreign_key "orders", "rentals"
+  add_foreign_key "orders", "users"
   add_foreign_key "rentals", "flats"
   add_foreign_key "subscriptions", "tickets"
   add_foreign_key "subscriptions", "users"
