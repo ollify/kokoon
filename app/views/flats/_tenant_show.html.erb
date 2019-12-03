@@ -10,6 +10,8 @@
   <p>
     You are renting this flat from <%= rental.start_date %> to <%= rental.end_date %> and you're paying <%= rental.price %>€ for it.
   </p>
+  <%= button_to("See your contract", flat_rental_path(rental.flat, rental, format: :pdf), method: 'get', class: "btn-secondary") %>
+
   <% if policy(@flat).new_ticket? %>
     <p>
       <%= button_to("Create ticket", new_flat_rental_ticket_path(@flat, rental), method: 'get', class: "btn-secondary") %>
