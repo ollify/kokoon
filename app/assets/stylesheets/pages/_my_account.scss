@@ -331,13 +331,27 @@ object-fit: cover;
   }
 }
 
-.card-user.ticket {
-  background-color: rgb(3, 198, 210);
-  height: 100px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.card-user {
+  &.ticket {
+    background-color: rgb(3, 198, 210);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &.low {
+    background-color: #FFBC42;
+  }
+
+  &.mid {
+    background-color: #DC602E;
+  }
+
+  &.high {
+    background-color: #BC412B;
+  }
 }
 
 .card-user.ticket img:first-child {
