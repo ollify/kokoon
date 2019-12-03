@@ -12,6 +12,7 @@ gem 'faker'
 gem 'omniauth-google-oauth2'
 
 gem 'money-rails'
+gem 'stripe'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
