@@ -1,0 +1,67 @@
+<br>
+
+<h2>
+  Thank you for your interest in renting the house located at <%= @rental.flat.address %> (“House”) from <%= @rental.start_date %> to <%=
+  @rental.end_date %>.
+</h2>
+
+<h4>
+  Please review and sign below to confirm your agreement with the terms and conditions in this House Rental Lease Agreement.
+  Signature by both parties identified in this House Rental Lease Agreement will bind them to a legally enforceable contract so make sure to consult with a lawyer before signing if you want to do so.
+</h4>
+
+<h3>TERMS AND CONDITIONS</h3>
+
+<ol>
+
+<li>Agreement to rent:</li>
+<br>
+<strong><%= @flat.user.full_name %></strong> (“Owner”) agrees to rent the house located at <strong><%= @rental.flat.address %></strong> to <strong><%= @rental.tenant.full_name %></strong> (“Renter”) for the term of this House Rental Lease Agreement.
+
+<li>Term of lease:</li>
+The rental term will start on <strong><%= @rental.start_date %></strong> and end on <strong><%= @rental.end_date %></strong>.
+
+<li>Rent:</li>
+Renter agrees to pay <strong> € <%= @rental.price %></strong> per month in exchange for use of the House under the conditions of this House Rental Lease Agreement, payable as follows: <strong>on the 4th of each month at the latest</strong>.
+
+Payments will be made by <strong>wire transfer</strong> on account <strong>PT50 0002 0123 1234 5678 9015 4</strong> on or before the due date(s) set forth above.
+Late payments will result in a penalty amounting to 10% of the monthly rent; returned checks will result in immediate termination of this contract.
+
+<li>Security deposit:</li>
+Renter will pay Owner a security deposit of € 500 on the day this House Rental Lease Agreement is signed.  It will be returned upon surrender of the House in a clean and undamaged condition, subject to ordinary wear and tear.  Any use of the security deposit to reimburse Owner for unusual cleaning costs or repairs will be itemized by Owner upon return of the security deposit.
+
+<li>Occupants:</li>
+The maximum occupants of the House is <strong><%= @flat.capacity %></strong>.
+Any unauthorized guests beyond that number will result in an additional charge of € 100 per guest per day.
+
+<li>Assumption of liability and risk.</li>
+Renter agrees to hold harmless Owner from any injury, liability, damage or cost Renter, or guests of Renter, may incur due to occupancy of the House or its surrounding areas, and Renter assumes all risks associated therewith.
+
+<li>Rules and Regulations.</li>
+Renter will abide by the Rules and Regulations for the House, a list of which is attached hereto as Exhibit A.
+
+<li>Keys.</li>
+Keys to the House are owned by the Owner, not the Renter.  No copies may be made, and keys will be returned to the Owner upon termination of this rental agreement and before the security deposit is released.
+
+<li>Entire agreement.</li>
+This House Rental Lease Agreement, including all attachments (if any), is the entire agreement between the Owner and the Renter.  Any changes must be in writing and signed by both parties.
+
+</ol>
+
+<h3>Executed by the Parties on <%= Date.today.strftime("%d/%m/%Y") %>.</h3>
+<div class="d-flex">
+  <div>
+    <p>OWNER  <%= @flat.user.full_name %></p>
+    <p>Rua Conde de Recondo</p>
+    <p>Lisboa</p>
+    <p><%= @flat.user.phone_number %></p>
+    <p><%= @flat.user.email %></p>
+  </div>
+  <div>
+    <p>RENTER <%= @rental.tenant.full_name %></p>
+    <p>Rua de Sao Mamede, 16</p>
+    <p>Lisboa</p>
+    <p><%= @rental.tenant.phone_number %></p>
+    <p><%= @rental.tenant.email %></p>
+  </div>
+</div>

@@ -34,11 +34,6 @@ class FlatsController < ApplicationController
     end
   end
 
-  # def index
-  #   @user = current_user
-  #   @flats = policy_scope(Flat).order(created_at: :desc)
-  # end
-
   def users_in_flat
   end
 

@@ -37,4 +37,6 @@ gem 'geocoder'
 gem 'pundit'
 gem 'letter_opener', group: :development
 gem 'postmark-rails'
+gem 'wkhtmltopdf-binary', '~> 0.12.5'
+gem 'wicked_pdf'
 gem 'twilio-ruby'
