@@ -15,6 +15,10 @@ class RentalPolicy < FlatPolicy
     edit?
   end
 
+  def show?
+    new? || join_flat?
+  end
+
   def join_flat?
     record.tenant_email == user.email
   end

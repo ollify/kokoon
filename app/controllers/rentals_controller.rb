@@ -1,6 +1,6 @@
 class RentalsController < ApplicationController
   before_action :set_flat
-  before_action :set_rental, only: [:join_flat, :accept_rental, :edit, :update, :destroy]
+  before_action :set_rental, only: [:join_flat, :accept_rental, :edit, :show, :update, :destroy]
 
   def new
     @rental = Rental.new
@@ -17,6 +17,29 @@ class RentalsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def show
+    authorize @flat
+    authorize @rental
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Rental contract No. #{@rental.id}",
+        page_size: 'A4',
+        template: "rentals/show.html.erb",
+        layout: "pdf.html",
+        orientation: "Portrait",
+        lowquality: true,
+        zoom: 1,
+        dpi: 75
+      end
+    end
+  end
+
+  def index
+    @user = current_user
+    @rentals = policy_scope(Rental).order(created_at: :desc)
   end
 
   def edit
