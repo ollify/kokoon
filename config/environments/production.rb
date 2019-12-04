@@ -64,6 +64,8 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "_kokoon_#{Rails.env}"
+  config.action_cable.url = "wss://www.kokoon.space/cable"
+  config.action_cable.allowed_request_origins = [ "http://www.kokoon.space"]
 
   config.action_mailer.perform_caching = false
 
