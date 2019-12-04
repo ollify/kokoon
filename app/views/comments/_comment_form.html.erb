@@ -4,6 +4,20 @@
   <div class="button-box"><%= f.submit class: 'btn-secondary' %></div>
 <% end %>
 
-
-
 <%= javascript_pack_tag 'tribute' %>
+
+<%# content_for :after_js do %>
+  <!-- <script>
+    App['ticket_<%= @ticket.id %>'] = App.cable.subscriptions.create(
+      { channel: 'TicketsChannel', ticket_id: <%= @ticket.id %> },
+      { received: (data) => {
+        const comments = document.getElementById('comments');
+        comments.insertAdjacentHTML('beforeend', data.comment_partial);
+        comments.firstElementChild.innerText = '<%= pluralize @ticket.comments.count, "comment" %>';
+        document.getElementById('comment_content').value = "";
+        }
+      }
+    )
+
+  </script> -->
+<%# end %>

@@ -7,11 +7,15 @@ class CommentsController < ApplicationController
     @comment.ticket = @ticket
     @comment.user = current_user
     authorize @comment
+
     if @comment.save
-      respond_to do |format|
-        #format.html { redirect_to flat_rental_ticket_path(@ticket.rental.flat, @ticket.rental, @ticket) }
-        format.js # <-- will render `app/views/reviews/create.js.erb`
-      end
+      # ActionCable.server.broadcast("ticket_#{@ticket.id}",
+      # {comment_partial: render(partial: "comments/show", locals: {comment: @comment})}
+      # )
+    respond_to do |format|
+      format.html { redirect_to flat_rental_ticket_path(@ticket.rental.flat, @ticket.rental, @ticket) }
+      format.js # <-- will render `app/views/reviews/create.js.erb`
+    end
     else
       respond_to do |format|
         format.html { render 'tickets/show' }

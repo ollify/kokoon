@@ -3,7 +3,7 @@
     <%= image_tag "logo.png" %>
     <% if user_signed_in? && (current_user.unread_tickets.count > 0) %>
       <div class="badge badge-danger">
-        <%= link_to current_user.unread_tickets.count, my_account_unread_tickets_path %>
+        <%= link_to current_user.unread_tickets.count, my_account_path(anchor: 'unread_tickets') %>
       </div>
     <% else %>
       <div class="badge badge-danger badge-hidden"> </div>
