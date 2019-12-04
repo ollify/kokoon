@@ -1,12 +1,14 @@
 class Rental < ApplicationRecord
   belongs_to :flat
   has_many :tickets
-  validates :price, presence: true, numericality: true
+  validates :price_cents, presence: true, numericality: true
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :pending, inclusion: [true, false]
   validates :tenant_email, presence: true
   validate :end_after_start
+  monetize :price_cents
+
 
   def tenant
     User.find(self.tenant_id) unless tenant_id.nil?

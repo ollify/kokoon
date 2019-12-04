@@ -10,12 +10,16 @@
 
 .account-aside {
   background-color:#f5f5f5;
-  width: 300px;
+  width: 250px;
   padding: 70px 25px;
   position: sticky;
+  display: block;
   top: 0;
   left: 0;
   height: calc(100vh);
+  -webkit-transition: all .7s ease;
+  z-index: 100000000000000000000;
+
   .button-box {
     position: absolute;
     top: 70vh;
@@ -24,7 +28,23 @@
   }
 }
 
+.account-aside.hide {
+  transform: translateX(-85%);
+}
 
+
+.myproperties.expanded {
+  width: 90vw;
+  transform: translateX(-200px);
+}
+.myflats.expanded {
+  background-color: blue;
+  width: 90vw;
+  transform: translateX(-200px);
+}
+#toggle-aside img {
+  width: 40px;
+}
 
 
 .account-aside a {
@@ -42,13 +62,19 @@
 
 
 .account-main {
-  width: calc(100% - 300px);
   padding: 30px 60px;
+  -webkit-transition: all .7s ease;
+
    @media screen and (max-width: 1060px) {
     padding: 30px 40px;
     }
 
 }
+
+
+
+
+
 
 .account-main h1 {
   font-size: 1.5em;
@@ -108,9 +134,16 @@ object-fit: cover;
 
 .row {
   //background-color: red;
-  width: 100%;
+  width: 70vw;
   margin: 30px 0;
+  -webkit-transition: all .7s ease;
 }
+
+.row.expanded {
+  width: 100vw;
+}
+
+
 
 .welcome-landlord {
   height: 50vh;
@@ -130,10 +163,32 @@ object-fit: cover;
   #btn-add {
     margin-top: 40px;
   }
+}
 
+
+
+
+.myproperties {
+  max-width: 95%;
+    -webkit-transition: all .7s ease;
+
+
+  .row {
+    max-width: 100%;
+  }
 
 }
 
+.myflats {
+  max-width: 95%;
+  padding-top: 30px;
+  margin-top: 20px;
+  border-top: 1px solid rgba(209, 209, 209, .5);
+    .row {
+    max-width: 100%;
+  }
+
+}
 
 .invitation {
   position: relative;
@@ -187,11 +242,12 @@ object-fit: cover;
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 50px;
-  height: 150px;
+  height: 300px;
   background-color: black;
   img {
     width: 100%;
     object-fit: cover;
+    // opacity: .4;
   }
 }
 
@@ -221,13 +277,7 @@ object-fit: cover;
 
 }
 
-.myflat {
-  width: 100%;
-  margin-top: 30px;
-  border-top: 1px solid rgba(209, 209, 209, .5);
-  padding-top: 30px;
 
-}
 #flat-title  {
 
   font-size: 1em;
@@ -253,7 +303,7 @@ object-fit: cover;
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  margin: 30px 0;
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   height: 200px;
@@ -282,13 +332,27 @@ object-fit: cover;
   }
 }
 
-.card-user.ticket {
-  background-color: rgb(3, 198, 210);
-  height: 100px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.card-user {
+  &.ticket {
+    background-color: rgb(3, 198, 210);
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &.low {
+    background-color: #FFBC42;
+  }
+
+  &.mid {
+    background-color: #DC602E;
+  }
+
+  &.high {
+    background-color: #BC412B;
+  }
 }
 
 .card-user.ticket img:first-child {
@@ -300,6 +364,7 @@ object-fit: cover;
     width: 50px;
     height: 50px;
     margin-left: 20px;
+    z-index: 1;
     }
   }
 
@@ -394,4 +459,10 @@ object-fit: cover;
     }
 }
 
+.hidden {
+  display: none;
+}
+.show {
+  display: block;
+}
 

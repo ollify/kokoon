@@ -58,15 +58,15 @@
                 autofocus: true,
                 input_html: { autocomplete: "id_scan" }%>
     <%= f.input :password,
+                required: false,
+                label: false,
+                placeholder: "New password",
+                input_html: { autocomplete: "new-password" } %>
+    <%= f.input :password_confirmation,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 label: false,
-                placeholder: "Password",
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: false,
-                label: false,
-                placeholder: "Confirm password",
+                placeholder: "Confirm new password",
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",

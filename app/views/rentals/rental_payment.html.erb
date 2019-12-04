@@ -1,0 +1,20 @@
+<div class="row flat-row">
+
+  <%= render 'shared/sidebar' %>
+
+  <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
+    <div class="row d-flex justify-content-between">
+      <div class="col-lg-9 col-md-12 col-sm-12">
+
+        <h1>Hello</h1>
+
+        <p>your rental id is #<%= @rental.id %> and you pay <%= @rental.price %></p>
+
+        <%= form_tag orders_path do %>
+          <%= hidden_field_tag 'rental_id', @rental.id %>
+          <%= submit_tag 'Purchase', class: 'btn btn-secondary' %>
+        <% end %>
+
+    </div>
+  </div>
+</div>

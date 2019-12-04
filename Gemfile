@@ -11,6 +11,12 @@ gem 'redis'
 gem 'faker'
 gem 'omniauth-google-oauth2'
 
+gem 'money-rails'
+gem 'stripe'
+# allows us to keep track of the payment status
+gem 'stripe_event'
+
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'

@@ -38,9 +38,21 @@ ActiveRecord::Schema.define(version: 2019_12_03_192649) do
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.integer "days_payment_due"
+    t.string "checkout_session_id"
+    t.bigint "rental_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "amount_cents", default: 0, null: false
+    t.index ["rental_id"], name: "index_orders_on_rental_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "rentals", force: :cascade do |t|
     t.bigint "flat_id"
-    t.integer "price"
     t.date "start_date"
     t.date "end_date"
     t.datetime "created_at", null: false
@@ -48,6 +60,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_192649) do
     t.integer "tenant_id"
     t.string "tenant_email"
     t.boolean "pending", default: true
+    t.integer "price_cents", default: 0, null: false
     t.index ["flat_id"], name: "index_rentals_on_flat_id"
   end
 
@@ -97,6 +110,8 @@ ActiveRecord::Schema.define(version: 2019_12_03_192649) do
   add_foreign_key "comments", "tickets"
   add_foreign_key "comments", "users"
   add_foreign_key "flats", "users"
+  add_foreign_key "orders", "rentals"
+  add_foreign_key "orders", "users"
   add_foreign_key "rentals", "flats"
   add_foreign_key "subscriptions", "tickets"
   add_foreign_key "subscriptions", "users"

@@ -1,4 +1,3 @@
-console.log("Hello");
 
 const initToggleAside = () => {
     const toggleAside = document.querySelector("#toggle-aside");
@@ -12,7 +11,7 @@ const initToggleAside = () => {
         }
 
         else {
-          toggleAside.innerHTML = `<img src="../../images/left-arrow.png">`
+          toggleAside.innerHTML = `<%= image_tag "left-arrow.png" %>`
         }
     });
 

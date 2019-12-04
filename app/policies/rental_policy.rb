@@ -31,6 +31,10 @@ class RentalPolicy < FlatPolicy
     edit?
   end
 
+  def rental_payment?
+    show?
+  end
+
   class Scope < Scope
     def resolve
       scope.all
