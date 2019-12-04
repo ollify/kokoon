@@ -1,6 +1,6 @@
 .home-container {
-  background: rgb(15,82,255);
-background: linear-gradient(313deg, rgba(15,82,255,1) 0%, rgba(31,236,255,1) 69%);
+  background: rgb(31,236,255);
+background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 69%, rgba(31,131,255,1) 100%);
 
   width: 100%;
   display: flex;
@@ -25,16 +25,17 @@ background: linear-gradient(313deg, rgba(15,82,255,1) 0%, rgba(31,236,255,1) 69%
 .home-text {
   //background-color: red;
   position: absolute;
-  left: 75px;
-  top: 150px;
+  left: 150px;
+  top: 200px;
   h1 {
-    font-size: 40px;
-    font-family: MarkPro-Bold;
+    font-size: 45px;
+    font-family: MarkPro-Book;
     //background-color: yellow;
     margin-bottom: 40px;
   }
   p {
-    font-size: 18px;
+    font-size: 24px;
+    line-height: 1.2;
     font-family: MarkPro-Light;
     //background-color: blue;
     margin-bottom: 80px;
