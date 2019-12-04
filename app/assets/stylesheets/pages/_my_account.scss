@@ -343,21 +343,26 @@ object-fit: cover;
   }
 
   &.one {
-    background-color: #FFBC42;
+    background: rgb(28,205,255);
+    background: linear-gradient(113deg, rgba(28,205,255,1) 0%, rgba(31,236,255,1) 100%);
   }
 
   &.two {
-    background-color: #DC602E;
+    background: rgb(18,113,255);
+    background: linear-gradient(113deg, rgba(18,113,255,1) 0%, rgba(28,204,255,1) 100%);
   }
 
   &.three {
-    background-color: #BC412B;
+    background: rgb(92,81,213);
+background: linear-gradient(63deg, rgba(92,81,213,1) 0%, rgba(18,112,255,1) 100%);
   }
     &.four {
-    background-color: #BC412B;
+    background: rgb(190,81,161);
+    background: linear-gradient(87deg, rgba(190,81,161,1) 0%, rgba(93,81,213,1) 100%);
   }
     &.five {
-    background-color: #BC412B;
+    background: rgb(249,80,129);
+    background: linear-gradient(63deg, rgba(249,80,129,1) 0%, rgba(191,80,160,1) 100%);
   }
 }
 
