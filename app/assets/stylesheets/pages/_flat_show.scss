@@ -39,6 +39,17 @@
 
 }
 
+.flat-box {
+  background: white;
+  box-shadow: 3px 4px 11px -4px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
 .tenant-details-footer {
   margin-top: 50px;
+}
+
+tr {
+  margin: 30px;
 }

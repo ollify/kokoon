@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   def create
     rental = Rental.find(params[:rental_id])
     order  = Order.create!(rental: rental, amount: rental.price, state: 'pending', user: current_user)

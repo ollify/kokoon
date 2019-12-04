@@ -10,7 +10,7 @@
   <p>
     You are renting this flat from <%= rental.start_date %> to <%= rental.end_date %> and you're paying <%= humanized_money_with_symbol(rental.price) %> for it.
   </p>
-  <%= button_to("See your contract", flat_rental_path(rental.flat, rental, format: :pdf), method: 'get', class: "btn-secondary") %>
+  <%= button_to("See your contract", flat_rental_path(rental.flat, rental, format: :pdf), method: 'get', formtarget: '_blank', class: "btn-secondary") %>
 
   <% if policy(@flat).new_ticket? %>
     <p>

@@ -9,12 +9,11 @@ class TicketPolicy < FlatPolicy
   end
 
   def show?
-    true
-    # record.subscriptions.include?(user.id)
+    record.subscribers.include?(user)
   end
 
   def edit?
-    record.rental.tenant_id == user.id
+    show?
   end
 
   def update?
@@ -23,6 +22,14 @@ class TicketPolicy < FlatPolicy
 
   def destroy
     edit?
+  end
+
+  def unread?
+    show?
+  end
+
+  def mark_as_unread?
+    show?
   end
 
   class Scope < Scope

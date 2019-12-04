@@ -1,7 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to my_account_path, class: "navbar-brand" do %>
     <%= image_tag "logo.png" %>
+    <% if user_signed_in? && (current_user.unread_tickets.count > 0) %>
+      <div class="badge badge-danger">
+        <%= link_to current_user.unread_tickets.count, my_account_path(anchor: 'unread_tickets') %>
+      </div>
+    <% else %>
+      <div class="badge badge-danger badge-hidden"> </div>
     <% end %>
+  <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>

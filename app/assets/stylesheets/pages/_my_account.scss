@@ -134,7 +134,7 @@ object-fit: cover;
 
 .row {
   //background-color: red;
-  width: 70vw;
+  // width: 70vw; sorry i had to uncommend it because it messed up a page
   margin: 30px 0;
   -webkit-transition: all .7s ease;
 }
@@ -342,16 +342,27 @@ object-fit: cover;
     justify-content: space-between;
   }
 
-  &.low {
-    background-color: #FFBC42;
+  &.one {
+    background: rgb(28,205,255);
+    background: linear-gradient(113deg, rgba(28,205,255,1) 0%, rgba(31,236,255,1) 100%);
   }
 
-  &.mid {
-    background-color: #DC602E;
+  &.two {
+    background: rgb(18,113,255);
+    background: linear-gradient(113deg, rgba(18,113,255,1) 0%, rgba(28,204,255,1) 100%);
   }
 
-  &.high {
-    background-color: #BC412B;
+  &.three {
+    background: rgb(92,81,213);
+background: linear-gradient(63deg, rgba(92,81,213,1) 0%, rgba(18,112,255,1) 100%);
+  }
+    &.four {
+    background: rgb(190,81,161);
+    background: linear-gradient(87deg, rgba(190,81,161,1) 0%, rgba(93,81,213,1) 100%);
+  }
+    &.five {
+    background: rgb(249,80,129);
+    background: linear-gradient(63deg, rgba(249,80,129,1) 0%, rgba(191,80,160,1) 100%);
   }
 }
 
