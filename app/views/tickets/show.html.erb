@@ -32,7 +32,7 @@
           <% if @ticket.comments.blank? %>
             <h3></h3>
           <% else %>
-            <h3> <%= pluralize @ticket.comments.size, "comment" %> </h3>
+            <h3> Comment section </h3>
           <% end %>
           <% @ticket.comments.each do |comment| %>
             <%= render 'comments/show', comment: comment %>
