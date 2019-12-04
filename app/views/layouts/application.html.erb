@@ -19,8 +19,17 @@
 
     <div class="main">
       <%= yield %>
+
+
     </div>
+
+    <a href="#" id="btn-backtop">
+      <%= image_tag('top-arrow.png', id: "top-arrow") %>
+    </a>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'backtotop' %>
   </body>
 </html>
+
