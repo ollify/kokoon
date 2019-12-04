@@ -6,12 +6,36 @@
     <div class="row d-flex justify-content-between">
       <div class="col-lg-12 col-md-12 col-sm-12">
 
-        <h2>Hello</h2>
-
-        <p>your rental id is #<%= @rental.id %> and you pay <%= @rental.price %></p>
-        <p><%= link_to("Download your contract", flat_rental_path(@rental.flat, @rental, format: :pdf), method: 'get', target: '_blank') %></p>
-
         <div class="flat-show-box">
+
+          <div class="row justify-content-between">
+
+            <div class="col-5">
+              <h2>Hello <%= current_user.first_name %></h2>
+
+              <p>Your current rental id is #<%= @rental.id %>. According to your contract you pay <%= @rental.price %> per month.
+              Your contract is active from <%= @rental.start_date %> and ends on <%= @rental.end_date %>.</p>
+              <p><i class="fas fa-download"></i><%= link_to("Download my contract", flat_rental_path(@rental.flat, @rental, format: :pdf), method: 'get', target: '_blank') %></p>
+            </div>
+
+            <div class="col-5">
+              <h2>Billing status</h2>
+              <p><strong>Current period: </strong><%= Time.now.strftime('%B %Y') %></p>
+              <% if current_user.orders.any? { |order| order.created_at.month == Time.now.month } %>
+                <div>Thanks, your landlord received your payment for <%= Time.now.strftime('%B %Y') %></div>
+              <% else %>
+                <div>Your payment is due! Please pay the rent of <%= @rental.price %> now!</div>
+                <%= form_tag orders_path do %>
+                  <%= hidden_field_tag 'rental_id', @rental.id %>
+                  <%= submit_tag 'Pay rent now', class: 'btn btn-secondary' %>
+                <% end %>
+              <% end %>
+            </div>
+
+          </div>
+
+
+          <% if current_user.orders.any? %>
           <h2>Payment history</h2>
           <table class="table table-hover">
             <thead>
@@ -41,13 +65,6 @@
 
             </tbody>
           </table>
-
-          <%= @counter %>
-
-
-          <%= form_tag orders_path do %>
-            <%= hidden_field_tag 'rental_id', @rental.id %>
-            <%= submit_tag 'Pay rent now', class: 'btn btn-secondary' %>
           <% end %>
         </div>
 
