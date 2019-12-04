@@ -2,26 +2,26 @@ $body-font: "MarkPro", "Helvetica", "sans-serif", "font-weight: normal";
 $headers-font: "MarkPro", "Helvetica", "sans-serif", "font-weight: normal";
 
 @font-face {
-  font-family: "MarkPro";
+  font-family: "MarkPro-Light";
   src: font-url('MarkPro-Light.otf');
   font-weight: lighter;
 }
 
 @font-face {
-  font-family: "MarkPro";
+  font-family: "MarkPro-Bold";
   src: font-url('MarkPro-Bold.otf');
   font-weight: bold;
 }
 
 @font-face {
-  font-family: "MarkPro";
+  font-family: "MarkPro-Heavy";
   src: font-url('MarkPro-Heavy.otf');
   font-weight: bolder;
 }
 
 
 @font-face {
-  font-family: "MarkPro";
+  font-family: "MarkPro-Book";
   src: font-url('MarkPro-Book.otf');
   font-weight: normal;
 }
