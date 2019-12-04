@@ -77,6 +77,7 @@
         <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
         <% if current_user == rental_user(@ticket.rental) %>
         <p> <%= button_to("Edit ticket", edit_flat_rental_ticket_path(@flat, @rental, @ticket), method: 'get', class: 'btn-secondary') %> </p>
+        <p> <%= button_to("Mark as unread", mark_as_unread_path(@ticket), class: 'btn-secondary') %> </p>
         <% end %>
         </div>
       </div>

@@ -48,6 +48,9 @@ class User < ApplicationRecord
     user
   end
 
+  def unread_tickets
+    self.subscriptions.where(read: false).map{|sub| sub.ticket}
+  end
 
   private
 
