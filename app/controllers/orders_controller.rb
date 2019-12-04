@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
   def create
     rental = Rental.find(params[:rental_id])
     order  = Order.create!(rental: rental, amount: rental.price, state: 'pending', user: current_user)
+    flat = rental.flat_id
 
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
@@ -13,7 +14,7 @@ class OrdersController < ApplicationController
         currency: 'eur',
         quantity: 1
       }],
-      success_url: order_url(order),
+      success_url: rental_payment_url(flat, rental),
       cancel_url: order_url(order)
     )
 
