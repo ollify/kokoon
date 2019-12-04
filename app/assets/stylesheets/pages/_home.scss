@@ -1,37 +1,47 @@
 .home-container {
-  background-image:  linear-gradient(to bottom, rgba(0,0,0,0)), url(asset_path("home-bg.jpg"));
-  background-size: cover;
-  background-position: bottom;
+  background: rgb(15,82,255);
+background: linear-gradient(313deg, rgba(15,82,255,1) 0%, rgba(31,236,255,1) 69%);
+
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   height: calc(100vh - 66px);
-}
-
-.home-left {
-  background-color: rgba(3, 198, 210, 0.8);
-  height: calc(100vh - 66px);
-  width: 40%;
-}
-
-.cta-box {
-  margin: 5em 1em;
-  height: auto;
-  padding: 50px;
-  color: white;
-  h1 {
-    font-size: 36px;
-    line-height: 1;
+  #wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: url("images/home-wave.png");
+    height: 200px;
+  }
+  #sofa {
+    position: absolute;
+    bottom: -2px;
+    right: 10px;
+    width: 75%;
   }
 }
 
-#title{
-   font-size: 2em;
+.home-text {
+  //background-color: red;
+  position: absolute;
+  left: 75px;
+  top: 150px;
+  h1 {
+    font-size: 40px;
+    font-family: MarkPro-Bold;
+    //background-color: yellow;
+    margin-bottom: 40px;
+  }
+  p {
+    font-size: 18px;
+    font-family: MarkPro-Light;
+    //background-color: blue;
+    margin-bottom: 80px;
+  }
+  .btn-primary.home {
+    margin-left: 0;
+  }
 }
 
-#subtitle {
-    margin-top: 30px;
-  font-size: 18px;
-  margin-bottom: 100px;
-}
+
