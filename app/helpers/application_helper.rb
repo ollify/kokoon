@@ -32,12 +32,16 @@ module ApplicationHelper
     classes = ['card-user', 'ticket']
 
     case ticket.priority
-    when 1..3
-      classes << 'low'
-    when 4..7
-      classes << 'mid'
+    when 1..2
+      classes << 'one'
+    when 3..4
+      classes << 'two'
+    when 5..6
+      classes << 'three'
+    when 7..8
+      classes << 'four'
     when 8..10
-      classes << 'high'
+      classes << 'five'
     end
 
     classes.join(' ')
