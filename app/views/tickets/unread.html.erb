@@ -1,0 +1,5 @@
+<% @tickets.each do |ticket| %>
+  <p>
+  <%= link_to ticket.title, flat_rental_ticket_path(ticket.rental.flat, ticket.rental, ticket) %>
+  </p>
+<% end %>

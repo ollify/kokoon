@@ -1,6 +1,6 @@
 class TicketsController < ApplicationController
-  before_action :set_rental_and_flat
-  before_action :set_ticket, only: [:show, :edit, :update, :destroy]
+  before_action :set_rental_and_flat, except: [:unread, :mark_as_unread]
+  before_action :set_ticket, only: [:show, :edit, :update, :destroy, :mark_as_unread]
 
   def new
     @ticket = Ticket.new
@@ -14,7 +14,7 @@ class TicketsController < ApplicationController
     @ticket.rental = @rental
     authorize @ticket
     if @ticket.save
-      Subscription.create(user_id: current_user.id, ticket_id: @ticket.id)
+      Subscription.create(user_id: current_user.id, ticket_id: @ticket.id, read: true)
       Send.deliver
       redirect_to flat_rental_ticket_path(@flat, @rental, @ticket)
     else
@@ -24,6 +24,10 @@ class TicketsController < ApplicationController
 
   def show
     @comment = Comment.new
+    @ticket.subscriptions.where(user: current_user).each do |sub|
+      sub.read = true
+      sub.save
+    end
   end
 
   def edit
@@ -39,6 +43,19 @@ class TicketsController < ApplicationController
 
   def destroy
     @ticket.destroy
+  end
+
+  def unread
+    @tickets = current_user.unread_tickets
+    @tickets.each {|ticket| authorize ticket}
+  end
+
+  def mark_as_unread
+    @ticket.subscriptions.where(user: current_user).each do |sub|
+      sub.read = false
+      sub.save
+    end
+    redirect_to flat_path(@ticket.rental.flat)
   end
 
   private

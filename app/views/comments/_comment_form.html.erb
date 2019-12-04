@@ -1,4 +1,9 @@
 <%= simple_form_for([flat, rental, ticket, comment], remote: true) do |f| %>
-  <%= f.input :content, as: :string, placeholder: "Your comment goes here", label: "Your comment" %>
+  <%= f.input :content, placeholder: "Your comment goes here",
+    label: "Your comment", input_html: {data: {subscribers: ticket.subscribers.as_json(methods: :full_name, only: [:first_name, :email])}}, autocomplete: "off" %>
   <div class="button-box"><%= f.submit class: 'btn-secondary' %></div>
 <% end %>
+
+
+
+<%= javascript_pack_tag 'tribute' %>
