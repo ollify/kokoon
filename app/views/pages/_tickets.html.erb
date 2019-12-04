@@ -1,24 +1,17 @@
-<!-- <div class="tickets">
-<h1>My tickets</h1>
-<div class="row">
-  <%# 10.times do %>
-    <div class="col-lg-12 col-md-12 col-sm-12">
-      <div class="card-user ticket">
-        <img src=<%#= asset_path("rand-bg.jpg")%>>
-        <div class="ticket-info">
-          <h1><strong>Toilet is not swallowing water</strong></h1>
-          <h3>Priority: High 🔴</h3>
-        </div>
-          <img class="ticket-icon" src=<%#= asset_path("toilet.svg")%>>
-          <img class="ticket-icon" src=<#%= asset_path("toilet.svg")%>>
-          <img class="ticket-icon" src=<%#= asset_path("toilet.svg")%>>
-         <div class="ticket-date">
-          <h4><strong>Yesterday, at 17:30 h</strong></h4>
-          <h5>Delete</h5>
-        </div>
+<div class="tickets" id="unread_tickets">
+  <h1>My unread tickets</h1>
+  <div class="row">
+    <% current_user.unread_tickets.each do |ticket| %>
+    <div class="<%= ticket_classes(ticket) %>">
+      <%= image_tag ticket_img(ticket) %>
+      <div class="ticket-info">
+        <h1><%= link_to(ticket.title, flat_rental_ticket_path(ticket.rental.flat, ticket.rental,ticket)) %></h1>
+        <p>by <%= rental_user(ticket.rental).full_name %></p>
+      </div>
+      <div class="ticket-date">
+        <h4>priority <strong><%= ticket.priority %> out of 10</strong></h4>
+        <h4><strong><%= ticket.created_at.strftime("%d/%m/%Y") %></strong></h4>
+        <h4><strong><%= link_to("Edit ticket", edit_flat_rental_ticket_path(ticket.rental.flat, ticket.rental, ticket)) %></strong></h4>
       </div>
     </div>
-  <#% end %>
-</div>
-</div>
- -->
+<% end %>
