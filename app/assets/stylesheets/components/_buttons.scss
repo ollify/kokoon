@@ -4,17 +4,20 @@
   color: #3f3f3f;
   display: block;
   margin: 0 auto;
+  font-size: 1.2em;
   margin-top: 30px;
   min-width: 150px;
-  padding: 10px 0;
+  padding: 10px 30px;
   font-weight: lighter;
   border-radius: 30px;
-  -webkit-transition: all .7s ease;
+  -webkit-transition: all 1s ease-in-out;
   text-align: center;
   &:hover {
-  border: 2px solid white;
   color: white;
-  background-color: transparent
+  background-color: #3f3f3f;
+  border: 2px solid #3f3f3f;
+
+
   }
 }
 

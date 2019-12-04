@@ -1,89 +1,91 @@
 <div class="forms">
   <div class="form-box">
-<h2 id="form-title">Edit <%= resource_name.to_s.humanize %></h2>
+    <h2 id="form-title" style="margin-bottom: 50px; text-align: center">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true, label: false,
-                placeholder: "Email" %>
+      <div class="form-inputs">
+        <%= f.input :email, required: true, autofocus: true, label: false,
+                    placeholder: "Email" %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+
+        <%= f.input :first_name,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    placeholder: "First name",
+                    input_html: { autocomplete: "first_name" }%>
+        <%= f.input :last_name,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    placeholder: "Last name",
+                    input_html: { autocomplete: "last_name" }%>
+        <%= f.input :email,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    placeholder: "Email",
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :phone_number,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    placeholder: "Phone number",
+                    input_html: { autocomplete: "phone_number" }%>
+        <%= f.input :birthdate, as: :string,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    placeholder: "Day of birth",
+                    input_html: { autocomplete: "avatar" }%>
+        <%= f.input :avatar,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "avatar" }%>
+        <%= f.input :description,
+                    required: false,
+                    autofocus: true,
+                    label: false,
+                    placeholder: "Description",
+                    input_html: { autocomplete: "description" }%>
+        <%= f.input :id_scan,
+                    required: false,
+                    autofocus: true,
+                    input_html: { autocomplete: "id_scan" }%>
+        <%= f.input :password,
+                    required: false,
+                    label: false,
+                    placeholder: "New password",
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    hint: "leave it blank if you don't want to change it",
+                    required: false,
+                    label: false,
+                    placeholder: "Confirm new password",
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :current_password,
+                    hint: "we need your current password to confirm your changes",
+                    required: true,
+                    label: false,
+                    placeholder: "Current password",
+                    input_html: { autocomplete: "current-password" } %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Update", class: 'btn btn-primary mb-2'%>
+      </div>
     <% end %>
 
-    <%= f.input :first_name,
-                required: false,
-                autofocus: true,
-                label: false,
-                placeholder: "First name",
-                input_html: { autocomplete: "first_name" }%>
-    <%= f.input :last_name,
-                required: false,
-                autofocus: true,
-                label: false,
-                placeholder: "Last name",
-                input_html: { autocomplete: "last_name" }%>
-    <%= f.input :email,
-                required: false,
-                autofocus: true,
-                label: false,
-                placeholder: "Email",
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :phone_number,
-                required: false,
-                autofocus: true,
-                label: false,
-                placeholder: "Phone number",
-                input_html: { autocomplete: "phone_number" }%>
-    <%= f.input :birthdate, as: :string,
-                required: false,
-                autofocus: true,
-                label: false,
-                placeholder: "Day of birth",
-                input_html: { autocomplete: "avatar" }%>
-    <%= f.input :avatar,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "avatar" }%>
-    <%= f.input :description,
-                required: false,
-                autofocus: true,
-                label: false,
-                placeholder: "Description",
-                input_html: { autocomplete: "description" }%>
-    <%= f.input :id_scan,
-                required: false,
-                autofocus: true,
-                input_html: { autocomplete: "id_scan" }%>
-    <%= f.input :password,
-                required: false,
-                label: false,
-                placeholder: "New password",
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                hint: "leave it blank if you don't want to change it",
-                required: false,
-                label: false,
-                placeholder: "Confirm new password",
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
-                required: true,
-                label: false,
-                placeholder: "Current password",
-                input_html: { autocomplete: "current-password" } %>
+     <div class="form-links">
+      <p> <%= link_to "Unhappy? Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+      <%= link_to "← Back", :back %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update", class: 'btn btn-primary mb-2'%>
-  </div>
-<% end %>
-
-<p> <%= link_to "Unhappy? Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "← Back", :back %>
-</div>
 </div>
 

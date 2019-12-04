@@ -1,8 +1,6 @@
 .form-container{
-  background-image:  linear-gradient(to bottom, rgba(3, 198, 210, 0.8)), url(asset_path("home-bg.jpg"));
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: bottom;
+background: rgb(31,236,255);
+background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 69%, rgba(31,131,255,1) 100%);
   width: 100%;
   display: flex;
   justify-content: center;
@@ -14,31 +12,19 @@
 
 
 .forms {
+  background: rgb(31,236,255);
+  background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 69%, rgba(31,131,255,1) 100%);
   position: absolute;
-  background-color: rgb(3, 198, 210);
-   width: 100%;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding-top: 70px;
   padding-bottom: 100px;
   min-height: calc(100vh - 66px);
-  #form-title {
-    position: relative;
-    top: 0;
-    width: 600px;
-    left: 50%;
-    transform: translateX(-50%);
-
-  }
-  a {
-    margin: 0 auto;
-    display: block;
-    text-align: center;
-    font-size: .8em;
-    margin-top: 30px;
-  }
 }
+
+
 
 
 
@@ -46,17 +32,25 @@
   text-decoration: underline;
 }
 .form-box {
-  padding: 40px;
   width: 400px;
-  color: white;
-  h2 {
-    font-size: 1.4em;
-    text-align: center;
-    margin-bottom: 50px;
+  #form-title {
+    width: 400px;
+    color: #3f3f3f;
+    font-size: 30px;
   }
+
   .form-control {
-    margin: 0 auto;
+  border: 0;
+  margin: 0 auto;
+  border-radius: 0;
+  &:focus {
+    box-shadow: none;
+    border: 2px solid #3f3f3f;
   }
+  .is-invalid{
+    background-image: none;
+}
+}
   .form-check {
     margin: 0 auto;
     text-align: right;
@@ -74,15 +68,21 @@
 }
 
 .form-control {
-
+  border: 0;
   margin: 0 auto;
+  border-radius: 0;
+  &:focus {
+    box-shadow: none;
+    border: 2px solid #3f3f3f;
+  }
 }
 
 .form-links {
   text-align: center;
   margin-top: 40px;
-  a {
 
+  a {
+    color: #3f3f3f;
     font-size: .8em;
     &:hover {
       text-decoration: underline;
