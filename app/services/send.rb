@@ -13,7 +13,7 @@ class Send
       .create(
          body: 'You have been subscribed to a new ticket in your Kokoon account. Please go to http://www.kokoon.space/my_account to reply.',
          from: '+14435683642',
-         to: '+351938528287'
+         to: '+436645936710'
        )
   end
 end
