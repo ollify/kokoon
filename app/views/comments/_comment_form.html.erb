@@ -6,18 +6,18 @@
 
 <%= javascript_pack_tag 'tribute' %>
 
-<%# content_for :after_js do %>
-  <!-- <script>
+<% content_for :after_js do %>
+  <script>
     App['ticket_<%= @ticket.id %>'] = App.cable.subscriptions.create(
       { channel: 'TicketsChannel', ticket_id: <%= @ticket.id %> },
       { received: (data) => {
-        const comments = document.getElementById('comments');
-        comments.insertAdjacentHTML('beforeend', data.comment_partial);
-        comments.firstElementChild.innerText = '<%= pluralize @ticket.comments.count, "comment" %>';
+        const commentsSection = document.getElementById('comments');
+        commentsSection.insertAdjacentHTML('beforeend', data.comment_partial);
+        commentsSection.firstElementChild.innerText = 'Comment section';
         document.getElementById('comment_content').value = "";
         }
       }
     )
 
-  </script> -->
-<%# end %>
+  </script>
+<% end %>
