@@ -342,15 +342,21 @@ object-fit: cover;
     justify-content: space-between;
   }
 
-  &.low {
+  &.one {
     background-color: #FFBC42;
   }
 
-  &.mid {
+  &.two {
     background-color: #DC602E;
   }
 
-  &.high {
+  &.three {
+    background-color: #BC412B;
+  }
+    &.four {
+    background-color: #BC412B;
+  }
+    &.five {
     background-color: #BC412B;
   }
 }
