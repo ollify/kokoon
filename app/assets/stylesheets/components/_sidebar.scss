@@ -1,5 +1,6 @@
 .flat-side-bar {
-  background-color: rgb(3, 198, 210);
+  background: rgb(31,236,255);
+  background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 69%, rgba(31,131,255,1) 100%);
   width: 300px;
   height: 100vh;
   position: sticky;
@@ -20,20 +21,33 @@
 
   img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
+    margin-top: 70px;
   }
 }
-
 .sidebar-content {
   padding: 30px;
+  color: #3f3f3f;
+  a {
+    color: #3f3f3f;
+    font-size: 19px;
+      -webkit-transition: all .7s ease;
+
+    &:hover {
+      color: white;
+      opacity: 1;
+
+    }
+  }
 
   h3 {
-    font-size: 24px;
+    font-size: 28px;
   }
 
   h4 {
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bolder;
   }
 
   ul {
@@ -43,18 +57,39 @@
   }
 
   li {
-    padding: 5px 0px;
+    padding: 10px 0px;
+    &:active {
+      border: 1px solid black;
+    }
   }
+}
+
+.fas {
+  font-size: 15px;
+}
+
+.fas.fa-lock {
+  font-size: 16px;
 }
 
 .sidebar-public {
   margin-bottom: 20px;
+  padding-left: 20px;
+  margin-top: 25px;
+  padding-bottom: 25px;
+    border-bottom: 1px solid #3f3f3f;
+
 }
 
 .sidebar-admin {
-  margin-top: 15px;
+  padding-left: 25px;
+  margin-top: 40px;
   border-top: 1px;
   border-color: white;
+}
+
+.sidebar-subheading {
+  margin-bottom: 10px;
 }
 
 .fas {

@@ -63,7 +63,6 @@ tr {
   margin: 30px;
 }
 
-
 .ll-stat {
   font-size: 36px;
 }
@@ -77,3 +76,50 @@ tr {
   box-shadow: 3px 4px 11px -4px rgba(90,196,208,0.3);
 }
 
+.current-tenants {
+  background-color: white;
+  margin: 20px auto 0;
+  padding: 30px;
+  max-width: 95%;
+
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 6px 19px -5px rgba(0,0,0,0.2);
+  h3 {
+    font-family: MarkPro-Bold;
+    color: #3f3f3f;
+  }
+}
+
+.tenant-card {
+  // border-top: 1px solid rgba(0,0,0,.3);
+  padding: 20px 0;
+  img {
+    border: 2px solid #3f3f3f;
+  }
+  h4 {
+    font-weight: bolder;
+    font-size: 20px;
+  }
+  h6 {
+    margin: 5px 0;
+    a {
+      color: #0f52ff;
+    }
+  }
+}
+
+.tenant-card:first-child {
+  border-top: none;
+}
+
+.tenant-details-action {
+  margin-top: 30px;
+  a {
+    color: #3f3f3f;
+    font-weight: bolder;
+    &:hover {
+      color: #0f52ff;
+      text-decoration: underline;
+    }
+  }
+}
