@@ -9,26 +9,24 @@
             <h1 style="color: #3f3f3f;">About this kokoon</h1>
             <p><%= @flat.description %></p>
             <% if current_user.is_landlord? %>
-            <%= landlord_total_income(current_user) %>
-            <%= landlord_income_current_flat(current_user) %>
-
+              <%= landlord_total_income(current_user) %>
+              <%= landlord_income_current_flat(current_user) %>
             <% end %>
 
           </div>
 
-        <% if policy(@flat).edit? %>
-          <div class="invitation">
-              <% unless @flat.pending_rentals.empty? %>
-                <h2>Pending invite for <%= @flat.address %>  </h2>
-                <% @flat.pending_rentals.each do |rental| %>
-                  <p>Your invitation to <%= rental.tenant_email %> is still pending. </p>
-                   <%= link_to("Edit invitation", edit_flat_rental_path(@flat, rental)) %>
-                <% end %>
-              <% end %>
-            </div>
+  <% if policy(@flat).edit? %>
+    <% unless @flat.pending_rentals.empty? %>
+      <div class="invitation">
+        <i class="fas fa-times" id="close-cross"></i>
+        <h2>Pending invite for <%= @flat.address %>  </h2>
+        <% @flat.pending_rentals.each do |rental| %>
+          <p>Your invitation to <%= rental.tenant_email %> is still pending. </p>
+          <%= link_to("Edit invitation", edit_flat_rental_path(@flat, rental)) %>
         <% end %>
-
-
+      </div>
+    <% end %>
+  <% end %>
 
           <% if policy(@flat).edit? %>
           <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
@@ -69,11 +67,10 @@
             </div>
         </div>
      <% end %>
-
-
-
     </div>
   </div>
 </div>
+
+
 
 
