@@ -67,10 +67,10 @@
         <% if @ticket.subscriptions.empty? == false %>
           <div class="listeners">
           <h4>Listeners</h4>
-          <% @ticket.subscriptions.each do |sub| %>
+          <% @ticket.subscribers.each do |user| %>
             <div class="listener-cards">
-              <%= image_tag avatar(sub.user) %>
-              <%= sub.user.full_name %>
+              <%= image_tag avatar(user) %>
+              <%= user.full_name %>
             </div>
           <% end %>
         <% end %>
