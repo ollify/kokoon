@@ -18,7 +18,9 @@
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
 <% end %>
 
+<% if action_name != "new" %>
 <div class='google-signup'>
 <%= image_tag asset_path('google_button.png')%>
 <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
 </div>
+<% end %>
