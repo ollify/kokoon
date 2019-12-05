@@ -2,11 +2,14 @@
 
   <%= render 'shared/sidebar' %>
 
-  <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
-    <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
-      <h3 style="margin-bottom:30px;">All tickets of this flat</h3>
+  <div class="col-lg-9 col-md-12 col-sm-12" style="padding: 100px 0 50px 0;">
+    <div class="mytickets" style="max-width: 90%; margin: 0 auto;">
+            <h1 style="font-size: 1.5em">All tickets of this flat</h1>
+
+      <div class="row">
       <%= render 'shared/flat_ticket_feed' %>
-      <div id="btn-add">
+      <div id="btn-primary">
+        </div>
       </div>
     </div>
   </div>

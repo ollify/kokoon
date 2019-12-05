@@ -1,3 +1,4 @@
+
 <%= simple_form_for @flat do |f| %>
   <%= f.input :address,
               label: false,
@@ -10,7 +11,10 @@
   <%= f.input :description,
               label: false,
               placeholder: "Description" %>
-  <div class="button-box"><%= f.submit class: 'btn-primary' %></div>
+
+  <div class="form-actions"><%= f.submit class: 'btn-primary' %></div>
   <% end %>
 
+<div class="form-links">
 <%= link_to("← Back", my_account_path) %>
+</div>

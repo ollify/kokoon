@@ -1,11 +1,10 @@
 <div class="invitation">
   <% unless @flat.pending_rentals.empty? %>
-    <h3>Pending invite for <%= @flat.address %>  </h3>
+    <h2>Pending invite for <%= @flat.address %></h2>
     <% @flat.pending_rentals.each do |rental| %>
-      <p>
-        Your invitation to <%= rental.tenant_email %> is still pending.
+      <p>Your invitation to <%= rental.tenant_email %> is still pending.  </p>
         <%= link_to("Edit invitation", edit_flat_rental_path(@flat, rental)) %>
-      </p>
+
     <% end %>
   <% end %>
 </div>
