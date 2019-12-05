@@ -26,9 +26,11 @@
 
 .clickable {
   opacity: 50%;
+  object-fit: cover;
 }
 
 .selected {
   opacity: 100%;
   border: 2px solid;
+  object-fit: cover;
 }

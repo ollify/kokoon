@@ -3,6 +3,7 @@ const clickableAvatars = document.querySelectorAll(".clickable")
 clickableAvatars.forEach((avatar) => {
   avatar.addEventListener("click", (event) => {
   event.currentTarget.classList.toggle("selected");
+  console.log(event.currentTarget)
   if (event.currentTarget.classList.contains("selected")) {
     event.currentTarget.previousElementSibling.innerHTML =
     `<input class="form-control hidden"

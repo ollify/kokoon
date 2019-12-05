@@ -5,10 +5,10 @@ import { initFlatpickr } from '../plugins/init_flatpickr';
 if (document.getElementById('flat_address')) {
   initAutocomplete();
 }
+const closeCross = document.querySelector('#close-cross')
 
 const closeOnClick = () => {
   const invitation = document.querySelector('.invitation')
-  const closeCross = document.querySelector('#close-cross')
   closeCross.addEventListener('click', (event) => {
     invitation.classList.toggle('hidden')
   })
@@ -16,7 +16,7 @@ const closeOnClick = () => {
 
 const flatsShow = document.querySelector(".flats.show");
 const myAccount = document.querySelector(".pages.my_account");
-if(flatsShow || myAccount) {
+if(closeCross && (flatsShow || myAccount)) {
   closeOnClick();
 }
 

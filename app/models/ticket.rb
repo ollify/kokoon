@@ -20,7 +20,7 @@ class Ticket < ApplicationRecord
   end
 
   def subscribers
-    self.subscriptions.map {|sub| sub.user }
+    self.subscriptions.joins(:user).order('users.first_name, users.last_name ASC').map {|sub| sub.user }
   end
 
 end
