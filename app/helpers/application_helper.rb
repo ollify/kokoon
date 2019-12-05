@@ -46,4 +46,25 @@ module ApplicationHelper
 
     classes.join(' ')
   end
+
+  def landlord_total_income(user)
+    total_income = 0
+    if user.is_landlord?
+      user.flats.each do |flat|
+        flat.rentals.each do |rental|
+          total_income += rental.price
+        end
+      end
+    end
+    total_income
+  end
+
+  def landlord_income_current_flat(user)
+    flat_income = 0
+    @flat.rentals.each do |rental|
+      flat_income += rental.price
+    end
+    flat_income
+  end
+
 end

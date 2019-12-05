@@ -8,11 +8,15 @@
          <div class="about">
             <h1 style="color: #3f3f3f;">About this kokoon</h1>
             <p><%= @flat.description %></p>
+            <% if current_user.is_landlord? %>
+            <%= landlord_total_income(current_user) %>
+            <%= landlord_income_current_flat(current_user) %>
+
+            <% end %>
+
           </div>
 
-
         <% if policy(@flat).edit? %>
-
           <div class="invitation">
               <% unless @flat.pending_rentals.empty? %>
                 <h2>Pending invite for <%= @flat.address %>  </h2>
