@@ -31,7 +31,7 @@
 
 
           <% if policy(@flat).edit? %>
-          <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
+          <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box current-tenants">
           <% unless @flat.accepted_rentals.empty? %>
             <h3>Current tenants</h3>
             <%= render 'shared/flat_tenant_feed' %>
