@@ -12,9 +12,9 @@ const initToggleAside = () => {
     const imgAside = document.querySelector(".image-aside");
     const btnAside = document.querySelector(".btn-primary.aside");
     const textAside1 = document.querySelector(".account-aside h1");
-    const textAside2 = document.querySelector(".account-aside h4");
+    // const textAside2 = document.querySelector(".account-aside h4");
     const textAside3 = document.querySelector(".account-aside h5");
-    const textAside4 = document.querySelector(".account-aside li");
+    const textAside4 = document.querySelectorAll("li");
 
 
     toggleAside.addEventListener("click", (event) => {
@@ -28,9 +28,11 @@ const initToggleAside = () => {
           imgAside.style.opacity = "0";
           btnAside.style.opacity = "0";
           textAside1.style.opacity = "0";
-          textAside2.style.opacity = "0";
+          // textAside2.style.opacity = "0";
           textAside3.style.opacity = "0";
-          textAside4.style.opacity = "0";
+          textAside4.forEach((li) => {
+            li.style.opacity = "0";
+          })
 
         }
 
@@ -39,9 +41,11 @@ const initToggleAside = () => {
           imgAside.style.opacity = "1";
           btnAside.style.opacity = "1";
           textAside1.style.opacity = "1";
-          textAside2.style.opacity = "1";
+          // textAside2.style.opacity = "1";
           textAside3.style.opacity = "1";
-          textAside4.style.opacity = "1";
+          textAside4.forEach((li) => {
+                      li.style.opacity = "1";
+                    })
         }
     });
 
