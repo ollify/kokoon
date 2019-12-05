@@ -113,3 +113,123 @@ background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 6
   }
 }
 
+
+// Test Zoé
+
+.form-group {
+  color: white;
+}
+
+.slider-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px 12px 12px;
+}
+.box-minmax{
+  margin-top: 8px;
+  margin-bottom: 8px;
+  width: 426px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+  color: #FFFFFF;
+  span:first-child{
+    margin-left: 5px;
+  }
+ span:last-child{
+    margin-right: 5px;
+  }
+}
+// .range-slider {
+//     margin-top: 30vh;
+
+// }
+.rs-range {
+    margin: 10px;
+    padding: 0px;
+    width: 426px;
+    height: 5px;
+    -webkit-appearance: none;
+    &:focus {
+        border: none;
+    }
+    &::-webkit-slider-runnable-track {
+        width: 426px;
+        height: 1px;
+        cursor: pointer;
+        box-shadow: none;
+        background: #ffffff;
+        border-radius: 0px;
+        border: 0px solid #010101;
+    }
+    &::-moz-range-track {
+        width: 426px;
+        height: 1px;
+        cursor: pointer;
+        box-shadow: none;
+        background: #ffffff;
+        border-radius: 0px;
+        border: 0px solid #010101;
+    }
+
+    &::-webkit-slider-thumb {
+        // box-shadow: none;
+        border: 0px solid #ffffff;
+        box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
+        height: 32px;
+        width: 15px;
+        border-radius: 22px;
+        background: rgba(255,255,255,1);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -15px;
+    }
+  &::-moz-range-thumb{
+        box-shadow: none;
+        border: 0px solid #ffffff;
+        box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
+        height: 32px;
+        width: 15px;
+        border-radius: 22px;
+        background: rgba(255,255,255,1);
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -15px;
+  }
+  &::-moz-focus-outer {
+    border: 0;
+    }
+}
+.rs-label {
+    position: relative;
+    top: -8px;
+    left: -2px;
+    transform-origin: center center;
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border-radius: 50%;
+    // line-height: 30px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 8px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    left: attr(value);
+    color: #fff;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 18px;
+    // &::after {
+    //     content: "kg";
+    //     display: block;
+    //     font-size: 20px;
+    //     letter-spacing: 0.07em;
+    //     margin-top: -2px;
+    // }
+
+}
