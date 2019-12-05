@@ -151,10 +151,12 @@
     background: linear-gradient(63deg, rgba(92,81,213,1) 0%, rgba(18,112,255,1) 100%);
   }
     &.four {
+    color: white;
     background: rgb(190,81,161);
     background: linear-gradient(87deg, rgba(190,81,161,1) 0%, rgba(93,81,213,1) 100%);
   }
     &.five {
+    color: white;
     background: rgb(249,80,129);
     background: linear-gradient(63deg, rgba(249,80,129,1) 0%, rgba(191,80,160,1) 100%);
   }
@@ -191,20 +193,24 @@
     margin: 0;
     font-family: MarkPro-Book;
 
+
     a {
+       color: white;
       -webkit-transition: all .7s ease;
       -webkit-font-smoothing: antialised;
       &:hover {
         color: white;
-        text-decoration: none;
+        text-decoration: underline;
       }
     }
   }
   p {
     font-size: 16px;
     font-family: MarkPro-Bold;
-    color: #3f3f3f;
+    color: white;
     margin-bottom: 0;
+          -webkit-font-smoothing: antialised;
+
   }
 }
 
@@ -218,8 +224,19 @@
   p {
     font-size: 16px;
     font-family: MarkPro-Book;
-    color: #3f3f3f;
+    color: white;
     margin-bottom: 0;
+  }
+}
+
+
+.card-user.ticket.one,  {
+  p{
+    color: #3f3f3f;
+  }
+
+  h1 a {
+    color: #3f3f3f;
   }
 }
 

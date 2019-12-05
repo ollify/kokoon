@@ -1,4 +1,4 @@
-<div class="forms">
+<div class="form-container">
   <div class="form-box">
     <h2 id="form-title">Add a new ticket</h2>
 
@@ -16,7 +16,7 @@
       <%= f.input :priority, collection: (1..10), include_blank: false %>
       <%= f.input :photo %>
       <%= f.input :status, collection: @ticket.available_status, include_blank: false, selected: 'new'  %>
-      <h5>Subscribers</h5>
+      <p id="subscribers">Subscribers</p>
       <% @ticket.potential_subscribers.each_with_index do |subscriber, i| %>
         <input type="hidden"></input>
         <% if subscriber == current_user %>
