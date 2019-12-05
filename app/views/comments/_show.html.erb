@@ -4,11 +4,11 @@
       <%= image_tag avatar(comment.user) %>
     </div>
     <div class="col-lg-10 col-md-10 col-sm-10">
-      <%= comment.content %>
+      <h3> <%= comment.content %> </h3>
       <div class="comment-details">
         posted on <%= comment.created_at.strftime("%d/%m/%Y") %>  at <%= comment.created_at.strftime("%H:%M") %> by <%= comment.user.full_name %>
         <p>
-          <%= link_to "🗑 Delete comment", flat_rental_ticket_comment_path(@ticket.rental.flat, @ticket.rental, @ticket, comment),
+          <%= link_to "Delete comment", flat_rental_ticket_comment_path(@ticket.rental.flat, @ticket.rental, @ticket, comment),
                         method: :delete, remote: true, data: {confirm: "Are you sure you want to delete the comment?"} %>
         </p>
       </div>

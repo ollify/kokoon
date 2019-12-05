@@ -1,5 +1,5 @@
 .ticket-show-box {
-  padding: 30px;
+  padding: 30px 50px;
   background: rgba(0,0,0,.1);
   box-shadow: 3px 4px 11px -4px rgba(0,0,0,0.3);
   border-radius: 10px;
@@ -17,6 +17,25 @@
 
 .ticket-description {
   padding: 30px;
+  h3 {
+    font-weight: bolder;
+  }
+}
+ .ticket-author {
+  display: flex;
+  align-items: center;
+ }
+.details {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+  h5 {
+  width: 200px;
+  font-size: 18px;
+  text-align: left;
+  padding-bottom: 10px;
+  display: block;
+}
 }
 
 
@@ -36,12 +55,16 @@
 .listener-cards {
   border-bottom: 1px solid rgba(0,0,0,0.1);
   width: 100%;
-  padding: 10px 5px;
+  padding: 30px 5px;
   img {
     margin-right: 10px;
     border-radius: 50%;
     width: 50px;
+    height: 50px;
     object-fit: cover;
+  }
+  h3 {
+    font-size: 20px;
   }
 }
 
@@ -55,6 +78,12 @@
   margin: 50px 0px;
   h3 {
       color: #3f3f3f;
+      font-weight: bolder;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    margin-right: 30px;
   }
 
 }
@@ -69,40 +98,81 @@
   color: #3f3f3f;
 }
 
+.ticket-show-box h4 {
+  font-size: 25px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+
 #comment_content {
   border-radius: 15px;
 }
 
+.icon-contact {
+  font-size: 20px;
+  color: #3f3f3f;
+  padding: 10px 20px;
+
+}
+
+.icon-contact i {
+  width: 20px;
+}
 .ticket-owner-box {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   a {
-    font-size: 24px;
+    font-size: 20px;
     color: $kokoon;
     &:hover {
     text-decoration: none;
   }
   }
 }
-
+.ticket-owner-box .fas {
+  margin-right: 0;
+}
 .contact-action-bar {
   width: 100%;
   display: flex;
   justify-content: center;
   a {
     padding: 10px;
+
   }
+
 }
 
-.comment-details {
+
+.far .fa-envelope {
+  width: 20px;
+}
+
+
+.ticket-owner-box a {
+  font-size: 25px;
+}
+.ticket-owner-box p {
   font-size: 14px;
+}
+
+.ticket-show-box .listeners {
+  margin-top: 50px;
+}
+.comment-details {
+  font-size: 18px;
   color: rgba(0, 0, 0, 0.5);
   padding-top: 15px;
+  p {
+    margin-top: 20px;
+  }
   a {
-    color: $kokoon;
+    color: #0f52ff;
+    margin-top: 20px;
   }
 }
 

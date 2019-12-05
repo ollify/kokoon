@@ -18,9 +18,9 @@
             <% end %>
           </div>
           <div class="ticket-description">
-            <div class="listener-cards ticket-author">
-              <%= image_tag avatar(rental_user(@rental)), style: "width: 40px; height: 40px; object-fit: cover;" %>
-              <%= rental_user(@rental).full_name %> on <%= @ticket.created_at.strftime("%d/%m/%Y") %> at <%= @ticket.created_at.strftime("%H:%M") %>
+            <div class="listener-cards ticket-author" style="padding-top: 0;">
+              <%= image_tag avatar(rental_user(@rental)), style: "margin-right: 20px; width: 90px; height: 90px; object-fit: cover; border: 2px solid #3f3f3f;" %>
+              <h3><%= rental_user(@rental).full_name %> on <%= @ticket.created_at.strftime("%d/%m/%Y") %> at <%= @ticket.created_at.strftime("%H:%M") %></h3>
             </div>
 
             <h3><%= @ticket.title %></h3>
@@ -46,24 +46,35 @@
 
       <div class="col-lg-4 col-md-2 col-sm-12 ticket-show-box">
         <div class="ticket-owner-box">
-          <%= image_tag avatar(rental_user(@rental)), style: "width: 90px; height: 90px; object-fit: cover; margin-bottom: 20px; border-radius: 50%" %>
-          <h4><strong><%= rental_user(@rental).full_name %></strong></h4>
-          <p style="text-align:center; font-size: 16px;">created the ticket on <%= @ticket.created_at.strftime("%d/%m/%Y") %></p>
+          <%= image_tag avatar(rental_user(@rental)), style: "width: 120px; height: 120px; object-fit: cover; margin-bottom: 20px; border-radius: 50%" %>
+          <h4><%= rental_user(@rental).full_name %></h4>
+          <p style="text-align:center;">created the ticket on <%= @ticket.created_at.strftime("%d/%m/%Y") %></p>
           <div class="contact-action-bar">
-            <a href="mailto:<%= rental_user(@rental).email %>"><i class="far fa-envelope"></i></a>
+            <a href="mailto:<%= rental_user(@rental).email %>"><i class="far fa-envelope icon-contact"></i></a>
             <% unless rental_user(@rental).phone_number.nil? %>
-              <a href="tel:<%= rental_user(@rental).phone_number %>"><i class="fas fa-phone-volume"></i></i></a>
+              <a href="tel:<%= rental_user(@rental).phone_number %>"><i class="fas fa-mobile-alt icon-contact"></i></a>
             <% end %>
           </div>
+
+
+
+
 
           <p><%= rental_user(@rental).phone_number %></p>
         </div>
 
         <h4>Details</h4>
-        <p><strong>Category: </strong><%= @ticket.category %> </p>
-        <p><strong>Room: </strong><%= @ticket.room %> </p>
-        <p><strong>Status: </strong><%= @ticket.status %> </p>
-        <p><strong>Priority: </strong><%= @ticket.priority %> </p>
+
+        <div class="details">
+          <h5><strong>Category: </strong><%= @ticket.category %> </h5>
+          <h5><strong>Room: </strong><%= @ticket.room %> </h5>
+        </div>
+
+        <div class="details">
+          <h5><strong>Status: </strong><%= @ticket.status %> </h5>
+          <H5><strong>Priority: </strong><%= @ticket.priority %> </h5>
+        </div>
+
         <% if @ticket.subscriptions.empty? == false %>
           <div class="listeners">
           <h4>Listeners</h4>
@@ -74,9 +85,9 @@
             </div>
           <% end %>
         <% end %>
-        <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
+        <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-primary') %> </p>
         <% if current_user == rental_user(@ticket.rental) %>
-        <p> <%= button_to("Edit ticket", edit_flat_rental_ticket_path(@flat, @rental, @ticket), method: 'get', class: 'btn-secondary') %> </p>
+        <p> <%= button_to("Edit ticket", edit_flat_rental_ticket_path(@flat, @rental, @ticket), method: 'get', class: 'btn-primary') %> </p>
         <p> <%= button_to("Mark as unread", mark_as_unread_path(@ticket), class: 'btn-primary') %> </p>
         <% end %>
         </div>
