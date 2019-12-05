@@ -3,18 +3,18 @@
     <%= invite.flat.user.full_name %> sent you one invitation for renting this flat
     from <%= invite.start_date %> to <%= invite.end_date %>.
   </p>
-  <%= button_to("Join flat", flat_accept_rental_path(invite.flat.id, invite.id), class: "btn-secondary") %>
+  <%= button_to("Join flat", flat_accept_rental_path(invite.flat.id, invite.id), class: "btn-primary") %>
 <% end %>
 
 <% @accepted_rentals.each do |rental| %>
   <p>
     You are renting this flat from <%= rental.start_date %> to <%= rental.end_date %> and you're paying <%= humanized_money_with_symbol(rental.price) %> for it.
   </p>
-  <%= button_to("See your contract", flat_rental_path(rental.flat, rental, format: :pdf), method: 'get', formtarget: '_blank', class: "btn-secondary") %>
+  <%= button_to("See your contract", flat_rental_path(rental.flat, rental, format: :pdf), method: 'get', formtarget: '_blank', class: "btn-primary") %>
 
   <% if policy(@flat).new_ticket? %>
     <p>
-      <%= button_to("Create ticket", new_flat_rental_ticket_path(@flat, rental), method: 'get', class: "btn-secondary") %>
+      <%= button_to("Manage Payments", rental_payment_path(@flat.id, rental.id), method: 'get', class: "btn-primary") %>
     </p>
   <% end %>
 <% end %>
