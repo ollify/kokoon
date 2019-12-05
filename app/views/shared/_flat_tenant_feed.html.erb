@@ -16,7 +16,8 @@
 
       <% if current_user.is_landlord? %>
         <div class="tenant-details">
-          <h6 class="attributes"><strong>Rental period:</strong> &nbsp; from <%= rental.start_date %> to <%= rental.end_date %></h6>
+          <h6 class="attributes"><strong>Rental period:</strong></h6>
+          <h6 class="attributes">from <%= rental.start_date %> to <%= rental.end_date %></h6>
           <h6 class="attributes"><strong>Price:</strong> &nbsp; <%= rental.price %> per month</h6>
         </div>
 

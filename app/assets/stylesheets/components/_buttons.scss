@@ -12,7 +12,11 @@
   border-radius: 30px;
   -webkit-transition: all .7s ease;
   text-align: center;
+  outline: none;
 
+  &:focus {
+     outline: none;
+  }
   &:hover {
   color: white;
   background-color: #3f3f3f;
@@ -36,7 +40,9 @@
   border-radius: 30px;
   -webkit-transition: all .7s ease;
   text-align: center;
-
+  &:focus {
+    outline: none;
+  }
   &:hover {
   color: white;
   background-color: #3f3f3f;
