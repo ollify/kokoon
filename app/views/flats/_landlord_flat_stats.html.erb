@@ -1,0 +1,17 @@
+<h3 style="margin-bottom: 30px;">Your flat stats</h3>
+
+<div class="ll-stat-box">
+  <div class="ll-stat">€ <%= (@flat.rentals.map{ |rental| rental.price }.sum) %></div>
+  rental income from <%= @flat.tenants.count %> tenants
+</div>
+
+<div class="ll-stat-box">
+  <div class="ll-stat"><%= @spare_spots = @flat.capacity - @flat.tenants.count %> / <%= @flat.capacity %></div>
+  spare spots left
+</div>
+
+<div class="ll-stat-box">
+  <div class="ll-stat">€ <%= (@flat.rentals.map{ |rental| rental.price }.sum) / @flat.tenants.count * @spare_spots %></div>
+  more revenue potential when fully utilized.
+</div>
+
