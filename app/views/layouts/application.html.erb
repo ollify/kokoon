@@ -12,10 +12,15 @@
     <%= favicon_link_tag asset_path('greyscale_logo.ico') %>
   </head>
   <body>
-    <div class="nav-box">
+
+    <div class="k-logo">
+      <%= link_to(image_tag('logo.svg'), my_account_path) %>
+    </div>
+
+  <div class="menu-box">
       <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
-    </div>
+  </div>
 
     <div class="main">
       <%= yield %>

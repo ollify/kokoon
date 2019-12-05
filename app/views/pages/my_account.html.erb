@@ -12,7 +12,7 @@
     <h5>📍 Lisbon<br>
     👤 Member since 2019</h5>
       <div class="button-box">
-        <%= button_to("Edit profile info", edit_user_registration_path, method: :get, class: "btn-secondary") %>
+        <%= button_to("Edit profile info", edit_user_registration_path, method: :get, class: "btn-primary aside") %>
       </div>
 
 
@@ -26,6 +26,11 @@
         <p id="btn-add"><%= link_to '+ Add flat', new_flat_path %> <p>
         <h2><strong>You're a tenant?</strong><br> Do not hesitate to ask your tenant for an invitation link to join your flat.</h2>
       </div>
+    <% end %>
+
+
+    <% if current_user.is_tenant? || current_user.is_landlord? %>
+      <%= render 'pages/tickets' %>
     <% end %>
 
     <% if current_user.is_landlord? %>
@@ -45,9 +50,7 @@
       <%= render 'pages/tenant_flats' %>
     <% end %>
 
-    <% if current_user.is_tenant? || current_user.is_landlord? %>
-      <%= render 'pages/tickets' %>
-    <% end %>
+
 
   </div>
 

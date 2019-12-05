@@ -1,4 +1,4 @@
-.form-container{
+.form-container {
 background: rgb(31,236,255);
 background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 69%, rgba(31,131,255,1) 100%);
   width: 100%;
@@ -7,7 +7,7 @@ background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 6
   align-items: center;
   padding-top: 70px;
   padding-bottom: 100px;
-  min-height: calc(100vh - 66px);
+  height: 100vh;
 }
 
 

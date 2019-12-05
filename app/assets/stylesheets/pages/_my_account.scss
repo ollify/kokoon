@@ -1,16 +1,21 @@
 
 
-.account-container {
+ .account-container {
   background-color: white;
   display: flex;
   height: 100%;
   width: 100%;
+  z-index: -100;
 
 }
 
-.account-aside {
-  background-color:#f5f5f5;
-  width: 250px;
+
+///////////SIDEBAR/////////////
+
+ .account-aside {
+  background: rgb(31,236,255);
+  background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 69%, rgba(31,131,255,1) 100%);
+  min-width: 250px;
   padding: 70px 25px;
   position: sticky;
   display: block;
@@ -18,87 +23,35 @@
   left: 0;
   height: calc(100vh);
   -webkit-transition: all .7s ease;
-  z-index: 100000000000000000000;
-
+  z-index: 10000;
   .button-box {
     position: absolute;
     top: 70vh;
     left: 50%;
     transform: translateX(-50%)
   }
+  .btn-primary.aside {
+    font-size: 1em;
+    padding: 10px 20px;
+   }
 }
 
-.account-aside.hide {
-  transform: translateX(-85%);
-}
-
-
-.myproperties.expanded {
-  width: 90vw;
-  transform: translateX(-200px);
-}
-.myflats.expanded {
-  background-color: blue;
-  width: 90vw;
-  transform: translateX(-200px);
-}
-#toggle-aside img {
-  width: 40px;
-}
-
-
-.account-aside a {
-  content: "←";
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  font-size: 1.5em;
-  text-decoration: none;
-  color: black;
-  &:hover {
-    color: #03eeff;
-  }
-}
-
-
-.account-main {
-  padding: 30px 60px;
-  -webkit-transition: all .7s ease;
-
-   @media screen and (max-width: 1060px) {
-    padding: 30px 40px;
-    }
-
-}
-
-
-
-
-
-
-.account-main h1 {
-  font-size: 1.5em;
-  margin-left: 10px;
-}
-
-.image-aside img {
-width: 150px;
-height: 100%;
-object-fit: cover;
-
-}
 
 .image-aside {
   border-radius: 50%;
   width: 150px;
+  -webkit-transition: all .7s ease;
   display: block;
   margin: 0 auto;
   height: 150px;
   overflow: hidden;
   border: 1px solid rgba(209, 209, 209, .5)
-
 }
-
+  .image-aside img {
+    width: 150px;
+    height: 100%;
+    object-fit: cover;
+  }
 
 .account-aside h1 {
   font-size: 1.5em;
@@ -107,30 +60,240 @@ object-fit: cover;
 
 .account-aside h5 {
   font-weight: lighter;
-  width: 200px;
+  width: 170px;
   font-size: .9em;
   line-height: 1.4;
 }
-.account-aside h1, .account-aside h5 {
-  margin: 30px auto 0;
 
+.account-aside h1,  .account-aside h5 {
+  margin: 30px auto 0;
 }
 
-.account-aside .btn {
- text-decoration: none;
-  background-color: #f02669;
-  border: none;
-  display: block;
-  width: 150px;
-  padding: 10px;
-  border-radius: 150px;
+.account-aside a {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
 
-  &:hover {
-    background-color: #bd0d47;
-    text-decoration: none;
+#toggle-aside img {
+  width: 40px;
+}
+
+
+.account-aside.hide {
+  transform: translateX(-72%);
+}
+
+
+
+///////////MAIN CONTAINER/////////////
+
+
+ .account-main {
+  padding: 30px 60px;
+  -webkit-transition: all .7s ease;
+  @media screen and (max-width: 1060px) {
+    padding: 30px 40px;
+  }
+}
+ .account-main h1 {
+  font-size: 1.5em;
+}
+.account-main.expanded {
+    transform: translateX(-150px);
+    width: 100vw;
   }
 
+
+.myproperties, .myflats, .mytickets {
+  background-color: white;
+  margin: 40px 0;
+  padding: 30px;
+  max-width: 95%;
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 6px 19px -5px rgba(0,0,0,0.2);
+  h1 {
+    font-family: MarkPro-Bold;
+  }
 }
+
+///////////UNREAD TICKETS/////////////
+
+.mytickets img {
+  border: 2px solid #3f3f3f;
+}
+
+.card-user {
+  &.ticket {
+    margin-bottom: 20px;
+    background-color: rgb(3, 198, 210);
+    height: 100px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &.one {
+    background: rgb(28,205,255);
+    background: linear-gradient(113deg, rgba(28,205,255,1) 0%, rgba(31,236,255,1) 100%);
+  }
+
+  &.two {
+    background: rgb(18,113,255);
+    background: linear-gradient(113deg, rgba(18,113,255,1) 0%, rgba(28,204,255,1) 100%);
+  }
+
+  &.three {
+    background: rgb(92,81,213);
+    background: linear-gradient(63deg, rgba(92,81,213,1) 0%, rgba(18,112,255,1) 100%);
+  }
+    &.four {
+    background: rgb(190,81,161);
+    background: linear-gradient(87deg, rgba(190,81,161,1) 0%, rgba(93,81,213,1) 100%);
+  }
+    &.five {
+    background: rgb(249,80,129);
+    background: linear-gradient(63deg, rgba(249,80,129,1) 0%, rgba(191,80,160,1) 100%);
+  }
+}
+
+
+.mytickets a {
+  color: #3f3f3f;
+  margin: 0;
+  &:hover {
+    color: #0f52ff;
+  }
+}
+.card-user.ticket img {
+  margin: 0 30px;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: left;
+  border: 2px solid #3f3f3f;
+}
+
+.card-user.ticket .ticket-info {
+  height: 50px;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    font-size: 18px;
+    margin: 0;
+    font-family: MarkPro-Book;
+
+    a {
+      -webkit-transition: all .7s ease;
+      -webkit-font-smoothing: antialised;
+      &:hover {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+  p {
+    font-size: 16px;
+    font-family: MarkPro-Bold;
+    color: #3f3f3f;
+    margin-bottom: 0;
+  }
+}
+
+.card-user.ticket .ticket-date-priority {
+  height: 50px;
+  margin: auto 30px;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  p {
+    font-size: 16px;
+    font-family: MarkPro-Book;
+    color: #3f3f3f;
+    margin-bottom: 0;
+  }
+}
+
+
+// .ticket-info {
+//   margin: 0 20px;
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: column;
+//   //background-color: red;
+//   width: 45%;
+//   height: 60%;
+//   border-right: 1px solid rgb(2, 96, 100);
+
+//   a {
+//     color: white;
+//   }
+
+//   a:hover {
+//     text-decoration: none;
+//     color: white;
+//   }
+
+//   h1 {
+//     color: white;
+//     margin-left: 0;
+//     font-size: 1.2em;
+//   }
+
+//   h3 {
+//     font-size: 1em;
+//     margin-bottom: 0;
+//     font-family: Helvetica, sans-serif;
+//   }
+// }
+
+// .ticket-date {
+//    margin: 0 20px;
+//   display: flex;
+//   justify-content: space-between;
+//   flex-direction: column;
+//   //background-color: pink;
+//   height: 60%;
+//   align-items: flex-end;
+//    h4 {
+//     color: white;
+//     -webkit-font-smoothing: antialised;
+//     font-weight: lighter;
+//     font-size: 1em;
+//     font-family: Helvetica, sans-serif;
+//     text-align: right;
+//     }
+
+//   h5 {
+//     color: black;
+//     font-size: 1em;
+//     font-family: Helvetica, sans-serif;
+//     margin-bottom: 0;
+//     text-decoration: underline;
+//   }
+// }
+
+#edit-ticket {
+  font-size: 16px;
+  height: 100px;
+  line-height: 100px;
+  font-family: MarkPro-Bold;
+  color: #3f3f3f;
+  margin-left: 50px;
+  -webkit-transition: all .7s ease;
+  &:hover {
+    color: #0f52ff;
+  }
+}
+
+
 
 .row {
   //background-color: red;
@@ -139,7 +302,7 @@ object-fit: cover;
   -webkit-transition: all .7s ease;
 }
 
-.row.expanded {
+.row .expanded {
   width: 100vw;
 }
 
@@ -168,27 +331,6 @@ object-fit: cover;
 
 
 
-.myproperties {
-  max-width: 95%;
-    -webkit-transition: all .7s ease;
-
-
-  .row {
-    max-width: 100%;
-  }
-
-}
-
-.myflats {
-  max-width: 95%;
-  padding-top: 30px;
-  margin-top: 20px;
-  border-top: 1px solid rgba(209, 209, 209, .5);
-    .row {
-    max-width: 100%;
-  }
-
-}
 
 .invitation {
   position: relative;
@@ -292,13 +434,6 @@ object-fit: cover;
 
 }
 
-.tickets {
-  width: 100%;
-  margin-top: 30px;
-  border-top: 1px solid rgba(209, 209, 209, .5);
-  padding-top: 30px;
-
-}
 .card-flat {
   position: relative;
   display: flex;
@@ -332,143 +467,7 @@ object-fit: cover;
   }
 }
 
-.card-user {
-  &.ticket {
-    background-color: rgb(3, 198, 210);
-    height: 100px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
 
-  &.one {
-    background: rgb(28,205,255);
-    background: linear-gradient(113deg, rgba(28,205,255,1) 0%, rgba(31,236,255,1) 100%);
-  }
-
-  &.two {
-    background: rgb(18,113,255);
-    background: linear-gradient(113deg, rgba(18,113,255,1) 0%, rgba(28,204,255,1) 100%);
-  }
-
-  &.three {
-    background: rgb(92,81,213);
-background: linear-gradient(63deg, rgba(92,81,213,1) 0%, rgba(18,112,255,1) 100%);
-  }
-    &.four {
-    background: rgb(190,81,161);
-    background: linear-gradient(87deg, rgba(190,81,161,1) 0%, rgba(93,81,213,1) 100%);
-  }
-    &.five {
-    background: rgb(249,80,129);
-    background: linear-gradient(63deg, rgba(249,80,129,1) 0%, rgba(191,80,160,1) 100%);
-  }
-}
-
-.card-user.ticket img:first-child {
-  margin-left: 30px;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-   @media screen and (max-width: 1060px) {
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-    z-index: 1;
-    }
-  }
-
-.card-user.ticket .ticket-icon {
-  width: 40px;
-  height: 40px;
-    @media screen and (max-width: 1060px) {
-    width: 30px;
-    height: 30px;
-    }
-
-  //background-color: green;
-}
-
-
-
-.ticket-info {
-  margin: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  //background-color: red;
-  width: 45%;
-  height: 60%;
-  border-right: 1px solid rgb(2, 96, 100);
-
-  a {
-    color: white;
-  }
-
-  a:hover {
-    text-decoration: none;
-    color: white;
-  }
-
-  h1 {
-    color: white;
-    margin-left: 0;
-    font-size: 1.2em;
-  }
-
-  h3 {
-    font-size: 1em;
-    margin-bottom: 0;
-    font-family: Helvetica, sans-serif;
-  }
-
-  @media screen and (max-width: 1060px) {
-    margin-right: 0 10px 0 20px;
-    h1 {
-    font-size: .9em;
-    }
-    h3 {
-    font-size: .75em;
-    }
-
-  }
-
-}
-
-.ticket-date {
-   margin: 0 20px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-  //background-color: pink;
-  height: 60%;
-  align-items: flex-end;
-   h4 {
-    color: white;
-    -webkit-font-smoothing: antialised;
-    font-weight: lighter;
-    font-size: 1em;
-    font-family: Helvetica, sans-serif;
-    text-align: right;
-     @media screen and (max-width: 1060px) {
-   font-size: .75em;
-   }
-  }
-  h5 {
-    color: black;
-    font-size: 1em;
-    font-family: Helvetica, sans-serif;
-    margin-bottom: 0;
-    text-decoration: underline;
-     @media screen and (max-width: 1060px) {
-   font-size: .75em;
-    }
-  }
-  @media screen and (max-width: 1060px) {
-    margin-left: 0;
-    }
-}
 
 .hidden {
   display: none;
