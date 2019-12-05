@@ -27,11 +27,12 @@
   }
 }
 .sidebar-content {
+
   padding: 30px;
   color: #3f3f3f;
   a {
     color: #3f3f3f;
-    font-size: 19px;
+    font-size: 24px;
       -webkit-transition: all .7s ease;
 
     &:hover {
@@ -46,7 +47,7 @@
   }
 
   h4 {
-    font-size: 20px;
+    font-size: 25px;
     font-weight: bolder;
   }
 
@@ -58,9 +59,7 @@
 
   li {
     padding: 10px 0px;
-    &:active {
-      border: 1px solid black;
-    }
+
   }
 }
 
@@ -74,8 +73,8 @@
 
 .sidebar-public {
   margin-bottom: 20px;
-  padding-left: 20px;
-  margin-top: 25px;
+  padding-left: 40px;
+  margin-top: 45px;
   padding-bottom: 25px;
     border-bottom: 1px solid #3f3f3f;
 
