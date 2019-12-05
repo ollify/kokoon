@@ -33,11 +33,11 @@ background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 6
   text-decoration: underline;
 }
 .form-box {
-  margin-top: 30px;
-  width: 400px;
+  width: 450px;
+  padding: 40px;
+  border-radius: 20px;
   #form-title {
     margin-bottom: 30px;
-    width: 400px;
     color: #3f3f3f;
     text-align: center;
     font-size: 30px;
@@ -85,7 +85,7 @@ background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 6
 
 .form-links {
   text-align: center;
-  margin-top: 40px;
+  margin: 40px auto;
 
 
   a {
@@ -97,8 +97,6 @@ background: linear-gradient(120deg, rgba(31,236,255,1) 27%, rgba(31,198,255,1) 6
       text-decoration: underline;
     }
   }
-
-
 }
 
 
