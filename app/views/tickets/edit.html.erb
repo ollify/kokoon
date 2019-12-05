@@ -1,4 +1,4 @@
-<div class="forms">
+<div class="form-container">
   <div class="form-box">
     <h2 id="form-title">Add a new ticket</h2>
     <%= simple_form_for [@flat, @rental, @ticket] do |f| %>
@@ -15,33 +15,47 @@
       <%= f.input :priority, collection: (1..10), include_blank: false %>
       <%= f.input :photo, as: :hidden %>
       <%= f.input :status, collection: @ticket.available_status, include_blank: false, selected: 'new'  %>
-      <h5>Subscribers</h5>
+      <p id="subscribers">Subscribers</p>
       <!-- to do -->
-      <%= image_tag avatar(current_user), class: "avatar-large selected" %>
-      <p> You </p>
-      <% (@ticket.subscribers - [current_user]).each_with_index do |subscriber, i| %>
-        <input type="hidden"></input>
-        <%= image_tag avatar(subscriber), class: "avatar-large clickable selected subscriber", 'data-subscription' => "#{@ticket.subscriptions.find{|subscription| subscription.user == subscriber}.id}" %>
-        <input type="hidden"></input>
-        <% if subscriber == @flat.user %>
-          <p> Your landlord <%= subscriber.full_name %> </p>
-        <% else %>
-          <p> <%= subscriber.full_name %> </p>
-        <% end %>
-      <% end %>
+         <div class="subscribers">
+            <div class="row subscribers">
+             <div class="col-lg-4 col-md-4 col-sm-12 d-flex">
 
-      <% (@ticket.potential_subscribers - @ticket.subscribers - [current_user]).each_with_index do |subscriber, i| %>
-        <input type="hidden"> </input>
-        <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
-        <% if subscriber == @flat.user %>
-          <p> Your landlord <%= subscriber.full_name %> </p>
-        <% else %>
-          <p> <%= subscriber.full_name %> </p>
-        <% end %>
-      <% end %>
+                    <%= image_tag avatar(current_user), class: "avatar-large selected" %>
+                    <p> You </p>
+
+
+                 <% (@ticket.subscribers - [current_user]).each_with_index do |subscriber, i| %>
+                <input type="hidden"></input>
+              <%= image_tag avatar(subscriber), class: "avatar-large clickable selected subscriber", 'data-subscription' => "#{@ticket.subscriptions.find{|subscription| subscription.user == subscriber}.id}" %>
+                <input type="hidden"></input>
+                <% if subscriber == @flat.user %>
+                  <p> Your landlord <%= subscriber.full_name %> </p>
+                <% else %>
+                  <p> <%= subscriber.full_name %> </p>
+                <% end %>
+              <% end %>
+
+
+
+              <% (@ticket.potential_subscribers - @ticket.subscribers - [current_user]).each_with_index do |subscriber, i| %>
+                <input type="hidden"> </input>
+                <%= image_tag avatar(subscriber), class: "avatar-large clickable", 'data-user' => "#{subscriber.id}", 'data-subscription' => "#{i}" %>
+                <% if subscriber == @flat.user %>
+                  <p> Your landlord <%= subscriber.full_name %> </p>
+                <% else %>
+                  <p> <%= subscriber.full_name %> </p>
+                <% end %>
+              <% end %>
+
+          </div>
+      </div>
+    </div>
       <%= f.submit class: 'btn btn-primary mb-2' %>
     <% end %>
+  <div class="form-links">
     <%= link_to("← Back", flat_path(@flat)) %>
+    </div>
   </div>
 </div>
 
