@@ -18,7 +18,7 @@
 }
 
 .flat-content-container {
-  padding: 30px;
+  padding: 60px;
   h1 {
     color: rgb(3, 198, 210);
   }
@@ -81,7 +81,6 @@ tr {
   margin: 20px auto 0;
   padding: 30px;
   max-width: 95%;
-
   border-radius: 10px;
   -webkit-box-shadow: 3px 6px 19px -5px rgba(0,0,0,0.2);
   h3 {
@@ -123,3 +122,20 @@ tr {
     }
   }
 }
+
+.users-flat {
+background-color: white;
+  margin: 20px auto 0;
+  padding: 30px;
+  max-width: 95%;
+
+  border-radius: 10px;
+  -webkit-box-shadow: 3px 6px 19px -5px rgba(0,0,0,0.2);
+  h3 {
+    font-family: MarkPro-Bold;
+    color: #3f3f3f;
+  }
+}
+
+}
+

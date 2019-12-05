@@ -3,13 +3,22 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>KOKOON.</title>
+    <title>KOKOON. Your smart rental assistent</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
      <%#= stylesheet_pack_tag 'application', media: 'all' %>
-    <%= favicon_link_tag asset_path('greyscale_logo.ico') %>
+
+     <%# meta information %>
+     <meta name="title" content="Kokoon - Better rental experiences through seamless processes">
+     <meta name="description" content="Kokoon enables landlords & tenants to organize everything that comes with renting a flat on a central spot, so that the rental experience is maximised">
+     <meta name="keywords" content="kokoon">
+     <meta name="robots" content="index, follow">
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+     <meta name="language" content="English">
+     <meta property="og:image" content="<%= asset_path('og-image.jpg') %>" />
+    <%= favicon_link_tag asset_path('user2.ico') %>
   </head>
   <body class="<%= controller_name %> <%= action_name %>">
 
@@ -22,7 +31,7 @@
       <%= render 'shared/flashes' %>
   </div>
 
-    <div class="main">
+    <div class="main" style="width: 100vw;">
       <%= yield %>
 
 
