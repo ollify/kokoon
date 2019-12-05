@@ -16,6 +16,7 @@
     object-fit: cover;
   }
   .dropdown-menu {
+    z-index: 10000000000000000000000000;
     width: 200px;
     border: 2px solid #3f3f3f;
     padding: 0;
@@ -37,6 +38,12 @@
 #login {
   position: absolute;
   right: 20px;
+  top: 20px;
+  color: #3f3f3f;
+  font-size: 18px;
+  min-width: 250px;
+  text-align: right
+
 }
 
 

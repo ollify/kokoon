@@ -12,6 +12,7 @@
   border-radius: 30px;
   -webkit-transition: all .7s ease;
   text-align: center;
+
   &:hover {
   color: white;
   background-color: #3f3f3f;
@@ -22,19 +23,26 @@
 }
 
 .btn-secondary {
-  background-color: rgb(3, 198, 210);
-  min-width: 150px;
-  padding: 10px 10px;
+   background-color: transparent;
+  border: 2px solid white;
+  color: white;
   display: block;
   margin: 0 auto;
-  border-radius: 30px;
-  border-color: transparent;
-  -webkit-transition: all .7s ease;
+  font-size: 1.2em;
   margin-top: 30px;
+  min-width: 150px;
+  padding: 10px 30px;
+  font-weight: lighter;
+  border-radius: 30px;
+  -webkit-transition: all .7s ease;
+  text-align: center;
+
   &:hover {
-  background-color: rgb(2, 96, 100);
   color: white;
-  border-color: transparent;
+  background-color: #3f3f3f;
+  border: 2px solid #3f3f3f;
+
+
   }
 }
 
@@ -81,3 +89,9 @@
   display: none;
 }
 
+#btn-properties {
+  height: 300px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}

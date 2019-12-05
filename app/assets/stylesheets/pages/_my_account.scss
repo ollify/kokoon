@@ -114,8 +114,10 @@
   -webkit-box-shadow: 3px 6px 19px -5px rgba(0,0,0,0.2);
   h1 {
     font-family: MarkPro-Bold;
+    color: #3f3f3f;
   }
 }
+
 
 ///////////UNREAD TICKETS/////////////
 
@@ -220,7 +222,6 @@
     margin-bottom: 0;
   }
 }
-
 
 // .ticket-info {
 //   margin: 0 20px;
@@ -333,47 +334,54 @@
 
 
 .invitation {
-  position: relative;
-  width: 100%;
+  z-index: 10000000000000000000000;
+  position: fixed;
+ background: rgb(18,113,255);
+  background: linear-gradient(113deg, rgba(18,113,255,.8) 0%, rgba(28,204,255,1) 100%);
+  top: 50px;
+  right: 0;
+  max-width: 300px;
+  border-radius: 10px;
   margin: 20px 15px 50px 15px;
-  border: 2px solid rgb(3, 198, 210);
   padding: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  h2 {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 20px;
+    max-width: 70%;
+    text-align: center;
+  }
   p {
-    color: rgb(3, 198, 210);
-    font-size: 1.1em;
+    color: #3f3f3f;
+    font-size: .9em;
     text-align: center;
     max-width: 600px;
     line-height: 1.2;
     display: inline-block;
   }
+
   img {
     margin-bottom: 20px;
     width: 80px;
     height: 80px;
   }
+
+  a {
+    color: white;
+    font-family: MarkPro-Book;
+    font-size: 16px;
+    margin-top: 20px;
+    text-align: right;
+    text-decoration: underline;
+    &:hover {
+      color: #3f3f3f;
+    }
+  }
 }
-
-.invitation::after {
-  content: "!";
-  color: white;
-  text-align: center;
-  line-height: 30px;
-  font-size: 1.3em;
-  font-weight: bold;
-  background-color: rgb(3, 198, 210);
-  width: 30px;
-  height: 30px;
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  border-radius: 50%;
-}
-
-
-
 
 
 .card-user {
