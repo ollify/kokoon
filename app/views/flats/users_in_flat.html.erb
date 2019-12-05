@@ -4,7 +4,7 @@
 
   <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
 
-    <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
+    <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box  users-flat">
       <h3>Landlord</h3>
 
       <div class="tenant-card">
@@ -23,7 +23,7 @@
 
 
     <% unless @flat.accepted_rentals.empty? %>
-      <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box">
+      <div class="col-lg-12 col-md-12 col-sm-12 flat-show-box  users-flat">
         <h3>People in this flat</h3>
         <%= render 'shared/flat_tenant_feed' %>
         <% if current_user.is_landlord? %>
@@ -33,4 +33,6 @@
         <% end %>
       </div>
     <% end %>
+</div>
+
 </div>
