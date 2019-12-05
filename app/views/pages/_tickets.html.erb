@@ -2,7 +2,7 @@
   <h1>My unread tickets</h1>
     <div class="row">
 
-      <% current_user.unread_tickets.each do |ticket| %>
+      <% @sorted_tickets.each do |ticket| %>
 
       <div class="<%= ticket_classes(ticket) %>">
 

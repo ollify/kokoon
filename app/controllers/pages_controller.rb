@@ -17,6 +17,7 @@ class PagesController < ApplicationController
 
     #If user is a landlord
     @owned_flats = Flat.where(user: current_user)
+    @sorted_tickets = current_user.unread_tickets.sort_by{|k, v| k[:priority]}.reverse
   end
 
   def privacy_policy
