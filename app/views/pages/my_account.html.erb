@@ -15,7 +15,6 @@
       <h6>✓ <%= current_user.flats.count %> flats<br>
       ✓ <%= current_user.flats.map{ |flat| flat.rentals.count }.sum %> rental contracts.<br>
        ✓ All of this represents a potential income of OLLIVER??</h6>
-
       <div class="button-box">
         <%= button_to("Edit profile info", edit_user_registration_path, method: :get, class: "btn-primary aside") %>
       </div>

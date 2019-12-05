@@ -16,6 +16,7 @@ const initToggleAside = () => {
     const textAside3 = document.querySelector(".account-aside h5");
     const textAside4 = document.querySelector(".account-aside h6");
 
+
     toggleAside.addEventListener("click", (event) => {
         userAside.classList.toggle("hide");
         userMain.classList.toggle("hide");

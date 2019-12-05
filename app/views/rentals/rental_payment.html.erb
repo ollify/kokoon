@@ -27,7 +27,7 @@
                 <div>Your payment is due! Please pay the rent of <%= @rental.price %> now!</div>
                 <%= form_tag orders_path do %>
                   <%= hidden_field_tag 'rental_id', @rental.id %>
-                  <%= submit_tag 'Pay rent now', class: 'btn btn-secondary' %>
+                  <%= submit_tag 'Pay rent now', class: 'btn btn-primary' %>
                 <% end %>
               <% end %>
             </div>
