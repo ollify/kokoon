@@ -11,10 +11,10 @@
     <h1> Welcome, <%= current_user.first_name %>!</h1>
     <h5>✉️ <%= current_user.email  %>
     <br>👤 Member since <%= current_user.created_at.strftime("%m/%Y")%></h5>
-    <h5>Kokoon helps you manage:
-    <br> <%= current_user.flats.count %> flats
-    <br> <%= current_user.flats.map{ |flat| flat.rentals.count }.sum %> rental contracts.
-    <br> All of this represents a potential income of OLLIVER?? </h5>
+    <h4>Kokoon helps you manage:<br> </h4>
+     <h6>✓ <%= current_user.flats.count %> flats<br>
+    ✓ <%= current_user.flats.map{ |flat| flat.rentals.count }.sum %> rental contracts<br>
+    ✓ All of this represents a potential income of OLLIVER??</h6>
 
       <div class="button-box">
         <%= button_to("Edit profile info", edit_user_registration_path, method: :get, class: "btn-primary aside") %>
