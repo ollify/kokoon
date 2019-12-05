@@ -380,11 +380,8 @@
 }
 
 
-
-
-
 .invitation {
-  z-index: 10000000000000000000000;
+  z-index: 100000000000;
   position: fixed;
  background: rgb(18,113,255);
   background: linear-gradient(113deg, rgba(18,113,255,.8) 0%, rgba(28,204,255,1) 100%);
@@ -431,6 +428,14 @@
       color: #3f3f3f;
     }
   }
+}
+
+#close-cross {
+  position: absolute;
+  right: 5px;
+  top: 10px;
+  color: blue;
+  opacity: 60%;
 }
 
 

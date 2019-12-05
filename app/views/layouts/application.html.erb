@@ -11,7 +11,7 @@
      <%#= stylesheet_pack_tag 'application', media: 'all' %>
     <%= favicon_link_tag asset_path('greyscale_logo.ico') %>
   </head>
-  <body>
+  <body class="<%= controller_name %> <%= action_name %>">
 
     <div class="k-logo">
       <%= link_to(image_tag('logo.svg'), my_account_path) %>
