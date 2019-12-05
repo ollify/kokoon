@@ -63,6 +63,19 @@ tr {
   margin: 30px;
 }
 
+.ll-stat {
+  font-size: 36px;
+}
+
+.ll-stat-box {
+  text-align: center;
+  padding: 20px;
+  margin-top: 10px;
+  border: 1px solid rgba(0,0,0, 0.1);
+  border-radius: 15px;
+  box-shadow: 3px 4px 11px -4px rgba(90,196,208,0.3);
+}
+
 .current-tenants {
   background-color: white;
   margin: 20px auto 0;
@@ -123,3 +136,6 @@ background-color: white;
     color: #3f3f3f;
   }
 }
+
+}
+

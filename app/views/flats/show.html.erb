@@ -3,16 +3,11 @@
   <%= render 'shared/sidebar' %>
 
   <div class="col-lg-9 col-md-12 col-sm-12 flat-content-container">
-    <div class="row d-flex justify-content-between" >
+    <div class="row d-flex justify-content-between d-flex align-items-start" >
       <div class="col-lg-7 col-md-7 col-sm-12 " style="padding-left: 0px;">
          <div class="about">
             <h1 style="color: #3f3f3f;">About this kokoon</h1>
             <p><%= @flat.description %></p>
-            <% if current_user.is_landlord? %>
-              <%= landlord_total_income(current_user) %>
-              <%= landlord_income_current_flat(current_user) %>
-            <% end %>
-
           </div>
 
   <% if policy(@flat).edit? %>
@@ -43,7 +38,13 @@
 
       <% if current_user.is_tenant? %>
         <div class="col-lg-4 col-md-4 col-sm-12 flat-show-box">
-            <%= render 'flats/tenant_show' %>
+          <%= render 'flats/tenant_show' %>
+        </div>
+      <% end %>
+
+      <% if current_user.is_landlord? %>
+        <div class="col-lg-4 col-md-4 col-sm-12 flat-show-box">
+          <%= render 'flats/landlord_flat_stats' %>
         </div>
       <% end %>
 
