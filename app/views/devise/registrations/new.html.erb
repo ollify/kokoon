@@ -9,26 +9,20 @@
          <%= f.input :first_name,
                      required: true,
                      autofocus: true,
-                     label: false,
-                     placeholder: "First name",
+                     placeholder: "Elon",
                      input_html: { autocomplete: "first_name" }%>
          <%= f.input :last_name,
                      required: true,
                      autofocus: true,
-                     label: false,
-                     placeholder: "Last name",
+                     placeholder: "Musk",
                      input_html: { autocomplete: "last_name" }%>
          <%= f.input :email,
                      required: true,
                      autofocus: true,
-                     label: false,
-                     placeholder: "Email",
+                     placeholder: "elon@tesla.com",
                      input_html: { autocomplete: "email", value: params[:email] }%>
-
          <%= f.input :password,
                      required: true,
-                     label: false,
-                     placeholder: "Password*",
                      hint: ("*#{@minimum_password_length} characters minimum" if @minimum_password_length),
                      input_html: { autocomplete: "new-password" } %>
          <%= f.input :password_confirmation,
