@@ -8,7 +8,7 @@
       <ul>
         <li><i class="fas fa-couch"></i><%= link_to("About this kokoon", flat_path(@flat)) %></li>
         <li><i class="fas fa-users"></i><%= link_to("People in this kokoon", users_in_flat_path(@flat)) %></li>
-        <li><i class="fas fa-ticket-alt"></i><%= link_to("Tickets", tickets_of_flat_path(@flat)) %></li>
+        <li><i class="fas fa-ticket-alt"></i><%= link_to("See all tickets", tickets_of_flat_path(@flat)) %></li>
 
         <% unless current_user.is_landlord? == true %>
         <li><i class="fas fa-wallet"></i><%= link_to("Payments", rental_payment_path(@flat.id, current_user.accepted_rentals.last)) %></li>
