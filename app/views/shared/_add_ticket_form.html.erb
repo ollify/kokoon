@@ -3,12 +3,18 @@
               placeholder: "Housewarming party" %>
   <%= f.input :category, collection: ticket.available_categories %>
   <%= f.input :room,
-              label: false,
-              placeholder: "Room" %>
+              placeholder: "Living room" %>
   <%= f.input :content,
-              label: false,
-              placeholder: "Content"  %>
-  <%= f.input :priority, collection: (1..10), include_blank: false %>
+              placeholder: "How about a party next Friday?"  %>
+
+  <p class="form-group">Priority</p>
+  <div class="slider-container">
+    <div class="range-slider">
+      <span id="rs-bullet" class="rs-label">0</span>
+      <%= f.input :priority, label: false, input_html: { id:"rs-range-line", class:"rs-range", type:"range", value:"0", min:"0", max:"10" } %>
+    </div>
+  </div>
+
   <%= f.input :photo %>
   <%= f.input :status, collection: ticket.available_status, include_blank: false, selected: 'new'  %>
   <p id="subscribers">Subscribers</p>
@@ -31,3 +37,4 @@
 <% end %>
 
 <%= javascript_pack_tag 'new_subscriptions' %>
+<%= javascript_pack_tag 'slider' %>
