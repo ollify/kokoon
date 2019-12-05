@@ -12,6 +12,7 @@
       <div class="tenant-details">
         <h4><%= rental.tenant.full_name %></h4>
         <h6 class="attributes"><strong>Contact tenant:</strong> &nbsp; <a href="mailto:<%= rental.tenant.email %>"><%= rental.tenant.email %></a></h6>
+        <p><%= rental.tenant.description %></p>
       </div>
 
       <% if current_user.is_landlord? %>
