@@ -58,17 +58,16 @@
 
   </div>
 
-
-   <% @pending_invites.each do |invite| %>
-      <div class="invitation">
+  <% unless @pending_invites.empty? %>
+    <div class="invitation">
+    <% @pending_invites.each do |invite| %>
         <i class="fas fa-times" id="close-cross"></i>
         <%= image_tag avatar(invite.flat.user), class: 'avatar-large' %>
         <p><strong><%= invite.flat.user.full_name %> </strong>sent you one invitation for a flat located at  <strong><%= invite.flat.address %></strong> from <strong><%= invite.start_date %></strong> to <strong><%= invite.end_date %></strong>.</p>
         <%= button_to("Join flat", flat_accept_rental_path(invite.flat.id, invite.id), class: "btn-secondary") %>
-      </div>
     <% end %>
-
-
+    </div>
+  <% end %>
   </div>
 
   <%= javascript_pack_tag 'init_aside' %>
