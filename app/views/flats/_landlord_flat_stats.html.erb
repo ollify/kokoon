@@ -10,8 +10,9 @@
   spare spots left
 </div>
 
-<div class="ll-stat-box">
-  <div class="ll-stat">€ <%= (@flat.rentals.map{ |rental| rental.price }.sum) / @flat.tenants.count * @spare_spots %></div>
-  more revenue potential when fully utilized.
-</div>
-
+<% unless @flat.tenants.count.zero? or @spare_spots.zero? %>
+  <div class="ll-stat-box">
+    <div class="ll-stat">€ <%= (@flat.rentals.map{ |rental| rental.price }.sum) / @flat.tenants.count * @spare_spots %></div>
+    more revenue potential when fully utilized.
+  </div>
+<% end %>
