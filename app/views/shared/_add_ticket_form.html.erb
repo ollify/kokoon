@@ -3,11 +3,9 @@
               placeholder: "Housewarming party" %>
   <%= f.input :category, collection: ticket.available_categories %>
   <%= f.input :room,
-              label: false,
-              placeholder: "Room" %>
+              placeholder: "Living room" %>
   <%= f.input :content,
-              label: false,
-              placeholder: "Content"  %>
+              placeholder: "How about a party next Friday?"  %>
   <%= f.input :priority, collection: (1..10), include_blank: false %>
   <%= f.input :photo %>
   <%= f.input :status, collection: ticket.available_status, include_blank: false, selected: 'new'  %>
