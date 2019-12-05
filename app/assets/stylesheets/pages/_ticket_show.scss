@@ -1,6 +1,6 @@
 .ticket-show-box {
   padding: 30px;
-  background: white;
+  background: rgba(0,0,0,.1);
   box-shadow: 3px 4px 11px -4px rgba(0,0,0,0.3);
   border-radius: 10px;
   margin-bottom: 10px;
@@ -53,6 +53,20 @@
 
 #comments{
   margin: 50px 0px;
+  h3 {
+      color: #3f3f3f;
+  }
+
+}
+#new_comment label {
+  color: #3f3f3f;
+}
+.form-group .string .required .comment_content .string .required #text {
+  color: #3f3f3f;
+}
+
+.ticket-show-box-main h3 {
+  color: #3f3f3f;
 }
 
 #comment_content {
