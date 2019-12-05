@@ -6,7 +6,7 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :email, required: true, autofocus: true, label: false,
+        <%= f.input :email, required: true, autofocus: true,
                     placeholder: "Email" %>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -16,32 +16,22 @@
         <%= f.input :first_name,
                     required: false,
                     autofocus: true,
-                    label: false,
                     placeholder: "First name",
                     input_html: { autocomplete: "first_name" }%>
         <%= f.input :last_name,
                     required: false,
                     autofocus: true,
-                    label: false,
                     placeholder: "Last name",
                     input_html: { autocomplete: "last_name" }%>
-        <%= f.input :email,
-                    required: false,
-                    autofocus: true,
-                    label: false,
-                    placeholder: "Email",
-                    input_html: { autocomplete: "email" }%>
         <%= f.input :phone_number,
                     required: false,
                     autofocus: true,
-                    label: false,
-                    placeholder: "Phone number",
+                    placeholder: "+31300300300",
                     input_html: { autocomplete: "phone_number" }%>
         <%= f.input :birthdate, as: :string,
                     required: false,
                     autofocus: true,
-                    label: false,
-                    placeholder: "Day of birth",
+                    placeholder: "01/01/1989",
                     input_html: { autocomplete: "avatar" }%>
         <%= f.input :avatar,
                     required: false,
@@ -50,8 +40,8 @@
         <%= f.input :description,
                     required: false,
                     autofocus: true,
-                    label: false,
-                    placeholder: "Description",
+                    label: "About you",
+                    placeholder: "Technology entrepreneur, investor, and engineer. Founder of SpaceX and Tesla.",
                     input_html: { autocomplete: "description" }%>
         <%= f.input :id_scan,
                     required: false,
@@ -59,19 +49,17 @@
                     input_html: { autocomplete: "id_scan" }%>
         <%= f.input :password,
                     required: false,
-                    label: false,
-                    placeholder: "New password",
+                    label: "New password",
+                    hint: "Leave it blank if you don't want to change it",
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :password_confirmation,
-                    hint: "leave it blank if you don't want to change it",
                     required: false,
                     label: false,
                     placeholder: "Confirm new password",
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :current_password,
-                    hint: "we need your current password to confirm your changes",
+                    hint: "We need your current password to confirm your changes",
                     required: true,
-                    label: false,
                     placeholder: "Current password",
                     input_html: { autocomplete: "current-password" } %>
       </div>
