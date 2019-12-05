@@ -14,7 +14,7 @@ const initToggleAside = () => {
     const textAside1 = document.querySelector(".account-aside h1");
     const textAside2 = document.querySelector(".account-aside h4");
     const textAside3 = document.querySelector(".account-aside h5");
-    const textAside4 = document.querySelector(".account-aside h6");
+    const textAside4 = document.querySelector(".account-aside li");
 
 
     toggleAside.addEventListener("click", (event) => {
