@@ -1,4 +1,4 @@
-<% @flat.tickets.order(priority: :desc).each do |ticket| %>
+<% @flat.tickets.order(created_at: :desc).each do |ticket| %>
   <% if ticket.subscriptions.map{|sub| sub.user}.include?(current_user) %>
 
     <div class="<%= ticket_classes(ticket) %>">
