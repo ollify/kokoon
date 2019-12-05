@@ -1,6 +1,7 @@
 console.log("Back to top");
 
 const initBackToTop = () => {
+    const toggleAside = document.querySelector("#toggle-aside");
     const btnTop = document.querySelector("#btn-backtop");
     const userAside = document.querySelector(".account-aside");
     const userMain = document.querySelector(".account-main");

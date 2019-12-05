@@ -1,29 +1,33 @@
+
+<% unless @sorted_tickets.empty? %>
 <div class="mytickets" id="unread-tickets">
   <h1 style="font-size: 1.75rem;">My unread tickets</h1>
     <div class="row">
 
-      <% @sorted_tickets.each do |ticket| %>
 
-      <div class="<%= ticket_classes(ticket) %>">
+        <% @sorted_tickets.each do |ticket| %>
+
+        <div class="<%= ticket_classes(ticket) %>">
 
 
-        <div class="ticket-info">
-          <%= image_tag ticket_img(ticket) %>
-          <div class="ticket-text">
-            <h1><%=link_to(ticket.title, flat_rental_ticket_path(ticket.rental.flat, ticket.rental,ticket))%></h1>
-            <p>by <%= rental_user(ticket.rental).full_name %></p>
+          <div class="ticket-info">
+            <%= image_tag ticket_img(ticket) %>
+            <div class="ticket-text">
+              <h1><%=link_to(ticket.title, flat_rental_ticket_path(ticket.rental.flat, ticket.rental,ticket))%></h1>
+              <p>by <%= rental_user(ticket.rental).full_name %></p>
+            </div>
           </div>
+
+          <div class="ticket-date-priority">
+            <p>priority <strong><%= ticket.priority %> out of 10</strong></h4>
+            <p><strong><%=ticket.created_at.strftime("%d/%m/%Y") %></strong></h4>
+          </div>
+
         </div>
 
-        <div class="ticket-date-priority">
-          <p>priority <strong><%= ticket.priority %> out of 10</strong></h4>
-          <p><strong><%=ticket.created_at.strftime("%d/%m/%Y") %></strong></h4>
-        </div>
+        <h4 id="edit-ticket"><%= link_to("Edit ticket", edit_flat_rental_ticket_path(ticket.rental.flat, ticket.rental, ticket)) %></h4>
 
-      </div>
-
-      <h4 id="edit-ticket"><%= link_to("Edit ticket", edit_flat_rental_ticket_path(ticket.rental.flat, ticket.rental, ticket)) %></h4>
-
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
