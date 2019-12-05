@@ -1,6 +1,7 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to my_account_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+<div class="menu-box">
+
+  <%= link_to my_account_path do %>
+
     <% if user_signed_in? && (current_user.unread_tickets.count > 0) %>
       <div class="badge badge-danger">
         <%= link_to current_user.unread_tickets.count, my_account_path(anchor: 'unread_tickets') %>
@@ -8,33 +9,32 @@
     <% else %>
       <div class="badge badge-danger badge-hidden"> </div>
     <% end %>
+
   <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <% unless current_user.rented_flats.empty? %>
-            <%= link_to "My current flat", flat_path(current_user.rented_flats.last), class: "nav-link" %>
-          <% end %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag avatar(current_user), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My account", my_account_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+
+           <%= image_tag avatar(current_user), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+
+
+        <div class="dropdown-menu">
+              <% unless current_user.rented_flats.empty? %>
+                <%= link_to "My current flat", flat_path(current_user.rented_flats.last), class: "dropdown-item" %>
+              <% end %>
+              <%= link_to "My account", my_account_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+
+
+        <% else %>
+
+            <%= link_to "Login", new_user_session_path, id: "login" %>
+
+         <% end %>
+
 </div>
+
+
