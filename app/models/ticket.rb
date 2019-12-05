@@ -8,7 +8,7 @@ class Ticket < ApplicationRecord
   accepts_nested_attributes_for :subscriptions, allow_destroy: true
 
   def available_categories
-    %w(incident event guest)
+    %w(cleaning event guest incident notice)
   end
 
   def available_status

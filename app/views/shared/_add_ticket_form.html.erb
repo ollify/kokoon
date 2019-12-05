@@ -1,7 +1,6 @@
 <%= simple_form_for [flat, rental, ticket] do |f| %>
   <%= f.input :title,
-              label: false,
-              placeholder: "Title" %>
+              placeholder: "Housewarming party" %>
   <%= f.input :category, collection: ticket.available_categories %>
   <%= f.input :room,
               label: false,
