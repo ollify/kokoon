@@ -46,9 +46,9 @@
 
       <div class="col-lg-4 col-md-2 col-sm-12 ticket-show-box">
         <div class="ticket-owner-box">
-          <%= image_tag avatar(rental_user(@rental)), style: "width: 75px; height: 75px; object-fit: cover; margin-bottom: 20px;" %>
-          <p><strong><%= rental_user(@rental).full_name %></strong></p>
-          <p style="text-align:center; font-size: 12px;">created the ticket on <%= @ticket.created_at.strftime("%d/%m/%Y") %></p>
+          <%= image_tag avatar(rental_user(@rental)), style: "width: 90px; height: 90px; object-fit: cover; margin-bottom: 20px; border-radius: 50%" %>
+          <h4><strong><%= rental_user(@rental).full_name %></strong></h4>
+          <p style="text-align:center; font-size: 16px;">created the ticket on <%= @ticket.created_at.strftime("%d/%m/%Y") %></p>
           <div class="contact-action-bar">
             <a href="mailto:<%= rental_user(@rental).email %>"><i class="far fa-envelope"></i></a>
             <% unless rental_user(@rental).phone_number.nil? %>
@@ -77,7 +77,7 @@
         <p> <%= button_to("All tickets", tickets_of_flat_path(@flat), method: 'get', class: 'btn-secondary') %> </p>
         <% if current_user == rental_user(@ticket.rental) %>
         <p> <%= button_to("Edit ticket", edit_flat_rental_ticket_path(@flat, @rental, @ticket), method: 'get', class: 'btn-secondary') %> </p>
-        <p> <%= button_to("Mark as unread", mark_as_unread_path(@ticket), class: 'btn-secondary') %> </p>
+        <p> <%= button_to("Mark as unread", mark_as_unread_path(@ticket), class: 'btn-primary') %> </p>
         <% end %>
         </div>
       </div>
