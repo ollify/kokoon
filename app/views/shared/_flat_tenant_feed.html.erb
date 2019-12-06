@@ -17,6 +17,13 @@
 
       <% if current_user.is_landlord? %>
         <div class="tenant-details">
+          <h6 class="attributes">
+            <% if rental.tenant.orders.any? { |order| order.created_at.month == Time.now.month } %>
+                <p>✅ Rent paid for <%= Time.now.strftime('%B %Y') %></p>
+            <% else %>
+            <p>🚨 Rent for <%= Time.now.strftime('%B %Y') %> not paid yet.</p>
+            <% end %>
+          </h6>
           <h6 class="attributes"><strong>Rental period:</strong></h6>
           <h6 class="attributes">from <%= rental.start_date %> to <%= rental.end_date %></h6>
           <h6 class="attributes"><strong>Price:</strong> &nbsp; <%= rental.price %> per month</h6>
