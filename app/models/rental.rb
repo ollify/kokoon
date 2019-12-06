@@ -1,6 +1,7 @@
 class Rental < ApplicationRecord
   belongs_to :flat
-  has_many :tickets
+  has_many :tickets, dependent: :destroy
+  has_many :orders, dependent: :destroy
   validates :price_cents, presence: true, numericality: true
   validates :start_date, presence: true
   validates :end_date, presence: true
