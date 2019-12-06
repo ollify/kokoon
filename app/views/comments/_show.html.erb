@@ -1,6 +1,6 @@
 <div class="listener-cards" data-comment-id="<%= comment.id %>">
   <div class="comment-section">
-      <%= image_tag avatar(comment.user) %>
+    <%= image_tag avatar(comment.user), style: "width: 100px; height: 100px; object-fit: cover;" %>
 
       <div class="comment-details">
         <h3> <%= comment.content %> </h3>
