@@ -19,7 +19,7 @@
           </div>
           <div class="ticket-description">
             <div class="listener-cards ticket-author" style="padding-top: 0;">
-              <%= image_tag avatar(rental_user(@rental)), style: "margin-right: 20px; width: 90px; height: 90px; object-fit: cover; border: 2px solid #3f3f3f;" %>
+              <%= image_tag avatar(rental_user(@rental)), style: "margin-right: 50px; width: 90px; height: 90px; object-fit: cover; border: 2px solid #3f3f3f;" %>
               <h3><%= rental_user(@rental).full_name %> on <%= @ticket.created_at.strftime("%d/%m/%Y") %> at <%= @ticket.created_at.strftime("%H:%M") %></h3>
             </div>
 
@@ -64,15 +64,16 @@
         </div>
 
         <h4>Details</h4>
-
+        <div class="all-details">
         <div class="details">
-          <h5><strong>Category: </strong><%= @ticket.category %> </h5>
-          <h5><strong>Room: </strong><%= @ticket.room %> </h5>
+          <h5><strong>Category: </strong><br><%= @ticket.category %> </h5>
+          <h5><strong>Room: </strong><br><%= @ticket.room %> </h5>
         </div>
 
         <div class="details">
-          <h5><strong>Status: </strong><%= @ticket.status %> </h5>
-          <H5><strong>Priority: </strong><%= @ticket.priority %> </h5>
+          <h5><strong>Status: </strong><br><%= @ticket.status %> </h5>
+          <H5><strong>Priority: </strong><br><%= @ticket.priority %> </h5>
+        </div>
         </div>
 
         <% if @ticket.subscriptions.empty? == false %>
@@ -81,8 +82,8 @@
           <% @ticket.subscribers.each do |user| %>
             <div class="listener-cards">
 
-              <%= image_tag avatar(user), style: "width: 40px; height: 40px; object-fit: cover; border-radius: 50%"  %>
-              <%= user.full_name %>
+              <%= image_tag avatar(user), style: "width: 70px; height: 70px; object-fit: cover; border-radius: 50%"  %>
+              <h3> <%= user.full_name %></h3>
 
             </div>
           <% end %>

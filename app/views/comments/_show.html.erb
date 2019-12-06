@@ -1,11 +1,9 @@
 <div class="listener-cards" data-comment-id="<%= comment.id %>">
-  <div class="row">
-    <div class="col-lg-2 col-md-2 col-sm-2">
+  <div class="comment-section">
       <%= image_tag avatar(comment.user) %>
-    </div>
-    <div class="col-lg-10 col-md-10 col-sm-10">
-      <h3> <%= comment.content %> </h3>
+
       <div class="comment-details">
+        <h3> <%= comment.content %> </h3>
         posted on <%= comment.created_at.strftime("%d/%m/%Y") %>  at <%= comment.created_at.strftime("%H:%M") %> by <%= comment.user.full_name %>
         <p>
           <%= link_to "Delete comment", flat_rental_ticket_comment_path(@ticket.rental.flat, @ticket.rental, @ticket, comment),
@@ -13,7 +11,6 @@
         </p>
       </div>
   </div>
-</div>
 </div>
 
 
