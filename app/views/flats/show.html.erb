@@ -7,7 +7,7 @@
       <div class="col-lg-7 col-md-7 col-sm-12 " style="padding-left: 0px;">
          <div class="about">
             <h1 style="color: #3f3f3f;">About this kokoon</h1>
-            <p><%= @flat.description %></p>
+            <p><%= simple_format(@flat.description) %></p>
           </div>
 
   <% if policy(@flat).edit? %>
