@@ -14,7 +14,7 @@ class Flat < ApplicationRecord
   end
 
   def accepted_rentals
-    self.rentals.where(pending: false).sort_by {|rental| rental.tenant.first_name}.reverse
+    self.rentals.where(pending: false).sort_by {|rental| rental.tenant.first_name}
   end
 
   def tenants
