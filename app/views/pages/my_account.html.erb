@@ -14,9 +14,9 @@
     <% if current_user.is_landlord? %>
     <div class="stat-box">
       <ul>
-        <li><i class="fas fa-couch"></i><div class="stat"><%= current_user.flats.count %></strong> flats</div></li>
-        <li><i class="fas fa-file-contract"></i><div class="stat"><%= current_user.flats.map{ |flat| flat.rentals.count }.sum %></strong> rental contracts</div></li>
-        <li><i class="fas fa-coins"></i><div class="stat">€ <%= landlord_total_income(current_user) %> income/month</div></li>
+        <li><i class="fas fa-couch" style="font-size: 18px; display: block;"></i><h6><%= current_user.flats.count %></strong> flats</h6></li>
+        <li><i class="fas fa-file-contract" style="font-size: 18px;"></i><h6><%= current_user.flats.map{ |flat| flat.rentals.count }.sum %></strong> rental contracts</h6></li>
+        <li><i class="fas fa-coins" style="font-size: 18px;"></i><h6>€ <%= landlord_total_income(current_user) %> income/month</h6></li>
       </ul>
     </div>
     <% end %>
