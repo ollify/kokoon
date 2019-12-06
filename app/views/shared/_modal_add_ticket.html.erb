@@ -12,11 +12,11 @@
         <h5 style="color: white;">Add a new ticket</h5>
       </div>
       <div class="modal-body">
-        <% if @rental.present? %>
-        <%= render 'shared/add_ticket_form', rental: @rental, flat: @flat, ticket: Ticket.new %>
-        <% else %>
-        <%= render 'shared/add_ticket_form', rental: current_user.accepted_rentals.last, flat: @flat, ticket: Ticket.new %>
-        <% end %>
+        <%# if @rental.present? %>
+        <%#= render 'shared/add_ticket_form', rental: @rental, flat: @flat, ticket: Ticket.new %>
+        <%# else %>
+        <%= render 'shared/add_ticket_form', rental: @flat.rentals.where(tenant_id: current_user.id, pending: false).last, flat: @flat, ticket: Ticket.new %>
+        <%# end %>
       </div>
     </div>
   </div>
