@@ -56,7 +56,11 @@
               <tr scope="row">
               <td><%= order.created_at.strftime('%A %D') %></td>
               <td><%= order.created_at.strftime('%B %Y') %></td>
-              <td><%= order.state %></td>
+              <% if current_user.orders.any? { |order| order.created_at.month == Time.now.month } %>
+                <td>Paid</td>
+              <% else %>
+                <td>Open</td>
+              <% end %>
               <td><%= - @rental.price %></td>
               <td><%= order.amount %></td>
               <td><%= @rental.price - order.amount %></td>
