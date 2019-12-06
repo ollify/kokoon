@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :flats, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   validates :first_name, :last_name, presence: true
   mount_uploader :avatar, PhotoUploader
