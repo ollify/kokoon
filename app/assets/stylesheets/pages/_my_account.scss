@@ -31,7 +31,7 @@
     transform: translateX(-50%)
   }
   .btn-primary.aside {
-    font-size: 1em;
+    font-size: 1.2em;
     padding: 10px 20px;
     margin-top: 80px
    }
@@ -55,14 +55,14 @@
   }
 
 .account-aside h1 {
-  font-size: 1.5em;
+  font-size: 2em;
   text-align: center;
 }
 
 .account-aside h5 {
   font-weight: lighter;
   text-align: center;
-  font-size: .9em;
+  font-size: 1.2em;
   line-height: 1.4;
     margin-top: 20px;
 
@@ -72,7 +72,7 @@
 .account-aside h4 {
   font-size: 1em;
   text-align: center;
-    margin-top: 40px;
+    margin-top: 60px;
   margin-bottom: 20px;
 }
 .account-aside h6 {
@@ -81,6 +81,16 @@
   padding: 0 10px;
   margin: 0;
 
+}
+
+.account-aside .stat-box .fas {
+  margin-right: 0;
+  vertical-align: middle;
+  margin: 0 auto;
+}
+
+.account-aside .stat-box h5 {
+  font-size: 1em;
 }
 
 .account-aside h1 {
@@ -95,8 +105,7 @@
 
 .account-aside h6 {
   font-family: MarkPro-Bold;
-  font-size: .9em;
-  margin: 10px 7px;
+  font-size: 1em;
   line-height: 1.5;
 }
 .account-aside a {
@@ -116,7 +125,9 @@
 
 }
 
-
+.account-aside li {
+  display: flex;
+}
 
 
 ///////////MAIN CONTAINER/////////////
@@ -273,67 +284,6 @@
   }
 }
 
-// #unread-tickets:empty {
-//   display:none;
-// }
-
-// .ticket-info {
-//   margin: 0 20px;
-//   display: flex;
-//   justify-content: space-between;
-//   flex-direction: column;
-//   //background-color: red;
-//   width: 45%;
-//   height: 60%;
-//   border-right: 1px solid rgb(2, 96, 100);
-
-//   a {
-//     color: white;
-//   }
-
-//   a:hover {
-//     text-decoration: none;
-//     color: white;
-//   }
-
-//   h1 {
-//     color: white;
-//     margin-left: 0;
-//     font-size: 1.2em;
-//   }
-
-//   h3 {
-//     font-size: 1em;
-//     margin-bottom: 0;
-//     font-family: Helvetica, sans-serif;
-//   }
-// }
-
-// .ticket-date {
-//    margin: 0 20px;
-//   display: flex;
-//   justify-content: space-between;
-//   flex-direction: column;
-//   //background-color: pink;
-//   height: 60%;
-//   align-items: flex-end;
-//    h4 {
-//     color: white;
-//     -webkit-font-smoothing: antialised;
-//     font-weight: lighter;
-//     font-size: 1em;
-//     font-family: Helvetica, sans-serif;
-//     text-align: right;
-//     }
-
-//   h5 {
-//     color: black;
-//     font-size: 1em;
-//     font-family: Helvetica, sans-serif;
-//     margin-bottom: 0;
-//     text-decoration: underline;
-//   }
-// }
 
 #edit-ticket {
   font-size: 16px;
@@ -450,16 +400,15 @@
   position: relative;
   display: flex;
   overflow: hidden;
-  background: white;
   position: relative;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   height: 300px;
   background-color: black;
   img {
     width: 100%;
     object-fit: cover;
-    // opacity: 70%;
+    opacity: 70%;
   }
 }
 
@@ -477,25 +426,49 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  h2, a {
-    font-size: 1.1em;
-    color: whitesmoke;
+  h2 {
+  -webkit-transition: all .7s ease;
+  line-height: .7;
+    &:hover {
+     transform: scale(1.1);
+    }
+  }
+
+
+  h2 a {
+    font-size: .7em;
+    color: white;
     font-weight: bold;
-     text-decoration: underline;
-    -webkit-transition: all .7s ease;
     &:hover {
       text-decoration: none;
-      color: #03c6d2;
-      transform: scale(1.1);
+     text-decoration: underline;
+
+
     }
   }
 
 }
 
+.edit-property {
+  display: flex;
+  h3 {
+    font-size: 20px;
+    margin-right: 30px;
+    font-weight: bolder;
 
+  }
+
+  h3 a {
+    color: #3f3f3f;
+          -webkit-transition: all .7s ease;
+
+    &:hover {
+      color: #0f52ff;
+    }
+  }
+}
 #flat-title  {
 
-  font-size: 1em;
   a {
     color: black;
     -webkit-transition: all .7s ease;
@@ -522,28 +495,6 @@
   }
 }
 
-.edit {
-  display: flex;
-  width: 100%;
-  box-sizing: border-box;
-
-}
-.edit a {
-  width: auto;
-  margin-right:20px;
-  text-transform: uppercase;
-  letter-spacing: .07em;
-  font-size: .7em;
-  color: black;
-  text-decoration: underline;
-  font-weight: bold;
-    font-size: medium;
-    -webkit-transition: all .7s ease;
-  &:hover {
-    text-decoration: underline;
-  }
-}
-
 
 
 .hidden {
@@ -554,18 +505,20 @@
 }
 
 .stat-box {
-  margin: 30px auto 0;
-  ul{
+  margin: 50px auto 0;
+  ul {
+  display: flex;
   flex-direction: column;
   list-style-type: none;
-  padding: 0px;
+  padding: 0px 20px;
+  align-items: flex-start;
+  justify-content: flex-end
   }
   li {
+    margin-bottom: 20px;
     display: flex;
-    margin-left: 20px;
+    flex-direction: row;
+    justify-content: center;
   }
-  i {
-    margin-right: 20px;
-    width: 20px;
-  }
+
 }
