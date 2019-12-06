@@ -11,7 +11,7 @@
 
 
           <div class="ticket-info">
-            <%= image_tag ticket_img(ticket) %>
+            <%= image_tag ticket_img(ticket), style: "opacity: 100%;" %>
             <div class="ticket-text">
               <h1><%=link_to(ticket.title, flat_rental_ticket_path(ticket.rental.flat, ticket.rental,ticket))%></h1>
               <p>by <%= rental_user(ticket.rental).full_name %></p>

@@ -11,7 +11,7 @@
           <div class="row justify-content-between">
 
             <div class="col-5">
-              <h2>Hello <%= current_user.first_name %></h2>
+              <h2 style="font-family: MarkPro-Bold; color: #3f3f3f;">Hello <%= current_user.first_name %></h2>
 
               <p>Your current rental id is #<%= @rental.id %>. According to your contract you pay <%= @rental.price %> per month.
               Your contract is active from <%= @rental.start_date %> and ends on <%= @rental.end_date %>.</p>
@@ -19,7 +19,7 @@
             </div>
 
             <div class="col-5">
-              <h2>Billing status</h2>
+              <h2 style="font-family: MarkPro-Bold; color: #3f3f3f;">Billing status</h2>
               <p><strong>Current period: </strong><%= Time.now.strftime('%B %Y') %></p>
               <% if current_user.orders.any? { |order| order.created_at.month == Time.now.month } %>
                 <div>Thanks, your landlord received your payment for <%= Time.now.strftime('%B %Y') %></div>
@@ -36,7 +36,7 @@
 
 
           <% if current_user.orders.any? %>
-          <h2>Payment history</h2>
+          <h2 style="font-family: MarkPro-Bold; color: #3f3f3f;">Payment history</h2>
           <table class="table table-hover">
             <thead>
               <tr>
