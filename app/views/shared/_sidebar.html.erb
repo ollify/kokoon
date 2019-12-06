@@ -10,13 +10,15 @@
         <li><i class="fas fa-users"></i><%= link_to("People in this kokoon", users_in_flat_path(@flat)) %></li>
         <li><i class="fas fa-ticket-alt"></i><%= link_to("See all tickets", tickets_of_flat_path(@flat)) %></li>
 
-        <% if @flat.tenants.include?(current_user) %>
+      <% if @flat.tenants.include?(current_user) %>
         <li><i class="fas fa-wallet"></i><%= link_to("Payments", rental_payment_path(@flat.id, current_user.accepted_rentals.last)) %></li>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      </ul>
+
+        <button type="button" class="btn btn-primary sidebar-btn" data-toggle="modal" data-target="#exampleModal">
           + Add a ticket
         </button>
-        <% end %>
-      </ul>
+      <% end %>
+
     </div>
 
     <% if policy(@flat).update? %>
