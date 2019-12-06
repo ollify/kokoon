@@ -1,4 +1,4 @@
-<% if current_user.is_tenant? == true %>
+<% if @flat.tenants.include?(current_user) %>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
